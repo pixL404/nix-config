@@ -64,6 +64,10 @@
   programs.fish = {
     enable = true;
   };
+  # enhance fish completion
+  documentation.man.generateCaches = true;
+  environment.pathsToLink = [ "/share/fish" ];
+
 
   # enable hyprland window manager
   programs.hyprland = {
