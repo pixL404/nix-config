@@ -33,9 +33,11 @@
 	  set smartcase
 	  set noshowmatch
 
-	  set paste
-
 	  set backspace=indent,eol,start
+
+    set clipboard=unnamedplus
+    
+
         '';
       };
     }

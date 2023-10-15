@@ -4,6 +4,7 @@
 
   imports = [
     ./hyprland.nix
+    ./fish.nix
   ];
 
   home.username = "alex";
