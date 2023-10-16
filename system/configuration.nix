@@ -67,6 +67,9 @@
   documentation.man.generateCaches = true;
   environment.pathsToLink = [ "/share/fish" ];
 
+  # set default window mode to wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # enable hyprland window manager
   programs.hyprland = {
     enable = true;
