@@ -16,4 +16,8 @@
     userName = "alex";
     userEmail = "alexostresso@gmail.com";
   };
+  programs.zellij = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 }

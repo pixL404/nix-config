@@ -3,7 +3,7 @@
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
-    set -U fish_key_bindings fish_vi_key_bindings
+    set -U fish_key_bindings fish_hybrid_key_bindings
       '';
       functions = {
         fish_prompt = {
