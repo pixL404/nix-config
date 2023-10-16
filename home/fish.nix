@@ -5,6 +5,9 @@
       interactiveShellInit = ''
     set -U fish_key_bindings fish_hybrid_key_bindings
       '';
+      shellAbbrs = {
+       sysrebuild = "sudo nixos-rebuild switch -I nixos-config=$HOME/nix-config/system/configuration.nix";
+      };
       functions = {
         fish_prompt = {
             body = ''
