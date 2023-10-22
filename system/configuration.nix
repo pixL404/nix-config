@@ -1,18 +1,16 @@
-# and in the NixOS manual (accessible by running `nixos-help`).
-
-
 { config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
 
       # include home-manager file (which imports home configuration)
       ./home-manager.nix
 
       ./vim.nix
       ./fonts.nix
+      ./bluetooth.nix
     ];
 
   # allow unfree packages
@@ -33,7 +31,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus32";
+    font = "Lat2-Terminus16";
     # keyMap = "us";
     useXkbConfig = true; # use xkbOptions in tty.
   };
@@ -47,16 +45,9 @@
     layout = "us";
     xkbOptions = "caps:escape";
 
-    desktopManager.xfce.enable = true;
-    windowManager.dwm.enable = true;
-    
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
   };
-
-  # enhance vm
-  services.spice-vdagentd.enable = true;
-  services.qemuGuest.enable = true;
 
   # enable fish shell
   programs.fish = {
@@ -74,10 +65,10 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    enableNvidiaPatches = true;
   };
 
   # set display manager
+  services.xserver.videoDrivers = [ "intel" "nouveau" ];
   services.xserver.displayManager = {
     defaultSession = "hyprland";
     gdm = {
@@ -87,7 +78,7 @@
   };
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
   # Enable sound.
   sound.enable = false;
@@ -104,7 +95,6 @@
   users.users.alex = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    initialPassword = "pw123";
     shell = pkgs.fish;
   };
 
@@ -128,8 +118,6 @@
     cliphist
     wl-clipboard
     wl-clip-persist
-  
-    firefox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -140,17 +128,6 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave
@@ -158,6 +135,16 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+
+  networking.wireless = {
+    enable = true;
+    environmentFile = "/var/lib/misc/wireless_secrets.env";
+    networks = {
+      Genkidama_5G = {
+        psk = "@HOME_WIFI_PSK@";
+      };
+    };
+  };
 
 }
 

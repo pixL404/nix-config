@@ -11,6 +11,13 @@
 
   home.stateVersion = "23.11";
 
+  home.packages = with pkgs; [
+    vivaldi
+    vivaldi-ffmpeg-codecs
+
+    brightnessctl
+  ];
+
   programs.git = {
     enable = true;
     userName = "alex";
@@ -18,6 +25,5 @@
   };
   programs.zellij = {
     enable = true;
-    enableFishIntegration = true;
   };
 }

@@ -8,6 +8,5 @@ in
     #disableAutoReload = false;
     extraConfig = customConf;
     xwayland.enable = true;
-    enableNvidiaPatches = true;
   };
 }
