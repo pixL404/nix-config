@@ -5,6 +5,7 @@
   imports = [
     ./hyprland.nix
     ./fish.nix
+    ./foot.nix
   ];
 
   home.username = "alex";
@@ -16,6 +17,7 @@
     vivaldi-ffmpeg-codecs
 
     brightnessctl
+    libnotify
   ];
 
   programs.git = {
