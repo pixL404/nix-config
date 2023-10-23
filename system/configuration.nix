@@ -16,11 +16,13 @@
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # additional kernel modules
+  boot.kernelModules = [ "coretemp" ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -94,7 +96,7 @@
   users.defaultUserShell = pkgs.fish;
   users.users.alex = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "input" ];
     shell = pkgs.fish;
   };
 
@@ -104,13 +106,13 @@
     wget
     git
     service-wrapper
-    foot
   
     lxqt.lxqt-policykit
     qt6.qtwayland
     libsForQt5.qt5.qtwayland
     waybar
     waypaper
+    swww
     swaybg
     wofi
     dunst
@@ -118,6 +120,8 @@
     cliphist
     wl-clipboard
     wl-clip-persist
+
+    lm_sensors
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -135,6 +139,11 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+
+  hardware.logitech.wireless = {
+    enable = true;
+    enableGraphical = true;
+  };
 
   networking.wireless = {
     enable = true;
