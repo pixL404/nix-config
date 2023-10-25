@@ -7,7 +7,7 @@
       main = {
         term = "foot";
 
-        font = "monospace:size=11, emoji:size=13";
+        font = "monospace:size=11, font-awesome:size=11, emoji:size=11";
         dpi-aware = "no";
 
         pad = "4x4";
