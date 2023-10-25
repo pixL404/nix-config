@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  customConf = builtins.readFile ./configs/hyprland.conf;
+  customConf = builtins.readFile ./configs/hyprland/hyprland.conf;
 in
 {
   wayland.windowManager.hyprland = {
