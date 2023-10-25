@@ -6,6 +6,7 @@
     ./hyprland.nix
     ./fish.nix
     ./foot.nix
+    ./waybar.nix
   ];
 
   home.username = "alex";

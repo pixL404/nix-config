@@ -29,12 +29,26 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
+  # 
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    supportedLocales = [
+      "all"
+#      "de_AT.UTF-8/UTF-8"
+#      "de_AT/ISO-8859-1"
+#      "de_AT@euro/ISO-8859-15"
+#      config.i18n.defaultLocale
+    ];
+    extraLocaleSettings = {
+      LC_TIME = "de_AT.UTF-8";
+    };
+  };
+
+  # tty settings
   console = {
     font = "Lat2-Terminus16";
-    # keyMap = "us";
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
@@ -110,7 +124,6 @@
     lxqt.lxqt-policykit
     qt6.qtwayland
     libsForQt5.qt5.qtwayland
-    waybar
     waypaper
     swww
     swaybg
