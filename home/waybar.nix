@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  catpuccinColors = builtins.readFile (pkgs.fetchurl {
+  catppuccinColors = builtins.readFile (pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/catppuccin/waybar/57d8d020a0c9aa3dd8038f9acb31ed8c7e2a78c6/themes/frappe.css";
     # hash of the nix derivation, not the git commit hash
     hash = "sha256-PkrBXymbwYWsdWV0nP+RRZtLAKwXOJOstLKDgrPnOtg=";
@@ -9,6 +9,16 @@ in
 {
   programs.waybar = {
     enable = true;
+    package = pkgs.waybar.overrideAttrs (oa: {
+      mesonFlags = (oa.mesonFlags or  []) ++ [ "-Dexperimental=true" ];
+      patches = (oa.patches or []) ++ [
+        (pkgs.fetchpatch {
+          name = "fix waybar hyprctl";
+          url = "https://aur.archlinux.org/cgit/aur.git/plain/hyprctl.patch?h=waybar-hyprland-git";
+          sha256 = "sha256-pY3+9Dhi61Jo2cPnBdmn3NUTSA8bAbtgsk2ooj4y7aQ=";
+        })
+      ];
+    });
     settings = {
       mainbar = {
         layer = "top";
@@ -33,11 +43,26 @@ in
           "group/power"
         ];
 
+        "hyprland/workspaces" = {
+          format = "<sub>{name}</sub>"; #"<sub>{name}</sub> {windows}";
+          format-window-separator = " ";
+          window-rewrite-default = "?";
+          window-rewrite = {
+            "vivaldi" = "";
+            "foot" = "";
+            "code" = "";
+            "steam" = "";
+          };
+          persistent-workspaces = {
+            eDP-1 = 5;
+          };
+        };
+
         "hyprland/window" = {
           max-length = 50;
           rewrite = {
-            "(.*) - Vivaldi" = "🌎 $1";
-            "(.*) - fish" = ">_ $1";
+            "(.*) - Vivaldi" = " $1";
+            "(.*) - fish" = "  $1";
           };
         };
 
@@ -107,7 +132,7 @@ in
     };
 
     style = ''
-      ${catpuccinColors}
+      ${catppuccinColors}
 
       * {
           /* `otf-font-awesome` is required to be installed for icons */
@@ -165,6 +190,14 @@ in
       
       #workspaces button.urgent {
           background-color: @overlay2;
+      }
+
+      #workspaces button sub {
+          background-color: @surface1;
+      }
+
+      #workspaces button.active {
+          background-color: alpha(@mauve, 0.2);
       }
       
       #mode {
