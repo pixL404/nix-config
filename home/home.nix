@@ -7,6 +7,8 @@
     ./fish.nix
     ./foot.nix
     ./waybar.nix
+
+    ./theme.nix
   ];
 
   home.username = "alex";
