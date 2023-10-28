@@ -7,6 +7,7 @@
     ./fish.nix
     ./foot.nix
     ./waybar.nix
+    ./vscode.nix
 
     ./theme.nix
   ];

@@ -17,7 +17,7 @@
       serif = [ "Noto Serif" ];
       sansSerif = [ "Open Sans" ];
       emoji = [ "Noto Color Emoji" ];
-      monospace = [ "jetbrains-mono" ];
+      monospace = [ "JetBrains Mono" ];
     };
     enableDefaultPackages = true;
   };
