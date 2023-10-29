@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
+    catppuccin-vsc.url = "github:catppuccin/vscode";
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs:
@@ -15,7 +16,9 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [];
+      overlays = [
+        inputs.catppuccin-vsc.overlays.default
+      ];
     };
   in
   {

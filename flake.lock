@@ -1,5 +1,23 @@
 {
   "nodes": {
+    "catppuccin-vsc": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1698604173,
+        "narHash": "sha256-6+1zqzeTyJfE+82YQPjUl4D+YrecCWD5iTvSx00ZYPE=",
+        "owner": "catppuccin",
+        "repo": "vscode",
+        "rev": "1dfda6af3176ee31ab31e0dc013ba42ab3e4cf32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "vscode",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -23,17 +41,17 @@
     "hyprland": {
       "inputs": {
         "hyprland-protocols": "hyprland-protocols",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "systems": "systems",
         "wlroots": "wlroots",
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1698510162,
-        "narHash": "sha256-s7Kc5ahf/H0FRefBUuQHnH3aTqLQgPsieJUyr5CBKOQ=",
+        "lastModified": 1698610487,
+        "narHash": "sha256-ASlwMQifVg3XqbiSJMDBqbUmVJNGlteRDavSiQoOkHw=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "7f4b0aaadc8348e8814285d7ec582cf737b62d3b",
+        "rev": "9abfa9efc627df0765652f862887626af02b5ae1",
         "type": "github"
       },
       "original": {
@@ -69,6 +87,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1693663421,
+        "narHash": "sha256-ImMIlWE/idjcZAfxKK8sQA7A1Gi/O58u5/CJA+mxvl8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "e56990880811a451abd32515698c712788be5720",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1698134075,
         "narHash": "sha256-foCD+nuKzfh49bIoiCBur4+Fx1nozo+4C/6k8BYk4sg=",
         "owner": "NixOS",
@@ -83,7 +117,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1698318101,
         "narHash": "sha256-gUihHt3yPD7bVqg+k/UVHgngyaJ3DMEBchbymBMvK1E=",
@@ -101,9 +135,10 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-vsc": "catppuccin-vsc",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       }
     },
     "systems": {

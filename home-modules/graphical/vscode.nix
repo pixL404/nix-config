@@ -3,19 +3,6 @@
   ...
 }:
 {
-# TODO: update this to inputs overlays when moved to flakes
-#  import pkgs.path { overlays = [
-#      (self: super: {
-#        myTheme = super.pkgs.vscode-extensions.catppuccin.catppuccin-vsc.override {
-#          accentColor = "lavendar";
-#          boldKeywords = true;
-#          italicComments = true;
-#          extraBordersEnabled = false;
-#          workbenchMode = "default";
-#          bracketMode = "rainbow";
-#        };
-#      })
-#   ]};
   programs.vscode = {
     enable = true;
 
@@ -35,23 +22,68 @@
       vscodevim.vim
   
       # theming
-      # TODO: add when moving to flakes
-      #catppuccin.catppuccin-vsc-icons
-      catppuccin.catppuccin-vsc
+      catppuccin.catppuccin-vsc-icons
+     (pkgs.catppuccin-vsc.override {
+       accentColor = "lavender";
+       boldKeywords = true;
+       italicComments = true;
+       italicKeywords = true;
+       extraBordersEnabled = false;
+       workbenchMode = "default";
+       bracketMode = "rainbow";
+       colorOverrides = {};
+       customUIColors = {};
+     })
     ];
 
-    #userSettings = {
-    #  "window.titleBarStyle" = "custom";
-    #};
+    userSettings = {
+      "telemetry.telemetryLevel" = "off";
 
-#    userSettings = {
-#      // we try to make semantic highlighting look good
-#      "editor.semanticHighlighting.enabled": true,
-#      // prevent VSCode from modifying the terminal colors
-#      "terminal.integrated.minimumContrastRatio": 1,
-#      // make the window's titlebar use the workbench colors
-#      "window.titleBarStyle": "custom",
-#    };
+      # workaround for wayland native electron apps
+      "window.titleBarStyle" = "custom";
 
+      "window.zoomLevel" = 1;
+      "window.menuBarVisibility" = "compact";
+
+      # === === === theming === === ===
+
+      "catppuccin.accentColor" = "lavender";
+      "workbench.colorTheme" = "Catppuccin Frappé";
+      "workbench.iconTheme" = "catppuccin-frappe";
+      # we try to make semantic highlighting look good
+      "editor.semanticHighlighting.enabled" = true;
+      # prevent VSCode from modifying the terminal colors
+      "terminal.integrated.minimumContrastRatio" = 1;
+      
+      "files.autoSave" = "onFocusChange";
+
+      "editor.fontFamily" = "'JetBrains Mono','monospace', monospace";
+      "editor.fontLigatures" = true;
+
+      # vscodevim
+      "vim.highlightedyank.enable" = true;
+      "vim.useSystemClipboard" = true;
+      "vim.visualstar" = true;
+      "editor.lineNumbers" = "relative";
+      "vim.smartRelativeLine" = true;
+      # enable remapping of caps to esc
+      "keyboard.dispatch" = "keyCode";
+      
+      # git
+      "git.enableSmartCommit" = true;
+      "git.confirmSync" = false;
+
+      "editor.minimap.size" = "fit";
+      "editor.minimap.autohide" = true;
+
+      # unnecessary confirm dialogs
+      "explorer.confirmDragAndDrop" = false;
+
+      # === === === filetype settings === === ===
+      #nix
+      "[nix]" = {
+        "editor.tabSize" = 2;
+      };
+    };
   };
 }

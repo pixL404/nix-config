@@ -11,8 +11,8 @@
       set -U fish_key_bindings fish_hybrid_key_bindings
     '';
     shellAbbrs = {
-     # TODO: upadte abbreviations for flakes
-     sysrebuild = "sudo nixos-rebuild switch -I nixos-config=$HOME/nix-config/system/configuration.nix";
+     sysrebuild = "sudo nixos-rebuild switch --flake $HOME/nix-config/#$hostname";
+     sysupdate = "sudo nix flake update $HOME/nix-config";
     };
     functions = {
       fish_prompt = {
