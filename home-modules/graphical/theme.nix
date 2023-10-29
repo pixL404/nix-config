@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  home-manager,
+  ...
+}:
 {
   gtk = {
     enable = true;

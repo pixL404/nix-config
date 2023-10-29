@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
 # TODO: update this to inputs overlays when moved to flakes
 #  import pkgs.path { overlays = [

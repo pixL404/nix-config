@@ -1,4 +1,8 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 let
   catppuccinColors = pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/catppuccin/foot/4e5b4a78dec83b1778e01556f15cabd9c8c9ed4f/catppuccin-frappe.conf";
@@ -8,6 +12,7 @@ in
 {
   programs.foot = {
     enable = true;
+    package = pkgs.foot;
     server.enable = true;
   };
 

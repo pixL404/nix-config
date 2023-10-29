@@ -1,4 +1,7 @@
-{ config, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 let
   catppuccinColors = builtins.readFile (pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/catppuccin/waybar/57d8d020a0c9aa3dd8038f9acb31ed8c7e2a78c6/themes/frappe.css";
