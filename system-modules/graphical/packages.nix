@@ -15,6 +15,5 @@
   
     cliphist
     wl-clipboard
-    wl-clip-persist
   ];
 }

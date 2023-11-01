@@ -23,6 +23,6 @@
   users.users.alex = {
     isNormalUser = true;
     extraGroups = [ "wheel" "input" ];
-    shell = pkgs.fish;
+    # shell = pkgs.fish;
   };
 }

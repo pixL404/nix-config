@@ -57,7 +57,7 @@
       
       "files.autoSave" = "onFocusChange";
 
-      "editor.fontFamily" = "'JetBrains Mono','monospace', monospace";
+      "editor.fontFamily" = "'FontAwesome', 'JetBrains Mono','monospace', monospace";
       "editor.fontLigatures" = true;
 
       # vscodevim
@@ -66,6 +66,7 @@
       "vim.visualstar" = true;
       "editor.lineNumbers" = "relative";
       "vim.smartRelativeLine" = true;
+      "editor.cursorSurroundingLines" = 10;
       # enable remapping of caps to esc
       "keyboard.dispatch" = "keyCode";
       
