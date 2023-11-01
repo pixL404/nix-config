@@ -9,8 +9,9 @@
 
     ./theme.nix
 
-    ./hyprland.nix
-    ./waybar.nix
+    ./hyprland
+    ./waybar
+
     ./foot.nix
     ./vscode.nix
   ];

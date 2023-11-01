@@ -1,3 +1,10 @@
+{
+  colors ? "",
+  ...
+}:
+''
+${colors}
+
 # See https://wiki.hyprland.org/Configuring/Monitors/
 # monitor=,1280x720@60,0x0,1
 monitor=eDP-1,preferred,auto,1
@@ -180,10 +187,11 @@ bindm = $mainMod, mouse:273, resizewindow
 bind = $mainMod SSHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy
 
 # laptop binds
-bind =, XF86MonBrightnessDown, exec, brightnessctl --class backlight set 10%- -q -n 10%
-bind =, XF86MonBrightnessUp, exec, brightnessctl --class backlight set 10%+ -q
+bind =, XF86MonBrightnessDown, exec, brightnessctl --class backlight set 5%- -q -n 5%
+bind =, XF86MonBrightnessUp, exec, brightnessctl --class backlight set 5%+ -q
 
 bind =, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
 bind =, XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-
 bind =, XF86AudioMute, exec, wpctl  set-mute @DEFAULT_AUDIO_SINK@ toggle
 bind =, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+''
