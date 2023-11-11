@@ -7,9 +7,8 @@ ${colors}
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
 # monitor=,1280x720@60,0x0,1
-monitor=eDP-1,preferred,auto,1
-#monitor=Virtual-1,addreserved,30,0,0,0
-
+monitor = eDP-1, preferred, auto, 1
+monitor = , preferred, auto, 1, mirror, eDP-1
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
@@ -27,9 +26,6 @@ exec-once = wl-paste --type text --watch cliphist store
 #Stores only image data
 exec-once = wl-paste --type image --watch cliphist store 
 
-# Source a file (multi-file configs)
-# source = ~/.config/hypr/myColors.conf
-
 # Some default env vars.
 env = XCURSOR_SIZE,24
 
@@ -41,7 +37,7 @@ input {
     kb_options = caps:escape
     kb_rules =
 
-    follow_mouse = 2
+    follow_mouse = 1
 
     touchpad {
         natural_scroll = yes
@@ -56,8 +52,9 @@ general {
     gaps_in = 5
     gaps_out = 20
     border_size = 2
-    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-    col.inactive_border = rgba(595959aa)
+    #col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+    col.active_border = $lavender $maroon 45deg
+    col.inactive_border = $overlay0
 
     layout = dwindle
 }
@@ -107,7 +104,7 @@ master {
 
 gestures {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
-    workspace_swipe = off
+    workspace_swipe = on
 }
 
 # Example per-device config
@@ -117,13 +114,12 @@ device:epic-mouse-v1 {
 }
 
 windowrule = float, lxqt-policykit-agent
+# fake fullscreen for vs-code to hide custom bar
 windowrulev2 = fakefullscreen, class:^(code-url-handler)$
-# Example windowrule v1
-# windowrule = float, ^(kitty)$
-# Example windowrule v2
-# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
-# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
-
+# float file and folder dialog
+windowrulev2 = float, title:((o|O)pen ((f|F)ile|(f|F)older))
+windowrulev2 = float, title:((s|S)ave ((f|F)ile|(f|F)older))
+#windowrulev2 = float, title:^(Open Folder)$
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 $mainMod = SUPER
@@ -133,46 +129,62 @@ bind = $mainMod, T, exec, footclient
 # bind = $mainMod, T, exec, xfce4-terminal
 bind = $mainMod, BACKSPACE, killactive, 
 bind = $mainMod, M, exit, 
-bind = $mainMod, V, togglefloating, 
-bind = $mainMod, R, exec, wofi --show drun
+bind = $mainMod, V, togglefloating 
+bind = $mainMod, space, exec, wofi --show drun
 bind = $mainMod, P, pseudo, # dwindle
-# bind = $mainMod, J, togglesplit, # dwindle
+bind = $mainMod, O, togglesplit, # dwindle
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, left, movefocus, l
 bind = $mainMod, right, movefocus, r
 bind = $mainMod, up, movefocus, u
 bind = $mainMod, down, movefocus, d
-
 # Move focus with mainMod + H J K L
 bind = $mainMod, H, movefocus, l
 bind = $mainMod, J, movefocus, d
 bind = $mainMod, K, movefocus, u
 bind = $mainMod, L, movefocus, r
 
-# Switch workspaces with mainMod + [0-9]
-bind = $mainMod, 1, workspace, 1
-bind = $mainMod, 2, workspace, 2
-bind = $mainMod, 3, workspace, 3
-bind = $mainMod, 4, workspace, 4
-bind = $mainMod, 5, workspace, 5
-bind = $mainMod, 6, workspace, 6
-bind = $mainMod, 7, workspace, 7
-bind = $mainMod, 8, workspace, 8
-bind = $mainMod, 9, workspace, 9
-bind = $mainMod, 0, workspace, 10
+# Move window with mainMod CTRL + arrow keys
+bind = $mainMod CTRL, left, movewindow, l
+bind = $mainMod CTRL, right, movewindow, r
+bind = $mainMod CTRL, up, movewindow, u
+bind = $mainMod CTRL, down, movewindow, d
+# Move window with mainMod CTRL + H J K L
+bind = $mainMod CTRL, H, movewindow, l
+bind = $mainMod CTRL, J, movewindow, d
+bind = $mainMod CTRL, K, movewindow, u
+bind = $mainMod CTRL, L, movewindow, r
 
+# switch to last window (or urgent) with mainMod, TAB
+bind = $mainMod, TAB, focusurgentorlast
+
+# scratchpad
+bind = $mainMod, ESCAPE, movetoworkspace, special
+bind = $mainMod SHIFT, ESCAPE, togglespecialworkspace
+
+# Switch workspaces with mainMod + [0-9]
 # Move active window to a workspace with mainMod + SHIFT + [0-9]
-bind = $mainMod SHIFT, 1, movetoworkspace, 1
-bind = $mainMod SHIFT, 2, movetoworkspace, 2
-bind = $mainMod SHIFT, 3, movetoworkspace, 3
-bind = $mainMod SHIFT, 4, movetoworkspace, 4
-bind = $mainMod SHIFT, 5, movetoworkspace, 5
-bind = $mainMod SHIFT, 6, movetoworkspace, 6
-bind = $mainMod SHIFT, 7, movetoworkspace, 7
-bind = $mainMod SHIFT, 8, movetoworkspace, 8
-bind = $mainMod SHIFT, 9, movetoworkspace, 9
-bind = $mainMod SHIFT, 0, movetoworkspace, 10
+${builtins.concatStringsSep "\n" (builtins.genList (
+  x: let
+    ws = let
+      c = (x + 1) / 10;
+    in
+      builtins.toString (x + 1 - (c * 10));
+  in ''
+    bind = $mainMod, ${ws}, workspace, ${toString (x + 1)}
+    bind = $mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}''
+)
+10)}
+
+# cycle next or last workspace with pageup/pagedown
+bind = $mainMod, NEXT, workspace, r+1
+bind = $mainMod, PRIOR, workspace, r-1
+
+# move active window to next or last workspace with pageup/pagedown
+bind = $mainMod SHIFT, NEXT, movetoworkspace, r+1
+bind = $mainMod SHIFT, PRIOR, movetoworkspace, r-1
+
 
 # Scroll through existing workspaces with mainMod + scroll
 bind = $mainMod, mouse_down, workspace, e+1
@@ -182,16 +194,44 @@ bind = $mainMod, mouse_up, workspace, e-1
 bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
+# float and pin window on mainMod + SHIFT + Middle Mouse click
+bind = $mainMod SHIFT, mouse:274, exec, hyprctl --batch " dispatch togglefloating ; dispatch pin "
 
-# custom binds
-bind = $mainMod SSHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy
+# "zoom" mode
+bind = $mainMod, equal, exec, hyprctl --batch "keyword general:gaps_out 0 ; keyword general:gaps_in 2 ; keyword general:border_size 1 ; keyword monitor ,addreserved,5,0,0,0"
+
+# reload config (to reset e.g. zoom mode)
+bind = $mainMod SHIFT, R, exec, hyprctl reload
+
+# will switch to a submap called resize
+bind= $mainMod, R, submap, resize
+
+# will start a submap called "resize"
+submap= resize
+
+# sets repeatable binds for resizing the active window
+binde = , right, resizeactive, 10 0
+binde = , left, resizeactive, -10 0
+binde = , up, resizeactive, 0 -10
+binde = , down, resizeactive, 0 10
+
+# use reset to go back to the global submap
+bind = , escape, submap, reset 
+
+# will reset the submap, meaning end the current one and return to the global one
+submap = reset
+
+# show clipboard history and copy selection
+bind = $mainMod SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy
 
 # laptop binds
 bind =, XF86MonBrightnessDown, exec, brightnessctl --class backlight set 5%- -q -n 5%
 bind =, XF86MonBrightnessUp, exec, brightnessctl --class backlight set 5%+ -q
 
+# audio binds
 bind =, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+
 bind =, XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-
 bind =, XF86AudioMute, exec, wpctl  set-mute @DEFAULT_AUDIO_SINK@ toggle
 bind =, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
 ''
