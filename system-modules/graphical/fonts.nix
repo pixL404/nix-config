@@ -15,6 +15,7 @@
       fira-code
       fira-code-symbols
       jetbrains-mono
+      helvetica-neue-lt-std
     ];
     fontconfig.defaultFonts = {
       serif = [ "Noto Serif" ];

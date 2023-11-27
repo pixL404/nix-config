@@ -5,7 +5,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     hyprland.url = "github:hyprwm/Hyprland";
+
     catppuccin-vsc.url = "github:catppuccin/vscode";
   };
 
@@ -43,7 +45,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.alex = import ./hosts/kosmo/home.nix;
-              extraSpecialArgs = { inherit inputs system pkgs; };
+              extraSpecialArgs = { inherit inputs system pkgs ; };
            };
           }
         ];

@@ -7,7 +7,7 @@
 ${colors}
 
 * {
-  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: FontAwesome, Helvetica Neue;
   font-size: 13px;
   color: @text;
   margin: 0px;
@@ -17,13 +17,13 @@ ${colors}
 window#waybar {
   background-color: transparent;
   min-height: 0;
-  margin-top: 10px;
 }
 
 .modules-left,.modules-center,.modules-right {
   background-color: @base;
   padding: 0 1rem;
   margin: 0 1rem;
+  margin-top: 10px;
   border-radius: 2rem;
 }
 
@@ -45,6 +45,11 @@ button:hover {
   box-shadow: inset 0 -0.3rem @surface2;
   border: 1px solid @surface2;
   border-radius: 0.75rem;
+  transition: border 0.4s ease-in, box-shadow 0s;
+}
+/* so size doesnt change upon hover */
+button {
+  border: 1px solid transparent;
 }
 
 #workspaces button {

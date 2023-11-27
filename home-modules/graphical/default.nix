@@ -15,4 +15,9 @@
     ./foot.nix
     ./vscode.nix
   ];
+  
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
+  };
 }

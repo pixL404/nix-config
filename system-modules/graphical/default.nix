@@ -9,6 +9,12 @@
     ./packages.nix
     ./fonts.nix
   ];
+  
+  # allow hyprland flake derivations be downloaded from cachix, instead of building 
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
 
   # tty settings
   console = {
@@ -32,18 +38,12 @@
   # set default window mode to wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # enable hyprland window manager
-  # programs.hyprland = {
-  #   enable = true;
-  #   xwayland.enable = true;
-  # };
-
   # set display manager
   services.xserver.displayManager = {
-    defaultSession = "hyprland";
-    gdm = {
+    sddm = {
       enable = true;
-      wayland = true;
+      wayland.enable = true;
+      theme = "catppuccin-frappe";
     };
   };
 
@@ -51,7 +51,8 @@
   services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = false;
+  # sound.enable = false;
+  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -66,4 +67,6 @@
     enableGraphical = true;
   };
 
+  # enable dconf (settings for gnome apps)
+  programs.dconf.enable = true;
 }

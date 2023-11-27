@@ -15,5 +15,7 @@
   
     cliphist
     wl-clipboard
+
+    catppuccin-sddm-corners
   ];
 }

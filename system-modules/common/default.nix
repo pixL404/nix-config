@@ -49,7 +49,7 @@
 
   # which NixOS release to follow for options
   # research release changes before changing this value
-  system.stateVersion = "23.05";
+  system.stateVersion = "unstable";
 
 
 }

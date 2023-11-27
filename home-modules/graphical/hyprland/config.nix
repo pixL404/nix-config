@@ -31,12 +31,6 @@ env = XCURSOR_SIZE,24
 
 # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 input {
-    kb_layout = us
-    kb_variant =
-    kb_model =
-    kb_options = caps:escape
-    kb_rules =
-
     follow_mouse = 1
 
     touchpad {
@@ -44,6 +38,17 @@ input {
     }
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+}
+
+device:mx-master-2s-mouse {
+    accel_profile = flat
+
+    sensitivity = -0.5
+}
+
+device:at-translated-set-2-keyboard {
+    kb_layout = us
+    kb_options = caps:escape
 }
 
 general {
@@ -130,7 +135,7 @@ bind = $mainMod, T, exec, footclient
 bind = $mainMod, BACKSPACE, killactive, 
 bind = $mainMod, M, exit, 
 bind = $mainMod, V, togglefloating 
-bind = $mainMod, space, exec, wofi --show drun
+bind = $mainMod, Return, exec, wofi --show drun
 bind = $mainMod, P, pseudo, # dwindle
 bind = $mainMod, O, togglesplit, # dwindle
 

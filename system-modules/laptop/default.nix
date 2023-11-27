@@ -5,16 +5,11 @@
 }:
 {
   # enable wifi
-  networking.wireless = {
+  networking.networkmanager = {
     enable = true;
-    environmentFile = "/var/lib/misc/wireless_secrets.env";
-    networks = {
-      Genkidama_5G = {
-        psk = "@HOME_WIFI_PSK@";
-      };
-    };
+    wifi.powersave = true;
+    #appendNameServers = [];
   };
-
   # enable intel video drivers
   services.xserver.videoDrivers = [ "intel" "nouveau" ];
 }
