@@ -79,6 +79,7 @@
 
       # unnecessary confirm dialogs
       "explorer.confirmDragAndDrop" = false;
+      "workbench.startupEditor" = "none";
 
       # === === === filetype settings === === ===
       #nix
