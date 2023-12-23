@@ -1,13 +1,16 @@
 {
   colors ? "",
+  monitors ? "",
+  keyboard ? "",
   ...
 }:
 ''
 ${colors}
 
 # See https://wiki.hyprland.org/Configuring/Monitors/
-# monitor=,1280x720@60,0x0,1
-monitor = eDP-1, preferred, auto, 1
+${monitors}
+
+# obligatory autodetect:
 monitor = , preferred, auto, 1, mirror, eDP-1
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -43,10 +46,10 @@ input {
 device:mx-master-2s-mouse {
     accel_profile = flat
 
-    sensitivity = -0.5
+    sensitivity = 0
 }
 
-device:at-translated-set-2-keyboard {
+${keyboard} {
     kb_layout = us
     kb_options = caps:escape
 }

@@ -1,6 +1,8 @@
 {
-  config,
+  # config,
   pkgs,
+  monitors,
+  keyboard,
   ...
 }:
 {
@@ -9,7 +11,11 @@
 
     ./theme.nix
 
-    ./hyprland
+    (import ./hyprland {
+      monitors = monitors;
+      keyboard = keyboard;
+      pkgs = pkgs;
+    })
     ./waybar
 
     ./foot.nix

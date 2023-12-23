@@ -24,7 +24,7 @@
       # theming
       catppuccin.catppuccin-vsc-icons
      (pkgs.catppuccin-vsc.override {
-       accentColor = "lavender";
+       accent = "lavender";
        boldKeywords = true;
        italicComments = true;
        italicKeywords = true;

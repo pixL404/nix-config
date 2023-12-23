@@ -2,19 +2,19 @@
   config,
   pkgs,
   home-manager,
-  nixos-hardware,
+  inputs,
   ...
 }:
 {
   imports = [
-      # laptop specific settings
-      # ./hardware.nix
+      # hardware scan
+      ./hardware.nix
 
-      nixos-hardware.nixosModules.common-cpu-amd
-      nixos-hardware.nixosModules.common-cpu-amd-pstate
-      nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
+      inputs.nixos-hardware.nixosModules.common-cpu-amd
+      inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
+      inputs.nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
 
-      nixos-hardware.nixosModules.common-pc-ssd
+      inputs.nixos-hardware.nixosModules.common-pc-ssd
 
       ../../system-modules/common
       ../../system-modules/graphical
@@ -23,7 +23,7 @@
       ../../system-modules/misc/vim.nix
   ];
 
-  networking.hostName = "kosmo";
+  networking.hostName = "wanda";
 
   # Define user account.
   users.users.alex = {

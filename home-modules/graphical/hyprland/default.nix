@@ -1,5 +1,7 @@
 {
   pkgs,
+  monitors,
+  keyboard,
   ...
 }:
 let
@@ -12,7 +14,11 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     #disableAutoReload = false;
-    extraConfig = import ./config.nix { colors = catppuccinColors; };
+    extraConfig = import ./config.nix {
+      colors = catppuccinColors;
+      monitors = monitors;
+      keyboard = keyboard;
+    };
     xwayland.enable = true;
   };
 }
