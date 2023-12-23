@@ -16,6 +16,8 @@
 
       inputs.nixos-hardware.nixosModules.common-pc-ssd
 
+      ../../system-modules/desktop
+
       ../../system-modules/common
       ../../system-modules/graphical
       ../../system-modules/bluetooth
