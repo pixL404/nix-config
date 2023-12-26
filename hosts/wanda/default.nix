@@ -23,6 +23,9 @@
       ../../system-modules/bluetooth
 
       ../../system-modules/misc/vim.nix
+
+      ../../system-modules/gaming
+      ../../system-modules/wife
   ];
 
   networking.hostName = "wanda";
