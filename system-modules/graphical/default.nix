@@ -40,19 +40,25 @@
 
   # set display manager
   services.xserver.displayManager = {
-    sddm = {
+    gdm = {
       enable = true;
-      wayland.enable = true;
-      theme = "catppuccin-frappe";
+      wayland = true;
     };
+    # use sddm if catppuccin theme flake is working
+    # sddm = {
+    #   enable = true;
+    #   wayland.enable = true;
+    #   theme = "catppuccin-frappe";
+    # };
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound.
-  # sound.enable = false;
+  sound.enable = true;
   hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

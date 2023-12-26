@@ -9,5 +9,9 @@
     service-wrapper
 
     lm_sensors
+
+    gnome.geary
+
+    gimp
   ];
 }
