@@ -31,10 +31,11 @@ exec-once = wl-paste --type image --watch cliphist store
 
 # Some default env vars.
 env = XCURSOR_SIZE,24
+env = WLR_DRM_NO_ATOMIC,1
 
 # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 input {
-    follow_mouse = 1
+    follow_mouse = 2
 
     touchpad {
         natural_scroll = yes
@@ -63,6 +64,8 @@ general {
     #col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
     col.active_border = $lavender $maroon 45deg
     col.inactive_border = $overlay0
+
+    allow_tearing = true
 
     layout = dwindle
 }
@@ -121,13 +124,22 @@ device:epic-mouse-v1 {
     sensitivity = -0.5
 }
 
+# Window Rules
+
 windowrule = float, lxqt-policykit-agent
+
 # fake fullscreen for vs-code to hide custom bar
 windowrulev2 = fakefullscreen, class:^(code-url-handler)$
+
 # float file and folder dialog
 windowrulev2 = float, title:((o|O)pen ((f|F)ile|(f|F)older))
 windowrulev2 = float, title:((s|S)ave ((f|F)ile|(f|F)older))
-#windowrulev2 = float, title:^(Open Folder)$
+
+# steam friends list floating
+windowrulev2 = float, title:Friends List
+
+# allow tearing for certain applications:
+windowrulev2 = immediate, class:^(cs2)$
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 $mainMod = SUPER
