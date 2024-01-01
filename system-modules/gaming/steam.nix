@@ -8,5 +8,7 @@
 
   environment.systemPackages = with pkgs; [
     gamescope
+    mangohud
+    gamemode
   ];
 }
