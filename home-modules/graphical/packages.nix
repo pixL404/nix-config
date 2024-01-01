@@ -11,6 +11,7 @@
     libnotify
 
     gnome.nautilus
+    gnome.file-roller
 
     # is this only working for laptop integrated monitors?
     brightnessctl

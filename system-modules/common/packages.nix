@@ -7,6 +7,8 @@
     wget
     git
     service-wrapper
+    htop
+    inetutils
 
     lm_sensors
 
