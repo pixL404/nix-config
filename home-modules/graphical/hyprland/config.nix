@@ -140,6 +140,7 @@ windowrulev2 = float, title:Friends List
 
 # allow tearing for certain applications:
 windowrulev2 = immediate, class:^(cs2)$
+windowrulev2 = immediate, class:^(Minecraft)
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 $mainMod = SUPER

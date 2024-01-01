@@ -30,6 +30,10 @@
 
   networking.hostName = "wanda";
 
+  # enable nixos-containers (e.g. minecraft server)
+  boot.enableContainers = true;
+  # virtualisation.containers.enable = true;
+
   # Define user account.
   users.users.alex = {
     isNormalUser = true;
