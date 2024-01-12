@@ -9,6 +9,9 @@
     service-wrapper
     htop
     inetutils
+    usbutils
+    pciutils
+    libinput
 
     lm_sensors
 

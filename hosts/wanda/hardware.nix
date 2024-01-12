@@ -20,11 +20,16 @@ in
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" "amdgpu" ];
   boot.extraModulePackages = [ ];
+  boot.kernelPackages = pkgs.linuxPackages_latest; 
+
   
   # https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Hibernation_into_swap_file
   # first row & first entry in physical offset of:
   # sudo filefrag -v /.swapfile | head
-  boot.kernelParams = [ "resume_offset=4161536" ];
+
+  # 1st param: where is swapfile (see above)
+  # 2nd param: enable amdgpu clock and voltage changes
+  boot.kernelParams = [ "resume_offset=4161536" "amdgpu.ppfeaturemask=0xffffffff" ];
   boot.resumeDevice = "/dev/disk/by-label/NIXROOT";
 
   fileSystems."/" =
