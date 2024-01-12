@@ -12,7 +12,8 @@
 
       inputs.nixos-hardware.nixosModules.common-cpu-amd
       inputs.nixos-hardware.nixosModules.common-cpu-amd-pstate
-      inputs.nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
+      # not needed - got dedicated graphics
+      # inputs.nixos-hardware.nixosModules.common-cpu-amd-raphael-igpu
 
       inputs.nixos-hardware.nixosModules.common-pc-ssd
 
@@ -26,6 +27,8 @@
 
       ../../system-modules/gaming
       ../../system-modules/wife
+
+      ../../system-modules/develop/android
   ];
 
   networking.hostName = "wanda";
