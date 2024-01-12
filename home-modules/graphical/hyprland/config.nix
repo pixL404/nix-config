@@ -36,6 +36,7 @@ env = WLR_DRM_NO_ATOMIC,1
 # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 input {
     follow_mouse = 2
+    float_switch_override_focus = 2
 
     touchpad {
         natural_scroll = yes
@@ -44,6 +45,11 @@ input {
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
 }
 
+device:logitech-mx-master-2s-1 {
+    accel_profile = flat
+
+    sensitivity = 0
+}
 device:mx-master-2s-mouse {
     accel_profile = flat
 
@@ -67,7 +73,7 @@ general {
 
     allow_tearing = true
 
-    layout = dwindle
+    layout = master
 }
 
 decoration {
@@ -110,7 +116,8 @@ dwindle {
 
 master {
     # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-    new_is_master = true
+    new_is_master = false
+
 }
 
 gestures {
@@ -140,6 +147,7 @@ windowrulev2 = float, title:Friends List
 
 # allow tearing for certain applications:
 windowrulev2 = immediate, class:^(cs2)$
+windowrulev2 = fullscreen, class:^(cs2)$
 windowrulev2 = immediate, class:^(Minecraft)
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -176,6 +184,9 @@ bind = $mainMod CTRL, H, movewindow, l
 bind = $mainMod CTRL, J, movewindow, d
 bind = $mainMod CTRL, K, movewindow, u
 bind = $mainMod CTRL, L, movewindow, r
+ 
+# behaves like xmonads promote feature (https://hackage.haskell.org/package/xmonad-contrib-0.17.1/docs/XMonad-Actions-Promote.html)
+bind= $mainMod, P, layoutmsg, swapwithmaster 
 
 # switch to last window (or urgent) with mainMod, TAB
 bind = $mainMod, TAB, focusurgentorlast
