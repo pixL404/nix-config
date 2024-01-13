@@ -14,6 +14,10 @@
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
 
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock.enable = true;
+  };
   boot.modprobeConfig.enable = true;
   environment.etc."modprobe.d/99-amdgpu-overdrive.conf".text =
     ''
