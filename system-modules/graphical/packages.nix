@@ -19,6 +19,7 @@
   
     cliphist
     wl-clipboard
+    sddm-chili-theme
   ];
 #  ++
 #  [

@@ -39,18 +39,31 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # set display manager
-  services.xserver.displayManager = {
-    gdm = {
-      enable = true;
-      wayland = true;
-      autoSuspend = false;
-    };
-    # use sddm if catppuccin theme flake is working
-    # sddm = {
+  services.xserver.displayManager= {
+    # TODO: does lightdm work under wayland?
+    # session = [{
+    #   manage = "desktop";
+    #   name = "myHyprland";
+    #   start = ''exec Hyprland'';
+    # }];
+    # lightdm = {
     #   enable = true;
-    #   wayland.enable = true;
-    #   theme = "catppuccin-frappe";
+    #   greeters.pantheon.enable = true;
     # };
+
+    # gdm = {
+    #   enable = true;
+    #   wayland = true;
+    #   autoSuspend = false;
+    # };
+
+    sddm = {
+      enable = true;
+      wayland.enable = false;
+      theme = "chili";
+    };
+    defaultSession = "pantheon";
+  
   };
 
   # Enable CUPS to print documents.
