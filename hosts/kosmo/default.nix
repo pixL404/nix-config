@@ -13,8 +13,12 @@
       ../../system-modules/common
       ../../system-modules/graphical
       ../../system-modules/bluetooth
+      ../../system-modules/ssh
 
       ../../system-modules/misc/vim.nix
+
+      ../../system-modules/gaming
+      ../../system-modules/wife
   ];
 
   networking.hostName = "kosmo";

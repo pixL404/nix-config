@@ -17,7 +17,7 @@ monitor = , preferred, auto, 1, mirror, eDP-1
 
 # Execute your favorite apps at launch
 # exec-once = waybar & hyprpaper & firefox
-exec-once = waypaper --restore &
+exec-once = waypaper --restore --random --backend swww &
 exec-once = dunst &
 exec-once = waybar &
 exec-once = foot --server &

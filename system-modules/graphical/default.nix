@@ -43,6 +43,7 @@
     gdm = {
       enable = true;
       wayland = true;
+      autoSuspend = false;
     };
     # use sddm if catppuccin theme flake is working
     # sddm = {

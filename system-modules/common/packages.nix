@@ -16,6 +16,9 @@
     lm_sensors
 
     gnome.geary
+    gnome.nautilus
+    gnome.eog
+    gnome.file-roller
 
     gimp
   ];

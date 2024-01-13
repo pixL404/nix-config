@@ -22,6 +22,7 @@
       ../../system-modules/common
       ../../system-modules/graphical
       ../../system-modules/bluetooth
+      ../../system-modules/ssh
 
       ../../system-modules/misc/vim.nix
 
@@ -35,7 +36,6 @@
 
   # enable nixos-containers (e.g. minecraft server)
   boot.enableContainers = true;
-  # virtualisation.containers.enable = true;
 
   # Define user account.
   users.users.alex = {
