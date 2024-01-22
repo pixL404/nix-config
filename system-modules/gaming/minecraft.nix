@@ -11,6 +11,13 @@ let
       sha1 = "f69c284232d7c7580bd89a5a4931c3581eae1378";
     };
   });
+  minecraft-server-1-20-1 = pkgs.minecraftServers.vanilla-1-20.overrideAttrs (old: {
+    version = "1.20.1";
+    src = pkgs.fetchurl {
+      url = "https://piston-data.mojang.com/v1/objects/84194a2f286ef7c14ed7ce0090dba59902951553/server.jar";
+      sha1 = "84194a2f286ef7c14ed7ce0090dba59902951553";
+    };
+  });
 in
 {
 
@@ -45,7 +52,7 @@ in
       services.minecraft-server = {
         enable = true;
         eula = true;
-        package = minecraft-server-1-19-2;
+        package = minecraft-server-1-20-1;
         jvmOpts = "-Xms10G -Xmx12G -XX:+UseG1GC";
         dataDir = "/data";
         declarative = false;
