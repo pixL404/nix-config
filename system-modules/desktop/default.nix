@@ -5,7 +5,7 @@
 }:
 {
   imports = [
-    # ./openrgb
+    ./openrgb
   ];
 
   # support for radeon GPU
