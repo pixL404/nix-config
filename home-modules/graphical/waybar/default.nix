@@ -77,6 +77,11 @@ in
             on-click-middle = "close";
         };
 
+        "tray" = {
+          icon-size = 16;
+          spacing = 4;
+        };
+
         "clock" = {
           format = "{:%H:%M}";
           #timezone = "Europe/Vienna";

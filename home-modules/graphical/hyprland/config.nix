@@ -16,13 +16,13 @@ monitor = , preferred, auto, 1, mirror, eDP-1
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
 # Execute your favorite apps at launch
-# exec-once = waybar & hyprpaper & firefox
-exec-once = waypaper --restore --random --backend swww &
+exec-once = waypaper --restore --backend swww &
 exec-once = dunst &
 exec-once = waybar &
 exec-once = foot --server &
 exec-once = lxqt-policykit-agent &
 exec-once = solaar-cli -w hide &
+exec-once = blueman-applet &
 
 #Stores only text data
 exec-once = wl-paste --type text --watch cliphist store 
@@ -30,7 +30,7 @@ exec-once = wl-paste --type text --watch cliphist store
 exec-once = wl-paste --type image --watch cliphist store 
 
 # Some default env vars.
-env = XCURSOR_SIZE,24
+env = XCURSOR_SIZE,20
 env = WLR_DRM_NO_ATOMIC,1
 
 # For all categories, see https://wiki.hyprland.org/Configuring/Variables/

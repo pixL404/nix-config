@@ -55,8 +55,8 @@
   
   home.pointerCursor = {
     gtk.enable = true;
-    package = pkgs.catppuccin-cursors.frappeDark;
-    name = "Catpuccin-Frappe-Dark";
+    package = pkgs.pantheon.elementary-gtk-theme;
+    name = "elementary";
     size = 16;
   };
 }
