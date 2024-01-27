@@ -237,4 +237,12 @@ button {
 #custom-quit {
   color: @mauve;
 }
+
+#mpris {
+  background-color: @green;
+  padding: 0 0.5rem;
+  color: @base;
+  border-radius: 0.75rem;
+}
+
 ''

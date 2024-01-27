@@ -11,6 +11,10 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # various theming 
     catppuccin-vsc.url = "github:catppuccin/vscode";

@@ -32,6 +32,7 @@ exec-once = wl-paste --type image --watch cliphist store
 # Some default env vars.
 env = XCURSOR_SIZE,20
 env = WLR_DRM_NO_ATOMIC,1
+# env = XDG_SCREENSHOTS_DIR,$XDG_PICTURES_DIR/Screenshots
 
 # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 input {
@@ -252,6 +253,12 @@ bind = , escape, submap, reset
 
 # will reset the submap, meaning end the current one and return to the global one
 submap = reset
+
+# screenshots
+# like snipping tool
+bind = $mainMod SHIFT, S, exec, grimblast --notify copy area
+# copy current window to clipboard
+bind = , PRINT, exec, grimblast --notify copysave active
 
 # show clipboard history and copy selection
 bind = $mainMod SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy

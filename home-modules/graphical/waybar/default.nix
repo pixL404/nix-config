@@ -32,7 +32,10 @@ in
         margin = "0";
 #        height = 30; 
 
-        modules-left = [ "hyprland/workspaces" ];
+        modules-left = [
+          "hyprland/workspaces"
+          "mpris"
+        ];
 
         modules-center = [ "wlr/taskbar" ];
 
@@ -66,6 +69,27 @@ in
             "3" = [];
             "4" = [];
           };
+        };
+
+        "mpris" = {
+          format = "{player_icon} {status_icon}  <i>{dynamic}</i>";
+          player-icons = {
+            spotify = "";
+            chromium = "";
+            default = "";
+          };
+          status-icons = {
+            "playing" = "";
+            "paused" = "";
+            "stopped" = "";
+          };
+          dynamic-order = [
+            "artist"
+            "title"
+            "position"
+            "length"
+          ];
+          dynamic-len = 50;
         };
           
         "wlr/taskbar" = {

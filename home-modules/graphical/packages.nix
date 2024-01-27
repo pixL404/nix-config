@@ -12,5 +12,8 @@
 
     # is this only working for laptop integrated monitors?
     brightnessctl
+
+    spotify
+    playerctl
   ];
 }

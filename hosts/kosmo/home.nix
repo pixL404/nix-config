@@ -18,6 +18,8 @@ in
       monitors = monitors;
       keyboard = keyboard;
       pkgs = pkgs;
+      inputs = inputs;
+      config = config;
     })
   ];
 }

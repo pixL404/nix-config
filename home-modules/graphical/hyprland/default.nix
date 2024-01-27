@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   monitors,
   keyboard,
   ...
@@ -21,4 +22,9 @@ in
     };
     xwayland.enable = true;
   };
+
+  # plugins
+  home.packages = with inputs.hyprland-contrib.packages.${pkgs.system}; [
+    grimblast
+  ];
 }

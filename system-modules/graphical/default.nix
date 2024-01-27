@@ -65,6 +65,11 @@
     defaultSession = "pantheon";
   
   };
+  # automatically unlock gnome keyring upon login
+  security.pam.services.sddm.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true;
+  # add gui for keyring
+  programs.seahorse.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
