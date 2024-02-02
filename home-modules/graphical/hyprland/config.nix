@@ -49,12 +49,12 @@ input {
 device:logitech-mx-master-2s-1 {
     accel_profile = flat
 
-    sensitivity = 0
+    sensitivity = -0.75
 }
 device:mx-master-2s-mouse {
     accel_profile = flat
 
-    sensitivity = 0
+    sensitivity = -0.75
 }
 
 ${keyboard} {

@@ -62,7 +62,7 @@
       wayland.enable = false;
       theme = "chili";
     };
-    defaultSession = "pantheon";
+    # defaultSession = "pantheon";
   
   };
   # automatically unlock gnome keyring upon login

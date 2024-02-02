@@ -17,6 +17,7 @@
     wofi
     dunst
   
+    xdg-desktop-portal-gtk
     cliphist
     wl-clipboard
     sddm-chili-theme
