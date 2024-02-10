@@ -23,11 +23,7 @@
     ./foot.nix
     ./vscode.nix
   ];
-  
-  services.kdeconnect = {
-    enable = true;
-    indicator = true;
-  };
+
   services.mpd = {
     enable = true;
     musicDirectory = "/data/music";
