@@ -28,8 +28,10 @@
     enable = true;
 
     # Configure keymap in X11
-    layout = "us";
-    xkbOptions = "caps:escape";
+    xkb = {
+      layout = "us";
+      options = "caps:escape";
+    };
 
     # Enable touchpad support
     libinput.enable = true;
