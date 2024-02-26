@@ -8,19 +8,26 @@
     ./packages.nix
   ];
 
-  # allow unfree packages
-  # pkgs.config.allowUnfree = true;
-  
   # enable nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot = {
-      enable = true;
-      # prevent boot menu flooding
-      configurationLimit = 10;
+  boot = {
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" ];
+    plymouth.enable = true;
+
+    loader = {
+      # hold space to see generations
+      timeout = 0;
+      efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        # prevent boot menu flooding
+        configurationLimit = 10;
+      };
     };
   };
 
@@ -55,9 +62,10 @@
   documentation.man.generateCaches = true;
   environment.pathsToLink = [ "/share/fish" ];
 
+  #enable firmware update via fwupd
+  services.fwupd.enable = true;
+
   # which NixOS release to follow for options
   # research release changes before changing this value
   system.stateVersion = "unstable";
-
-
 }
