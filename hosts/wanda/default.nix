@@ -40,7 +40,7 @@
   # Define user account.
   users.users.alex = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" ];
+    extraGroups = [ "wheel" "input" "libvirtd" ];
     shell = pkgs.fish;
   };
 }

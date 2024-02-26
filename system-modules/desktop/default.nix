@@ -5,6 +5,8 @@
 }:
 {
   imports = [
+    ./packages.nix
+
     ./openrgb
   ];
 
@@ -24,8 +26,6 @@
       options amdgpu ppfeaturemask=0xFFF7FFFF
     '';
 
-  environment.systemPackages = with pkgs; [
-    amdgpu_top
-    lact
-  ];
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 }

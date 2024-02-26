@@ -52,6 +52,15 @@ in
       fsType = "btrfs";
     };
 
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "weekly";
+    fileSystems = [
+      "/home"
+      "/data"
+    ];
+  };
+
   swapDevices = [ {
     device = "/.swapfile";
     size = swapSize;
