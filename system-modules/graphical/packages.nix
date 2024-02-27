@@ -16,6 +16,8 @@
     swaybg
     wofi
     dunst
+
+    firefox
   
     xdg-desktop-portal-gtk
     cliphist
