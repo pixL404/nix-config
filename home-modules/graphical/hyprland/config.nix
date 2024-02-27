@@ -196,6 +196,13 @@ bind = $mainMod, TAB, focusurgentorlast
 bind = $mainMod, ESCAPE, movetoworkspace, special
 bind = $mainMod SHIFT, ESCAPE, togglespecialworkspace
 
+# fullscreen
+# actual fullscreen
+bind = $mainMod, f, fullscreen
+# maximize window (still show bar)
+bind = $mainMod SHIFT, f, fullscreen, 1
+
+
 # Switch workspaces with mainMod + [0-9]
 # Move active window to a workspace with mainMod + SHIFT + [0-9]
 ${builtins.concatStringsSep "\n" (builtins.genList (
