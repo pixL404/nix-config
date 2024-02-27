@@ -34,7 +34,8 @@
       config.allowUnfree = true;
       overlays = [
         inputs.catppuccin-vsc.overlays.default
-      ];
+      ]
+      ++ (import ./overlays);
     };
   in
   {

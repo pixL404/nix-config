@@ -23,17 +23,7 @@
   
       # theming
       catppuccin.catppuccin-vsc-icons
-     (pkgs.catppuccin-vsc.override {
-       accent = "lavender";
-       boldKeywords = true;
-       italicComments = true;
-       italicKeywords = true;
-       extraBordersEnabled = false;
-       workbenchMode = "default";
-       bracketMode = "rainbow";
-       colorOverrides = {};
-       customUIColors = {};
-     })
+      pkgs.catppuccin-vsc # from overlay
     ];
 
     userSettings = {
