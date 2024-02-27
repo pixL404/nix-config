@@ -7,11 +7,6 @@
     lxqt.lxqt-policykit
     qt6.qtwayland
     libsForQt5.qt5.qtwayland
-    waypaper
-    swww
-    swaybg
-    wofi
-    dunst
 
     firefox
   
