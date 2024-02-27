@@ -44,20 +44,26 @@ input {
     }
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+
+    # TODO: move this back to keyboard device
+    kb_options = caps:escape
 }
 
-device:logitech-mx-master-2s-1 {
+device {
+    name = logitech-mx-master-2s-1
     accel_profile = flat
 
     sensitivity = -0.75
 }
-device:mx-master-2s-mouse {
+device {
+    name = mx-master-2s-mouse
     accel_profile = flat
 
     sensitivity = -0.75
 }
 
-${keyboard} {
+device {
+    name = ${keyboard}
     kb_layout = us
     kb_options = caps:escape
 }
@@ -124,12 +130,6 @@ master {
 gestures {
     # See https://wiki.hyprland.org/Configuring/Variables/ for more
     workspace_swipe = on
-}
-
-# Example per-device config
-# See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-device:epic-mouse-v1 {
-    sensitivity = -0.5
 }
 
 # Window Rules
