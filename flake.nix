@@ -16,6 +16,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+
+    };
+
     # various theming 
     catppuccin-vsc.url = "github:catppuccin/vscode";
     # catppuccin-sddm = {
@@ -25,7 +31,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, hyprland, nixvim, ... }@inputs:
   let
     system = "x86_64-linux";
     inherit (self) outputs;
