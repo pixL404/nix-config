@@ -24,11 +24,10 @@
 
     # various theming 
     catppuccin-vsc.url = "github:catppuccin/vscode";
-    # catppuccin-sddm = {
-    #   # url = "github:h4m6urg1r/catppuccin-sddm-flake";
-    #   url = "path:/home/alex/devel/nix/catppuccin-sddm-flake";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    sddm-catppuccin = {
+      url = "github:khaneliman/sddm-catppuccin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, hyprland, nixvim, ... }@inputs:

@@ -1,7 +1,11 @@
 {
   pkgs,
+  inputs,
   ...
 }:
+let
+  catppuccin-sddm = inputs.sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin;
+in
 {
   environment.systemPackages = with pkgs; [
     lxqt.lxqt-policykit
@@ -13,7 +17,7 @@
     xdg-desktop-portal-gtk
     cliphist
     wl-clipboard
-    sddm-chili-theme
+    catppuccin-sddm
 
     libsecret
   ];

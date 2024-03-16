@@ -62,7 +62,13 @@
     sddm = {
       enable = true;
       wayland.enable = false;
-      theme = "chili";
+      theme = "catppuccin";
+      settings = {
+        Users = {
+          RememberLastUser = true;
+          RememberLastSession = true;
+        };
+      };
     };
     # defaultSession = "pantheon";
   
