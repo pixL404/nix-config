@@ -8,8 +8,8 @@
 
     # enable extension updates inside vscode
     enableExtensionUpdateCheck = true;
-    # allow installing of extensions inside vscode
-    mutableExtensionsDir = true;
+    # prevent installing of extensions inside vscode
+    mutableExtensionsDir = false;
 
     # disable vscode update notifications
     # enableUpdateCheck = false;
@@ -17,6 +17,7 @@
     package = pkgs.vscode;
 
     extensions = with pkgs.vscode-extensions; [
+      arrterian.nix-env-selector
       bbenoist.nix
 
       vscodevim.vim
@@ -24,6 +25,9 @@
       # theming
       catppuccin.catppuccin-vsc-icons
       pkgs.catppuccin-vsc # from overlay
+
+      rust-lang.rust-analyzer
+      tamasfe.even-better-toml
     ];
 
     userSettings = {

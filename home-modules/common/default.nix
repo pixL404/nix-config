@@ -18,6 +18,10 @@
     enable = true;
     userName = "alex";
     userEmail = "alexostresso@gmail.com";
+    extraConfig = {
+      # default = merge
+      pull.rebase = false;
+    };
   };
   programs.zellij = {
     enable = true;
