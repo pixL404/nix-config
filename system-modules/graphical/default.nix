@@ -69,6 +69,9 @@
           RememberLastSession = true;
         };
       };
+      extraPackages = with pkgs.libsForQt5; [
+        qt5.qtgraphicaleffects
+      ];
     };
     # defaultSession = "pantheon";
   
