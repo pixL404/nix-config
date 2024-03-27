@@ -264,8 +264,10 @@ submap = reset
 # screenshots
 # like snipping tool
 bind = $mainMod SHIFT, S, exec, grimblast --notify copy area
-# copy current window to clipboard
-bind = , PRINT, exec, grimblast --notify copysave active
+# copy screen to clipboard
+bind = , PRINT, exec, grimblast --notify copy screen
+# copy current window to clipboard and save
+bind = $mainMod, PRINT, exec, grimblast --notify copysave active
 
 # show clipboard history and copy selection
 bind = $mainMod SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy
