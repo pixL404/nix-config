@@ -17,7 +17,7 @@
     package = pkgs.vscode;
 
     extensions = with pkgs.vscode-extensions; [
-      arrterian.nix-env-selector
+      mkhl.direnv
       bbenoist.nix
 
       vscodevim.vim
