@@ -44,20 +44,26 @@ input {
     }
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+
+    # TODO: move this back to keyboard device
+    kb_options = caps:escape
 }
 
-device:logitech-mx-master-2s-1 {
+device {
+    name = logitech-mx-master-2s-1
     accel_profile = flat
 
     sensitivity = -0.75
 }
-device:mx-master-2s-mouse {
+device {
+    name = mx-master-2s-mouse
     accel_profile = flat
 
     sensitivity = -0.75
 }
 
-${keyboard} {
+device {
+    name = ${keyboard}
     kb_layout = us
     kb_options = caps:escape
 }
@@ -126,12 +132,6 @@ gestures {
     workspace_swipe = on
 }
 
-# Example per-device config
-# See https://wiki.hyprland.org/Configuring/Keywords/#executing for more
-device:epic-mouse-v1 {
-    sensitivity = -0.5
-}
-
 # Window Rules
 
 windowrule = float, lxqt-policykit-agent
@@ -196,6 +196,13 @@ bind = $mainMod, TAB, focusurgentorlast
 bind = $mainMod, ESCAPE, movetoworkspace, special
 bind = $mainMod SHIFT, ESCAPE, togglespecialworkspace
 
+# maximize window (still show bar)
+bind = $mainMod, f, fullscreen, 1
+# actual fullscreen
+bind = $mainMod SHIFT, f, fullscreen, 0
+bind = , f11, fullscreen, 0
+
+
 # Switch workspaces with mainMod + [0-9]
 # Move active window to a workspace with mainMod + SHIFT + [0-9]
 ${builtins.concatStringsSep "\n" (builtins.genList (
@@ -257,8 +264,10 @@ submap = reset
 # screenshots
 # like snipping tool
 bind = $mainMod SHIFT, S, exec, grimblast --notify copy area
-# copy current window to clipboard
-bind = , PRINT, exec, grimblast --notify copysave active
+# copy screen to clipboard
+bind = , PRINT, exec, grimblast --notify copy screen
+# copy current window to clipboard and save
+bind = $mainMod, PRINT, exec, grimblast --notify copysave active
 
 # show clipboard history and copy selection
 bind = $mainMod SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy

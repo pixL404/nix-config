@@ -1,46 +1,94 @@
 {
 	pkgs,
+  inputs,
 	...
 }:
 {
-  environment.variables = { EDITOR = "vim"; };
-  environment.sessionVariables = { EDITOR = "vim"; };
-  environment.systemPackages = with pkgs; [
-  ( neovim.override {
-      vimAlias = true;
-      configure = {
-        customRC = ''
-      	  set nocompatible
-      	  set shiftwidth=4
-      	  set tabstop=4
-      	  set expandtab
-      	  set nobackup
+  environment.variables = { EDITOR = "nvim"; };
+  environment.sessionVariables = { EDITOR = "nvim"; };
 
-      	  filetype on
-      	  filetype plugin on
-      	  filetype indent on
+  imports = [
+    inputs.nixvim.nixosModules.nixvim
+  ];
 
-      	  syntax on
+  programs.nixvim = {
+    enable = true;
 
-      	  set number
-      	  set relativenumber
-      	  set cursorline
+    viAlias = true;
+    vimAlias = true;
 
-      	  set scrolloff=8
-      	  set wrap
-      	  set showmode
+    colorschemes.catppuccin = {
+      enable = true;
+      flavour = "frappe";
+    };
 
-      	  set incsearch
-      	  set ignorecase
-      	  set smartcase
-      	  set noshowmatch
+    options = {
+      number = true;
+      relativenumber = true;
+      cursorline = true;
 
-      	  set backspace=indent,eol,start
+      # filetype = {
+      #   enable = true;
+      #   plugin = true;
+      #   indent = true;
+      # };
 
-          set clipboard=unnamedplus
-        '';
-      };
-    })
-  ];	
+      # ?
+      # filetype = true;
+      # filetype-indent-on = true;
+      # filetype-plugin-on = true;
+      syntax = true;
+
+      scrolloff = 8;
+      wrap = true;
+      showmode = true;
+
+      incsearch = true;
+      ignorecase = true;
+      smartcase = true;
+      showmatch = false;
+
+      backspace = "indent,eol,start";
+
+      clipboard = "unnamedplus";
+
+      # syntax = true;
+
+      # scrolloff = 8;
+      # wrap = true;
+      # showmode = true;
+
+      # incsearch = true;
+
+
+    };
+  };
+
+  # environment.systemPackages = with pkgs; [
+#   ( neovim.override {
+#       vimAlias = true;
+#       configure = {
+#         customRC = ''
+#       	  set nocompatible
+#       	  set shiftwidth=4
+#       	  set tabstop=4
+#       	  set expandtab
+#       	  set nobackup
+# 
+#       	  filetype on
+#       	  filetype plugin on
+#       	  filetype indent on
+# 
+#       	  syntax on
+# 
+
+# 
+#       	  set backspace=indent,eol,start
+# 
+#           set clipboard=unnamedplus
+#         '';
+#       };
+#     })
+  # ];	
 }
 

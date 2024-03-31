@@ -26,6 +26,7 @@
       options amdgpu ppfeaturemask=0xFFF7FFFF
     '';
 
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  # keep it commented, incase i need a vm once
+  # virtualisation.libvirtd.enable = true;
+  # programs.virt-manager.enable = true;
 }

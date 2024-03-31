@@ -14,5 +14,11 @@
 
     spotify
     playerctl
+
+    waypaper
+    swww
+    swaybg
+    wofi
+    dunst
   ];
 }

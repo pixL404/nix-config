@@ -62,7 +62,16 @@
     sddm = {
       enable = true;
       wayland.enable = false;
-      theme = "chili";
+      theme = "catppuccin";
+      settings = {
+        Users = {
+          RememberLastUser = true;
+          RememberLastSession = true;
+        };
+      };
+      extraPackages = with pkgs.libsForQt5; [
+        qt5.qtgraphicaleffects
+      ];
     };
     # defaultSession = "pantheon";
   
