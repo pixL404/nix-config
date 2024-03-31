@@ -18,6 +18,11 @@
     dunst
 
     firefox
+
+    # office suite
+    libreoffice
+    hunspellDicts.de_AT
+    hunspellDicts.en_US
   
     xdg-desktop-portal-gtk
     cliphist
