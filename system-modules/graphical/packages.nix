@@ -16,6 +16,7 @@ in
 
     # office suite
     libreoffice
+    hunspell
     hunspellDicts.de_AT
     hunspellDicts.en_US
   
