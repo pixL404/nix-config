@@ -41,7 +41,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # set display manager
-  services.xserver.displayManager= {
+  services.displayManager= {
     # TODO: does lightdm work under wayland?
     # session = [{
     #   manage = "desktop";
