@@ -26,8 +26,15 @@
       catppuccin.catppuccin-vsc-icons
       pkgs.catppuccin-vsc # from overlay
 
+      # language support
+
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
+
+      golang.go
+
+      ms-dotnettools.csharp
+      ms-dotnettools.csdevkit
     ];
 
     userSettings = {

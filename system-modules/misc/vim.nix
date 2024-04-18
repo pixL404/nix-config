@@ -22,7 +22,7 @@
       flavour = "frappe";
     };
 
-    options = {
+    opts = {
       number = true;
       relativenumber = true;
       cursorline = true;
@@ -37,7 +37,7 @@
       # filetype = true;
       # filetype-indent-on = true;
       # filetype-plugin-on = true;
-      syntax = true;
+      # syntax = true;
 
       scrolloff = 8;
       wrap = true;
