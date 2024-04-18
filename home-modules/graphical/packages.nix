@@ -20,5 +20,10 @@
     swaybg
     wofi
     dunst
+
+    lxqt.pavucontrol-qt
+
+
+    # myxer # from overlay
   ];
 }
