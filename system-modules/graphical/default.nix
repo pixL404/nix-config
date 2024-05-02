@@ -32,10 +32,10 @@
       layout = "us";
       options = "caps:escape";
     };
-
-    # Enable touchpad support
-    libinput.enable = true;
   };
+
+  # Enable touchpad support
+  services.libinput.enable = true;
 
   # set default window mode to wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

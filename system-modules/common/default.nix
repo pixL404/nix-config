@@ -9,7 +9,12 @@
   ];
 
   # enable nix flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    
+    # allow remote rebuilding
+    trusted-users = [ "@wheel" ];
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot = {
