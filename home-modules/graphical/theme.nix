@@ -22,7 +22,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    platformTheme.name = "gtk";
     style.name = "Catppuccin-Frappe-Standard-Lavender-Dark";
   };
   
