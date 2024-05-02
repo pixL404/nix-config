@@ -35,6 +35,10 @@
 
       ms-dotnettools.csharp
       ms-dotnettools.csdevkit
+
+      ms-python.python
+      ms-python.vscode-pylance
+      ms-python.black-formatter
     ];
 
     userSettings = {
@@ -86,6 +90,11 @@
       #nix
       "[nix]" = {
         "editor.tabSize" = 2;
+      };
+      
+      #py
+      "[python]" = {
+        "editor.defaultFormatter" = "ms-python.black-formatter";
       };
     };
   };
