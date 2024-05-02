@@ -33,8 +33,10 @@
 
       golang.go
 
-      ms-dotnettools.csharp
-      ms-dotnettools.csdevkit
+      # ms-dotnettools.csharp
+      # ms-dotnettools.csdevkit
+
+      james-yu.latex-workshop
     ];
 
     userSettings = {
