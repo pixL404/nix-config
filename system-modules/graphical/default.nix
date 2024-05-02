@@ -61,7 +61,7 @@
 
     sddm = {
       enable = true;
-      wayland.enable = false;
+      wayland.enable = true;
       theme = "catppuccin";
       settings = {
         Users = {
