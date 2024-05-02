@@ -29,4 +29,7 @@
     extraGroups = [ "wheel" "input" ];
     shell = pkgs.fish;
   };
+
+  security.pam.services.hyprlock = {};
+
 }

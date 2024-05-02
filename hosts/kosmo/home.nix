@@ -11,6 +11,7 @@ in
 {
   imports = [
     inputs.hyprland.homeManagerModules.default
+    inputs.hyprlock.homeManagerModules.default
 
     ../../home-modules/common
 

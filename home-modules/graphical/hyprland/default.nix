@@ -17,6 +17,10 @@
     xwayland.enable = true;
   };
 
+  programs.hyprlock = {
+    enable = true;
+  };
+
   # plugins
   home.packages = with inputs.hyprland-contrib.packages.${pkgs.system}; [
     grimblast

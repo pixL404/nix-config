@@ -282,4 +282,7 @@ bind =, XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@
 bind =, XF86AudioMute, exec, wpctl  set-mute @DEFAULT_AUDIO_SINK@ toggle
 bind =, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
+# screen lock
+bind = $mainMod ALT, L, exec, hyprlock
+
 ''
