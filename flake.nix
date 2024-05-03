@@ -10,7 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
     hyprlock = {
       url =  "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,7 +33,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, hyprland, nixvim, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nixvim, ... }@inputs:
   let
     system = "x86_64-linux";
     inherit (self) outputs;
@@ -55,27 +54,7 @@
         modules = [
           { nixpkgs.hostPlatform = nixpkgs.lib.mkDefault system; }
 
-          # catppuccin-sddm.nixosModules.default {
-          #   options = {
-          #     theme = "frappe";
-          #     font = "Helvetica Neue";
-          #     fontSize = 11;
-          #     clockEnabled = true;
-          #     customBackground = false;
-          #     loginBackground = false;
-          #     background = "https://raw.githubusercontent.com/Gingeh/wallpapers/main/minimalistic/dark-cat-rosewater.png";
-          #   };
-          # })
-
           ./hosts/kosmo 
-
-          hyprland.nixosModules.default {
-            programs.hyprland = {
-              enable = true;
-              xwayland.enable = true;
-            };
-            #wayland.windowManager.hyprland.enable = true;
-          }
 
           home-manager.nixosModules.home-manager {
             home-manager = {
@@ -95,14 +74,6 @@
           { nixpkgs.hostPlatform = nixpkgs.lib.mkDefault system; }
         
           ./hosts/wanda
-
-          hyprland.nixosModules.default {
-            programs.hyprland = {
-              enable = true;
-              xwayland.enable = true;
-            };
-            #wayland.windowManager.hyprland.enable = true;
-          }
 
           home-manager.nixosModules.home-manager {
             home-manager = {

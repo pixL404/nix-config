@@ -47,7 +47,7 @@
             "active" = "";
             "default" = "";
           };
-          persistent_workspaces = {
+          persistent-workspaces = {
             "1" = [];
             "2" = [];
             "3" = [];
@@ -63,8 +63,8 @@
             default = "";
           };
           status-icons = {
-            "playing" = "";
-            "paused" = "";
+            "playing" = "";
+            "paused" = "";
             "stopped" = "";
           };
           dynamic-order = [

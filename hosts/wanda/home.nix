@@ -10,8 +10,6 @@ let
 in
 {
   imports = [
-    inputs.hyprland.homeManagerModules.default
-
     ../../home-modules/common
 
     (import ../../home-modules/graphical {

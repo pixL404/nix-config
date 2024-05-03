@@ -9,12 +9,6 @@
     ./packages.nix
     ./fonts.nix
   ];
-  
-  # allow hyprland flake derivations be downloaded from cachix, instead of building 
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-  };
 
   # tty settings
   console = {
@@ -23,7 +17,6 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
   services.xserver = {
     enable = true;
 
@@ -40,42 +33,31 @@
   # set default window mode to wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # set display manager
-  services.displayManager= {
-    # TODO: does lightdm work under wayland?
-    # session = [{
-    #   manage = "desktop";
-    #   name = "myHyprland";
-    #   start = ''exec Hyprland'';
-    # }];
-    # lightdm = {
-    #   enable = true;
-    #   greeters.pantheon.enable = true;
-    # };
+  # use downstream nixos and home-manager modules instead of hyprland flake
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
 
-    # gdm = {
-    #   enable = true;
-    #   wayland = true;
-    #   autoSuspend = false;
-    # };
-
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "catppuccin";
-      settings = {
-        Users = {
-          RememberLastUser = true;
-          RememberLastSession = true;
-        };
-      };
-      extraPackages = with pkgs.libsForQt5; [
-        qt5.qtgraphicaleffects
-      ];
-    };
-    # defaultSession = "pantheon";
-  
+    # https://github.com/NixOS/nixpkgs/issues/308287#issuecomment-2093091892
+    envVars.enable = false;
   };
+
+  # set display manager
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "catppuccin";
+    settings = {
+      Users = {
+        RememberLastUser = true;
+        RememberLastSession = true;
+      };
+    };
+    extraPackages = with pkgs.libsForQt5; [
+      qt5.qtgraphicaleffects
+    ];
+  };
+
   # automatically unlock gnome keyring upon login
   security.pam.services.sddm.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
