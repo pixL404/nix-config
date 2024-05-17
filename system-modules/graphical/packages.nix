@@ -4,7 +4,7 @@
   ...
 }:
 let
-  catppuccin-sddm = inputs.sddm-catppuccin.packages.${pkgs.hostPlatform.system}.sddm-catppuccin;
+  catppuccin-sddm = inputs.sddm-catppuccin.defaultPackage.${pkgs.hostPlatform.system};
 in
 {
   environment.systemPackages = with pkgs; [

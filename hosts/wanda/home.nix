@@ -6,7 +6,7 @@
 }:
 let
   monitors = "monitor = HDMI-A-2, 1920x1080@76, auto, 1";
-  keyboard = "device:chicony-usb-keyboard";
+  keyboard = "chicony-perixx-ergo-keyboard";
 in
 {
   imports = [

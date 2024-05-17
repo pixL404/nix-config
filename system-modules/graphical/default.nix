@@ -8,6 +8,7 @@
   imports = [
     ./packages.nix
     ./fonts.nix
+    ./sound.nix
   ];
 
   # tty settings
@@ -39,7 +40,7 @@
     xwayland.enable = true;
 
     # https://github.com/NixOS/nixpkgs/issues/308287#issuecomment-2093091892
-    envVars.enable = false;
+    # envVars.enable = false;
   };
 
   # set display manager
@@ -66,18 +67,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
   
   # enable support for logitech mice (solaar daemon)
   hardware.logitech.wireless = {

@@ -44,9 +44,6 @@ input {
     }
 
     sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-
-    # TODO: move this back to keyboard device
-    kb_options = caps:escape,compose:menu
 }
 
 device {
@@ -65,7 +62,7 @@ device {
 device {
     name = ${keyboard}
     kb_layout = us
-    kb_options = caps:escape 
+    kb_options = caps:escape,compose:menu
 }
 
 general {

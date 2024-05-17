@@ -110,7 +110,7 @@ button {
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > * {
-  margin-right: 100px;
+  margin-right: 0px;
 }
 
 @keyframes blink {
@@ -218,7 +218,7 @@ button {
 /* container for power, logoff, hibernate, reboot */
 #power {
   border: 1px solid @surface2;
-  border-radius: inherit;
+  border-radius: 0.75rem;
   padding: inherit;
 }
 
