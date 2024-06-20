@@ -9,7 +9,8 @@
     {
       environment.systemPackages = with pkgs; [
         prismlauncher
-        jdk17
+        # jdk17
+	jdk21
       ];
     }
 

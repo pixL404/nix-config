@@ -47,7 +47,7 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    theme = "catppuccin";
+    theme = "catppuccin-sddm-corners";
     settings = {
       Users = {
         RememberLastUser = true;

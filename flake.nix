@@ -26,7 +26,7 @@
     };
 
     # various theming 
-    catppuccin-vsc.url = "github:catppuccin/vscode";
+    # catppuccin-vsc.url = "github:catppuccin/vscode";
     sddm-catppuccin = {
       url = "github:khaneliman/sddm-catppuccin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +41,7 @@
       inherit system;
       config.allowUnfree = true;
       overlays = [
-        inputs.catppuccin-vsc.overlays.default
+        # inputs.catppuccin-vsc.overlays.default
       ]
       ++ (import ./overlays);
     };

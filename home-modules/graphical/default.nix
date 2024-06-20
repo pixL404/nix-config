@@ -30,4 +30,7 @@
   };
   services.mpd-mpris.enable = true;
   services.mpris-proxy.enable = true;
+
+  # open source rich presence server
+  services.arrpc.enable = true;
 }

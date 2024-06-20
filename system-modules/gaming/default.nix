@@ -12,6 +12,7 @@
   # programs/launcher without special needs
   environment.systemPackages = with pkgs; [
     ryujinx
+    dolphin-emu
     heroic
     lutris
   ];

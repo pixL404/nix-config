@@ -23,6 +23,8 @@
 
     lxqt.pavucontrol-qt
 
+    # open source discord client
+    vesktop
 
     # myxer # from overlay
   ];

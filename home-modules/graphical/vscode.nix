@@ -23,8 +23,8 @@
       vscodevim.vim
   
       # theming
-      catppuccin.catppuccin-vsc-icons
-      pkgs.catppuccin-vsc # from overlay
+      # catppuccin.catppuccin-vsc-icons
+      # pkgs.catppuccin-vsc # from overlay
 
       # language support
 
