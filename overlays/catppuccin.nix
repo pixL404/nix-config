@@ -11,16 +11,16 @@
       hash = "sha256-5KjNdz4jpRzvB/UJjcMRBJYbTy4JHlUcfsiewo4ANME=";
     };
 
-    hyprland-catppuccinColors = builtins.readFile (pkgs.fetchurl {
+    hyprland-catppuccinColors = pkgs.fetchurl {
       url = "https://raw.githubusercontent.com/catppuccin/hyprland/99a88fd21fac270bd999d4a26cf0f4a4222c58be/themes/frappe.conf";
       hash = "sha256-knpSjUKtQ1tsOotTi/e+OMdHCchgBI3tSa148dF3UqA=";
-    });
-
-    catppuccin-gtk = pkgs.catppuccin-gtk.override {
-      accents = [ "lavender" ];
-      size = "standard";
-      variant = "frappe";
     };
+
+    # catppuccin-gtk = pkgs.catppuccin-gtk.override {
+    #   accents = [ "lavender" ];
+    #   size = "standard";
+    #   variant = "frappe";
+    # };
     
     # catppuccin-vsc = pkgs.catppuccin-vsc.override {
     #   accent = "lavender";
