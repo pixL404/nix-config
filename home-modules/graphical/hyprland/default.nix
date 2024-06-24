@@ -52,6 +52,8 @@
         "XCURSOR_THEME,elementary"
         "GTK_THEME,Catppuccin-Frappe-Standard-Lavender-Dark"
 
+        "WLR_DRM_NO_ATOMIC,1" # allow tearing
+
         "GDK_BACKEND,wayland,x11,*"
         "QT_QPA_PLATFORM,wayland;xcb"
         "SDL_VIDEODRIVER,wayland" #disable if games give error
