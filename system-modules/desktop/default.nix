@@ -13,8 +13,8 @@
   # support for radeon GPU
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "modesetting" ];
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
 
   programs.corectrl = {
     enable = true;
