@@ -1,11 +1,8 @@
 
 {
-  colors ? "",
   ...
 }:
 ''
-${colors}
-
 * {
   font-family: FontAwesome, Helvetica Neue;
   font-size: 13px;

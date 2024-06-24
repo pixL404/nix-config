@@ -170,6 +170,6 @@
       };
     };
 
-    style = import ./style.nix { colors = pkgs.waybar-catppuccinColors; }; # from overlay
+    style = import ./style.nix { };
   };
 }

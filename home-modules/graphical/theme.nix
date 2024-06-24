@@ -4,15 +4,17 @@
   ...
 }:
 {
+  catppuccin = {
+    enable = true;
+    flavor = "frappe";
+    accent = "lavender";
+  };
+
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.catppuccin-gtk; # from overlay
-      name = "Catppuccin-Frappe-Standard-Lavender-Dark";
-    };
-    iconTheme = {
-      package = pkgs.libsForQt5.breeze-icons;
-      name = "breeze-dark";
+    catppuccin = {
+      enable = true;
+      cursor.enable = false;
     };
     font = {
       name = "Sans";
@@ -22,10 +24,10 @@
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk";
-    style.name = "Catppuccin-Frappe-Standard-Lavender-Dark";
+    style.catppuccin.enable = true;
+    platformTheme.name = "gtk3";
   };
-  
+
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.pantheon.elementary-gtk-theme;

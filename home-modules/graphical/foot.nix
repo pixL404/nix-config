@@ -8,14 +8,8 @@
     enable = true;
     package = pkgs.foot;
     server.enable = true;
-  };
-
-  xdg.configFile."foot/foot.ini".text = lib.generators.toINIWithGlobalSection {} {
-    globalSection = {
-      include = pkgs.foot-catppuccinColors; # from overlay
-    };
-    sections = {
-      main = {
+    settings = {
+    main = {
         term = "foot";
 
         font = "monospace:size=11, font-awesome:size=11, emoji:size=11";
@@ -48,7 +42,6 @@
       colors = {
         alpha = 0.8;
       };
-
     };
   };
 }

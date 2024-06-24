@@ -21,8 +21,6 @@
     sourceFirst = true;
     settings = {
       
-      source = "${pkgs.hyprland-catppuccinColors}";
-
       monitor = [
         monitors
         # autodetect
@@ -31,7 +29,6 @@
 
       exec-once = [
         "waypaper --restore --backend swww"
-        "dunst"
         "waybar"
         "foot --server"
         "lxqt-policykit-agent"
@@ -50,7 +47,7 @@
       env = [
         "XCURSOR_SIZE,20"
         "XCURSOR_THEME,elementary"
-        "GTK_THEME,Catppuccin-Frappe-Standard-Lavender-Dark"
+        # "GTK_THEME,Catppuccin-Frappe-Standard-Lavender-Dark"
 
         "WLR_DRM_NO_ATOMIC,1" # allow tearing
 

@@ -22,7 +22,6 @@
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
-
     };
 
     # various theming 
@@ -31,6 +30,8 @@
       url = "github:khaneliman/sddm-catppuccin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, nixvim, ... }@inputs:

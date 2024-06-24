@@ -19,7 +19,6 @@
     swww
     swaybg
     wofi
-    dunst
 
     lxqt.pavucontrol-qt
 

@@ -2,6 +2,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -9,6 +10,9 @@
     ./packages.nix
     ./fonts.nix
     ./sound.nix
+
+    # catppuccin module
+    inputs.catppuccin.nixosModules.catppuccin
   ];
 
   # tty settings
@@ -44,19 +48,22 @@
   };
 
   # set display manager
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    theme = "catppuccin-sddm-corners";
-    settings = {
-      Users = {
-        RememberLastUser = true;
-        RememberLastSession = true;
+  services.displayManager = {
+    defaultSession = "hyprland";
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "catppuccin-sddm-corners";
+      settings = {
+        Users = {
+          RememberLastUser = true;
+          RememberLastSession = true;
+        };
       };
+      extraPackages = with pkgs.libsForQt5; [
+        qt5.qtgraphicaleffects
+      ];
     };
-    extraPackages = with pkgs.libsForQt5; [
-      qt5.qtgraphicaleffects
-    ];
   };
 
   # automatically unlock gnome keyring upon login

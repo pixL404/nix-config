@@ -22,6 +22,9 @@
 
     ./foot.nix
     ./vscode.nix
+
+    # catppuccin module
+    inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
   services.mpd = {
@@ -33,4 +36,10 @@
 
   # open source rich presence server
   services.arrpc.enable = true;
+
+  # wayland notification service
+  services.mako = {
+    enable = true;
+    layer = "overlay";
+  };
 }
