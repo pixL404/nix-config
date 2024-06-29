@@ -147,7 +147,7 @@
       };
 
       master = {
-        new_is_master = false;
+        new_status = "slave";
       };
 
       gestures = {
@@ -156,6 +156,7 @@
 
       windowrulev2 = [
         "float, class:^(lxqt-policykit-agent)"
+        "float, title:^(MainPicker)$"
 
         # fake fullscreen for vs-code to hide custom bar
         "fakefullscreen, class:^(code-url-handler)$"

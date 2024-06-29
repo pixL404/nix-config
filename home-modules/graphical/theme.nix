@@ -8,13 +8,13 @@
     enable = true;
     flavor = "frappe";
     accent = "lavender";
+    pointerCursor.enable = false;
   };
 
   gtk = {
     enable = true;
     catppuccin = {
       enable = true;
-      cursor.enable = false;
     };
     font = {
       name = "Sans";
@@ -25,7 +25,9 @@
   qt = {
     enable = true;
     style.catppuccin.enable = true;
-    platformTheme.name = "gtk3";
+    # in order to use catppuccin theme
+    style.name = "kvantum";
+    platformTheme.name = "kvantum";
   };
 
   home.pointerCursor = {

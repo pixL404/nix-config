@@ -41,5 +41,6 @@
   services.mako = {
     enable = true;
     layer = "overlay";
+    defaultTimeout = 5;
   };
 }
