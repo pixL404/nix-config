@@ -5,7 +5,7 @@
   ...
 }:
 let
-  monitors = "monitor = HDMI-A-2, 1920x1080@76, auto, 1";
+  monitors = "HDMI-A-2, 1920x1080@76, auto, 1";
   keyboard = "chicony-perixx-ergo-keyboard";
 in
 {

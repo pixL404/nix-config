@@ -15,10 +15,11 @@
 
     lm_sensors
 
-    gnome.geary
-    gnome.nautilus
-    gnome.eog
-    gnome.file-roller
+    # gnome packages
+    geary
+    nautilus
+    eog
+    file-roller
 
     gimp
   ];
