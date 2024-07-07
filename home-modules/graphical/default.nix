@@ -37,10 +37,6 @@
   # open source rich presence server
   services.arrpc.enable = true;
 
-  # wayland notification service
-  services.mako = {
-    enable = true;
-    layer = "overlay";
-    defaultTimeout = 5;
-  };
+  # notification service
+  services.dunst.enable = true;
 }
