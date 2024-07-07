@@ -15,6 +15,26 @@
         "type": "github"
       }
     },
+    "catppuccin-vsc": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1720295990,
+        "narHash": "sha256-n3Bv8EXdJ2su6UE5+oX15JDwAeQ222CigWlVJ5NYms4=",
+        "owner": "catppuccin",
+        "repo": "vscode",
+        "rev": "08de0d9d44de6693d1379e40a48be797a4fb4715",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "vscode",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -392,6 +412,7 @@
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
+        "catppuccin-vsc": "catppuccin-vsc",
         "home-manager": "home-manager",
         "hyprland-contrib": "hyprland-contrib",
         "hyprlock": "hyprlock",
