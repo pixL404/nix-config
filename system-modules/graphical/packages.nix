@@ -26,5 +26,8 @@ in
     catppuccin-sddm
 
     libsecret
+
+    pantheon-tweaks
+    indicator-application-gtk3 # from overlay
   ];
 }

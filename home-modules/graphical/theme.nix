@@ -5,14 +5,14 @@
 }:
 {
   catppuccin = {
-    enable = true;
+    enable = false;
     flavor = "frappe";
     accent = "lavender";
     pointerCursor.enable = false;
   };
 
   gtk = {
-    enable = true;
+    enable = false;
     catppuccin = {
       enable = true;
     };
@@ -23,17 +23,17 @@
   };
 
   qt = {
-    enable = true;
+    enable = false;
     style.catppuccin.enable = true;
     # in order to use catppuccin theme
     style.name = "kvantum";
     platformTheme.name = "kvantum";
   };
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.pantheon.elementary-gtk-theme;
-    name = "elementary";
-    size = 16;
-  };
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   package = pkgs.pantheon.elementary-gtk-theme;
+  #   name = "elementary";
+  #   size = 16;
+  # };
 }

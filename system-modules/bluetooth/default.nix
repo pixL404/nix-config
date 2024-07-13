@@ -8,5 +8,6 @@
     powerOnBoot = true;
   };
 
-  services.blueman.enable = true;
+  # not necessary, pantheon has own bluetooth service
+  # services.blueman.enable = true;
 }

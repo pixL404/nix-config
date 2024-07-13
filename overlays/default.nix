@@ -53,6 +53,69 @@
     };
   })
 
+  # pantheon patches and applications for tray icons
+  (my: pkgs: {
+    wingpanel-community-indicators = pkgs.wingpanel-indicator-ayatana.overrideAttrs (old: {
+      pname = "wingpanel-community-indicators";
+      version = "2.0.0";
+
+      src = pkgs.fetchFromGitHub {
+        owner = "MvBonin";
+        repo = "wingpanel-community-indicators";
+        rev = "master";
+        sha256 = "sha256-dOAbH1YWrK6rG7C9vv4ySwxZ3e2pLprQ2n4MZMlU1yo=";
+      };
+
+      nativeBuildInputs = with pkgs; [
+        json-glib
+      ]
+      ++ old.nativeBuildInputs;
+    });
+
+    indicator-application-gtk3 = pkgs.indicator-application-gtk3.overrideAttrs (old: {
+      postPatch = ''
+        substituteInPlace data/indicator-application.desktop.in \
+        --replace "OnlyShowIn=Unity;GNOME;" "OnlyShowIn=Unity;GNOME;Pantheon;"
+      ''
+      + (old.postPatch or "");
+    });
+
+    switchboard-plug-indicators = pkgs.stdenv.mkDerivation rec {
+      pname = "switchboard-plug-indicators";
+      version = "0.1";
+
+      src = pkgs.fetchFromGitHub {
+        owner = "MvBonin";
+        repo = pname;
+        rev = "master";
+        sha256 = "sha256-KQ9hFQVopCF5NZXEgUXNw7aS+Z6SqzMCwyxJUjiZMnA=";
+      };
+
+        nativeBuildInputs = with pkgs; [
+          meson
+          ninja
+          pkg-config
+          python3
+          vala
+          wrapGAppsHook3
+          pantheon.switchboard
+          json-glib
+          appstream
+        ];
+
+        buildInputs = with pkgs; [
+          pantheon.granite
+          gtk3
+          libgee
+          libhandy
+        ];
+
+        passthru = {
+          updateScript = pkgs.nix-update-script { };
+        };
+    };
+  })
+
   # (my: pkgs: {
   #   palmreject = pkgs.stenv.mkDerivation {
   #     pname = "palmreject";

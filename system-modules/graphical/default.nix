@@ -48,26 +48,28 @@
   };
 
   # set display manager
-  services.displayManager = {
-    defaultSession = "hyprland";
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "catppuccin-sddm-corners";
-      settings = {
-        Users = {
-          RememberLastUser = true;
-          RememberLastSession = true;
-        };
-      };
-      extraPackages = with pkgs.libsForQt5; [
-        qt5.qtgraphicaleffects
-      ];
-    };
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+    greeters.pantheon.enable = true;
   };
 
+  # move to pantheon
+  services.xserver.desktopManager.pantheon = {
+    enable = true;
+
+    extraWingpanelIndicators = with pkgs; [
+      wingpanel-community-indicators # from overlay
+    ];
+
+    extraSwitchboardPlugs = with pkgs; [
+      switchboard-plug-indicators # from overlay
+    ];
+  };
+
+  services.pantheon.apps.enable = true;
+
   # automatically unlock gnome keyring upon login
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
   # add gui for keyring
   programs.seahorse.enable = true;

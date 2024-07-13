@@ -10,7 +10,7 @@
   imports = [
     ./packages.nix
 
-    ./theme.nix
+    # ./theme.nix
 
     (import ./hyprland {
       monitors = monitors;
@@ -38,5 +38,5 @@
   services.arrpc.enable = true;
 
   # notification service
-  services.dunst.enable = true;
+  # services.dunst.enable = true;
 }
