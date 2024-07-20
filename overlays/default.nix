@@ -40,8 +40,8 @@
     fabric-server-1-20-1 = pkgs.minecraftServers.vanilla-1-20.overrideAttrs (old: {
       version = "fabric-1.20.1";
       src = pkgs.fetchurl {
-        url = "https://meta.fabricmc.net/v2/versions/loader/1.20.1/0.15.6/1.0.0/server/jar";
-        hash = "sha256-vOULXIe2hz5p49rdlXINsHYsl5whx6PQE0HnLxd6Vl0=";
+        url = "https://meta.fabricmc.net/v2/versions/loader/1.20.1/0.15.11/1.0.1/server/jar";
+        hash = "sha256-/j9wIzYSoP+ZEfeRJSsRwWhhTNkTMr+vN40UX9s+ViM=";
       };
     });
   })
