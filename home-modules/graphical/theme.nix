@@ -5,7 +5,7 @@
 }:
 {
   catppuccin = {
-    enable = false;
+    enable = true;
     flavor = "frappe";
     accent = "lavender";
     pointerCursor.enable = false;
@@ -14,7 +14,7 @@
   gtk = {
     enable = false;
     catppuccin = {
-      enable = true;
+      enable = false;
     };
     font = {
       name = "Sans";
@@ -23,7 +23,7 @@
   };
 
   qt = {
-    enable = false;
+    enable = true;
     style.catppuccin.enable = true;
     # in order to use catppuccin theme
     style.name = "kvantum";

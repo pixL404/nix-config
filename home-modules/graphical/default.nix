@@ -25,6 +25,8 @@
 
     # catppuccin module
     inputs.catppuccin.homeManagerModules.catppuccin
+
+    ./obs-studio
   ];
 
   services.mpd = {
