@@ -44,6 +44,13 @@
         hash = "sha256-/j9wIzYSoP+ZEfeRJSsRwWhhTNkTMr+vN40UX9s+ViM=";
       };
     });
+    minecraft-server-1-21 = pkgs.minecraftServers.vanilla-1-20.overrideAttrs (old: {
+      version = "1.20.1";
+      src = pkgs.fetchurl {
+        url = "https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar";
+        sha1 = "59353fb40c36d304f2035d51e7d6e6baa98dc05c";
+      };
+    });
   })
 
   (my: pkgs: {

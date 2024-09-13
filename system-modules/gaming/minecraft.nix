@@ -42,7 +42,7 @@
             services.minecraft-server = {
               enable = true;
               eula = true;
-              package = pkgs.minecraft-server-1-20-1; # from overlay
+              package = pkgs.minecraft-server-1-21; # from overlay
               jvmOpts = "-Xms10G -Xmx12G -XX:+UseG1GC";
               dataDir = "/data";
               declarative = false;
