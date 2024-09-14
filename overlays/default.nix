@@ -87,6 +87,8 @@
       + (old.postPatch or "");
     });
 
+    # TODO: fix not compiling; it needs dependency "switchboard-2.0"
+    # workaround is to edit the files in ~/.config/indicators
     switchboard-plug-indicators = pkgs.stdenv.mkDerivation rec {
       pname = "switchboard-plug-indicators";
       version = "0.1";

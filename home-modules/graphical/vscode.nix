@@ -38,9 +38,9 @@
 
       james-yu.latex-workshop
 
-      ms-python.python
-      ms-python.vscode-pylance
-      ms-python.black-formatter
+      # ms-python.python
+      # ms-python.vscode-pylance
+      # ms-python.black-formatter
     ];
 
     userSettings = {

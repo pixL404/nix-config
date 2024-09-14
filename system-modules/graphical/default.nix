@@ -62,7 +62,7 @@
     ];
 
     extraSwitchboardPlugs = with pkgs; [
-      switchboard-plug-indicators # from overlay
+      # switchboard-plug-indicators # from overlay
     ];
   };
 
