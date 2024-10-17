@@ -13,6 +13,7 @@
     shellAbbrs = {
      sysrebuild = "sudo nixos-rebuild switch --flake $HOME/nix-config/#$hostname";
      sysupdate = "sudo nix flake update $HOME/nix-config";
+     homerebuild = "home-manager switch --flake $HOME/nix-config/#work";
     };
     functions = {
       fish_prompt = {
@@ -204,6 +205,22 @@
           end
         
           set_color normal
+        '';
+      };
+      fish_greeting = {
+        body = ''
+          if not set -q fish_greeting
+            ${pkgs.fortune}/bin/fortune -a
+          end
+
+          if set -q fish_private_mode
+            set -l line (_ "fish is running in private mode, history will not be persisted.")
+            if set -q fish_greeting[1]
+              set -g fish_greeting $fish_greeting\n$line
+            else
+              set -g fish_greeting $line
+            end
+          end
         '';
       };
     };

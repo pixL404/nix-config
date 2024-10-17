@@ -1,5 +1,5 @@
 {
-  description = "System Flake for my machines (now only kosmo)";
+  description = "System Flake for my machines";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -89,6 +89,13 @@
            };
           }
         ];
+      };
+    };
+
+    homeConfigurations = {
+      work = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./hosts/work ];
       };
     };
   };

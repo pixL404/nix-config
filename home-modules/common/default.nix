@@ -7,11 +7,15 @@
 {
   imports = [
     ./fish.nix
+    ./packages.nix
   ];
 
-  home.username = "alex";
+	home = {
+    username = "alex";
+    homeDirectory = "/home/alex";
 
-  home.stateVersion = "23.11";
+    stateVersion = "23.11";
+  };
 
   # TODO: adjust for work wsl home-flake in the future
   programs.git = {
