@@ -4,6 +4,13 @@
 }:
 {
   home.packages = with pkgs; [
-		ansible
+		# ansible needs pykerberos python module
+		((ansible.overrideAttrs (new: old: {
+			propagatedBuildInputs = [ pkgs.python312Packages.pykerberos ]
+			++ old.propagatedBuildInputs;
+		})).override { windowsSupport = true; })
+
+		sshpass
+		krb5
 	];
 }
