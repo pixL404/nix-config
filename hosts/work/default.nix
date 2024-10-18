@@ -8,6 +8,7 @@
 {
   imports = [
     ../../home-modules/common
+    ../../home-modules/work
   ];
 
 	# Let Home Manager install and manage itself.

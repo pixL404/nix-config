@@ -95,6 +95,7 @@
     homeConfigurations = {
       work = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = { inherit inputs outputs; };
         modules = [ ./hosts/work ];
       };
     };

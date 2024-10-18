@@ -14,7 +14,7 @@
     username = "alex";
     homeDirectory = "/home/alex";
 
-    stateVersion = "23.11";
+    stateVersion = "24.11";
   };
 
   # TODO: adjust for work wsl home-flake in the future
@@ -35,5 +35,12 @@
     enable = true;
     # enableFishIntegration = true;
     nix-direnv.enable = true;
+  };
+
+  # use nix-index in favor of basic cnf
+	programs.command-not-found.enable = false;
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
   };
 }
