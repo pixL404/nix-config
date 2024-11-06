@@ -47,7 +47,7 @@
       "telemetry.telemetryLevel" = "off";
 
       # workaround for wayland native electron apps
-      "window.titleBarStyle" = "native";
+      "window.titleBarStyle" = "custom";
 
       "window.zoomLevel" = 1;
       "window.menuBarVisibility" = "compact";

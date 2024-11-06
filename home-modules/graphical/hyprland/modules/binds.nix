@@ -104,6 +104,11 @@
   ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
   ", XF86AudioMute, exec, wpctl  set-mute @DEFAULT_AUDIO_SINK@ toggle"
   ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  
+  # media binds
+  ", XF86AudioPrev, exec, playerctl previous"
+  ", XF86AudioPlay, exec, playerctl play-pause"
+  ", XF86AudioNext, exec, playerctl next"
 
   # screen lock
   "$mainMod ALT, L, exec, hyprlock"
