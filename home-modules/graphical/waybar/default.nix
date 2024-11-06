@@ -6,6 +6,11 @@
   programs.waybar = {
     enable = true;
     package = pkgs.waybar; # from overlay
+    catppuccin = {
+      enable = true;
+      flavor = "frappe";
+      mode = "prependImport";
+    };
     settings = {
       mainbar = {
         layer = "top";

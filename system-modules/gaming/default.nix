@@ -7,6 +7,9 @@
   imports = [
     ./minecraft.nix
     ./steam.nix
+
+    # try to fix online matches for Dragon Ball Sparking! Zero
+    # ./dbsz-test.nix
   ];
 
   # programs/launcher without special needs

@@ -67,6 +67,7 @@
               useUserPackages = true;
               users.alex = import ./hosts/kosmo/home.nix;
               extraSpecialArgs = { inherit inputs system pkgs ; };
+              backupFileExtension = "bkp";
            };
           }
         ];
@@ -86,6 +87,7 @@
               useUserPackages = true;
               users.alex = import ./hosts/wanda/home.nix;
               extraSpecialArgs = { inherit inputs system pkgs ; };
+              backupFileExtension = "bkp";
            };
           }
         ];

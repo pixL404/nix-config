@@ -9,5 +9,5 @@
   };
 
   # not necessary, pantheon has own bluetooth service
-  # services.blueman.enable = true;
+  services.blueman.enable = true;
 }

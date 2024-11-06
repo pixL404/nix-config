@@ -10,7 +10,7 @@
   imports = [
     ./packages.nix
 
-    # ./theme.nix
+    ./theme.nix
 
     (import ./hyprland {
       monitors = monitors;
@@ -39,6 +39,15 @@
   # open source rich presence server
   services.arrpc.enable = true;
 
+  # audio mixer for pipewire
+  services.easyeffects.enable = true;
+
   # notification service
-  # services.dunst.enable = true;
+  services.dunst = {
+    enable = true;
+    catppuccin = {
+      enable = true;
+      flavor = "frappe";
+    };
+  };
 }

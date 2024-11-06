@@ -1,6 +1,12 @@
 (import ./catppuccin.nix)
 ++
 [
+  # https://github.com/NixOS/nixpkgs/pull/349783
+  # https://github.com/nix-community/home-manager/issues/5991
+  (my: pkgs: {
+    utillinux = pkgs.util-linux;
+  })
+
   # openrgb
   (my: pkgs: {
     openrgb = pkgs.openrgb.overrideAttrs (old: {

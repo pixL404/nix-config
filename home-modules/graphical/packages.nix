@@ -20,7 +20,7 @@
     swaybg
     wofi
 
-    lxqt.pavucontrol-qt
+    # lxqt.pavucontrol-qt
 
     # open source discord client
     vesktop

@@ -48,9 +48,26 @@
   };
 
   # set display manager
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    greeters.pantheon.enable = true;
+  # services.xserver.displayManager.lightdm = {
+  #   enable = true;
+  #   greeters.pantheon.enable = true;
+  # };
+  services.displayManager = {
+    defaultSession = "hyprland";
+    sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "catppuccin-sddm-corners";
+      settings = {
+        Users = {
+          RememberLastUser = true;
+          RememberLastSession = true;
+        };
+      };
+      extraPackages = with pkgs.libsForQt5; [
+        qt5.qtgraphicaleffects
+      ];
+    };
   };
 
   # move to pantheon
@@ -69,7 +86,7 @@
   services.pantheon.apps.enable = true;
 
   # automatically unlock gnome keyring upon login
-  security.pam.services.lightdm.enableGnomeKeyring = true;
+  security.pam.services.login.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
   # add gui for keyring
   programs.seahorse.enable = true;
