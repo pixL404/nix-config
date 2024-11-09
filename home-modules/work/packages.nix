@@ -12,5 +12,8 @@
 
 		sshpass
 		krb5
+
+    inetutils
+		dnsutils
 	];
 }
