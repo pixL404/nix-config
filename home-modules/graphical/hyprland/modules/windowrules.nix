@@ -16,11 +16,12 @@
   # steam friends list floating
   "float, title:Friends List"
 
-  # allow tearing
-  "immediate, class:^(cs2)$"
-  "fullscreen, class:^(cs2)$"
-  "immediate, class:^(Minecraft)"
-  "immediate, title:^(TEKKEN)"
+  # remove tearing, leads to stutters
+  # # allow tearing
+  # "immediate, class:^(cs2)$"
+  # "fullscreen, class:^(cs2)$"
+  # "immediate, class:^(Minecraft)"
+  # "immediate, title:^(TEKKEN)"
 
   # atuostart applications
   "workspace 1 silent, class:^(vivaldi-stable)$"
