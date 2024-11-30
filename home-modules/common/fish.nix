@@ -12,7 +12,7 @@
     '';
     shellAbbrs = {
      sysrebuild = "sudo nixos-rebuild switch --flake $HOME/nix-config/#$hostname";
-     sysupdate = "sudo nix flake update $HOME/nix-config";
+     sysupdate = "nix flake update --flake $HOME/nix-config";
      homerebuild = "home-manager switch --flake $HOME/nix-config/#work";
     };
     functions = {
