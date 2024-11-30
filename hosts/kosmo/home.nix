@@ -5,7 +5,17 @@
   ...
 }:
 let
-  monitors = "monitor = eDP-1, preferred, auto, 1";
+  # monitors = "monitor = eDP-1, preferred, auto, 1";
+  monitors = {
+    primary = {
+      name = "eDP-1";
+      resolution = "1920x1080";
+      refresh_rate = "60";
+      position = "auto";
+      scaling = "1";
+    };
+    other = [ ];
+  ];
   keyboard = "at-translated-set-2-keyboard";
 in
 {
@@ -14,12 +24,8 @@ in
 
     ../../home-modules/common
 
-    (import ../../home-modules/graphical {
-      monitors = monitors;
-      keyboard = keyboard;
-      pkgs = pkgs;
-      inputs = inputs;
-      config = config;
-    })
+    (import ../../home-modules/graphical
+      { inherit monitors keyboard pkgs inputs config; }
+    )
   ];
 }

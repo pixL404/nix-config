@@ -27,11 +27,9 @@
     sourceFirst = true;
     settings = {
       
-      monitor = [
-        monitors
-        # autodetect
-        ", preferred, auto, 1"
-      ];
+      monitor = import ./modules/monitors.nix { inherit pkgs monitors ; };
+
+      cursor.inactive_timeout = 5.0;
 
       exec-once = import ./modules/autostart.nix {};
 

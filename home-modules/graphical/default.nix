@@ -12,12 +12,8 @@
 
     ./theme.nix
 
-    (import ./hyprland {
-      monitors = monitors;
-      keyboard = keyboard;
-      pkgs = pkgs;
-      inputs = inputs;
-    })
+    (import ./hyprland { inherit pkgs inputs monitors keyboard; })
+
     ./waybar
 
     ./foot.nix
@@ -27,6 +23,8 @@
     inputs.catppuccin.homeManagerModules.catppuccin
 
     ./obs-studio
+
+    (import ./mangohud.nix { inherit pkgs monitors ; })
   ];
 
   services.mpd = {
