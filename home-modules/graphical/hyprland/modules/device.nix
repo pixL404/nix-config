@@ -18,6 +18,12 @@
   }
 
   {
+    name = "kensington-slimblade-pro(2.4ghz-receiver)-kensington-slimblade-pro-trackball(2.4ghz-receiver)";
+    accel_profile = "adaptive";
+    sensitivity = -0.9;
+  }
+
+  {
     name = keyboard;
     kb_layout = "us";
     kb_options = "caps:escape,compose:menu";

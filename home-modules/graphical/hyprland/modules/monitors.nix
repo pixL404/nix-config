@@ -10,7 +10,8 @@ let
     resolution ? "preferred",
     refresh_rate ? "",
     position ? "auto",
-    scaling ? "1" # this has to be a string
+    scaling ? "1", # this has to be a string
+    misc ? []
   }:
   (
     let
@@ -18,7 +19,7 @@ let
         then "${resolution}@${refresh_rate}"
         else "preferred";
     in
-      builtins.concatStringsSep ", " [name res_and_refresh position scaling]
+      builtins.concatStringsSep ", " ([name res_and_refresh position scaling] ++ misc ) 
   );
 in
 lib.mkMerge [
