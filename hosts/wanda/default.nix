@@ -25,6 +25,7 @@
       ../../system-modules/ssh
 
       ../../system-modules/misc/vim.nix
+      ../../system-modules/misc/mouse-remap.nix
 
       ../../system-modules/gaming
       ../../system-modules/wife

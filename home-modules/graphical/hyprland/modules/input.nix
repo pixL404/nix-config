@@ -10,5 +10,6 @@
   };
 
   # from -1.0 to 1.0
-  sensitivity = 0.0;
+  sensitivity = -0.9;
+  accel_profile = "adaptive";
 }
