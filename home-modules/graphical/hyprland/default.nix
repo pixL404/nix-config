@@ -62,6 +62,8 @@
 
       windowrulev2 = import ./modules/windowrules.nix {};
 
+      workspace = import ./modules/workspace.nix { inherit pkgs monitors ; };
+
       "$mainMod" = "SUPER";
       bind = import ./modules/binds.nix {};
 

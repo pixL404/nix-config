@@ -11,13 +11,13 @@
     settings = {
       # stupid name
       device_name = "Kensington SlimBlade Pro(2.4GHz Receiver) Kensington SlimBlade Pro Trackball(2.4GHz Receiver)";
-      phys = "usb-0000:10:00.0-4.1.2/input0";
+      phys = "usb-0000:13:00.4-2.2/input0";
       remap = [
-        # left + right = middle
+        # right + left = middle
         {
           input = [
-            "BTN_LEFT"
             "BTN_RIGHT"
+            "BTN_LEFT"
           ];
           output = [
             "BTN_MIDDLE"

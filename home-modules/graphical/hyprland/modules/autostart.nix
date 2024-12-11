@@ -2,7 +2,7 @@
   ...
 }:
 [
-  "waypaper --restore --backend swww"
+  "waypaper --restore --backend swaybg"
   "waybar"
   "foot --server"
   "lxqt-policykit-agent"

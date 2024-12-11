@@ -11,7 +11,8 @@ let
     refresh_rate ? "",
     position ? "auto",
     scaling ? "1", # this has to be a string
-    misc ? []
+    misc ? [],
+    ...
   }:
   (
     let
