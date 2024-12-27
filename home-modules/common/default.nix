@@ -38,9 +38,9 @@
   };
 
   # use nix-index in favor of basic cnf
-	programs.command-not-found.enable = false;
+	programs.command-not-found.enable = true;
   programs.nix-index = {
-    enable = true;
+    enable = false;
     enableFishIntegration = true;
   };
 }
