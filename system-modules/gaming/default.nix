@@ -17,6 +17,9 @@
     ryujinx
     dolphin-emu
     heroic
+
     lutris
+    wineWow64Packages.unstableFull
+    winetricks
   ];
 }
