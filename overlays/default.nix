@@ -7,18 +7,6 @@
     utillinux = pkgs.util-linux;
   })
 
-  # openrgb
-  (my: pkgs: {
-    openrgb = pkgs.openrgb.overrideAttrs (old: {
-      version = "git";
-      src = pkgs.fetchFromGitLab {
-        owner = "CalcProgrammer1";
-        repo = "OpenRGB";
-        rev = "1a68abc8a074a90f03ef6f164eca37fbdd4cb95b";
-        hash = "sha256-8QXkTxc97JUIdfuBsNb7jRTeidMAeT4znj+FYlOOkYo=";
-      };
-    });
-  })
 
   # waybar
   (my: pkgs: {

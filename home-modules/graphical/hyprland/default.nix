@@ -18,11 +18,6 @@
     # plugins = with inputs.hyprland-contrib.packages.${pkgs.system}; [
     # ];
 
-    catppuccin = {
-      enable = true;
-      # accent = "lavender";
-      # flavor = "frappe";
-    };
 
     sourceFirst = true;
     settings = {

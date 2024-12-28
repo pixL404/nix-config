@@ -8,10 +8,6 @@
     enable = true;
     package = pkgs.foot;
     server.enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "frappe";
-    };
     settings = {
     main = {
         term = "foot";

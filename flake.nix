@@ -2,8 +2,7 @@
   description = "System Flake for my machines";
 
   inputs = {
-    # use my own fork of nixpks temporarily, until PR is merged
-    nixpkgs.url = "github:pixL404/nixpkgs/update-evremap";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {

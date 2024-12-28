@@ -41,11 +41,5 @@
   services.easyeffects.enable = true;
 
   # notification service
-  services.dunst = {
-    enable = true;
-    catppuccin = {
-      enable = true;
-      flavor = "frappe";
-    };
-  };
+  services.dunst.enable = true;
 }
