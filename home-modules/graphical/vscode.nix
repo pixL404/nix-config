@@ -41,6 +41,9 @@
       # ms-python.python
       # ms-python.vscode-pylance
       # ms-python.black-formatter
+
+      haskell.haskell
+      justusadam.language-haskell
     ];
 
     userSettings = {
@@ -98,6 +101,9 @@
       "[python]" = {
         "editor.defaultFormatter" = "ms-python.black-formatter";
       };
+
+      # haskell
+      "haskell.manageHLS" = "PATH";
     };
   };
 }

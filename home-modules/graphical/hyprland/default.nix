@@ -7,9 +7,13 @@
 }:
 {
   # hypr-contrib packages
-  home.packages = with inputs.hyprland-contrib.packages.${pkgs.system}; [
+  home.packages = (with pkgs; [
+    hyprpolkitagent
+    hyprland-qtutils
+  ])
+  ++ (with inputs.hyprland-contrib.packages.${pkgs.system}; [
     grimblast
-  ];
+  ]);
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -17,6 +21,10 @@
 
     # plugins = with inputs.hyprland-contrib.packages.${pkgs.system}; [
     # ];
+
+    plugins = with pkgs.hyprlandPlugins; [
+      hyprscroller
+    ];
 
 
     sourceFirst = true;

@@ -5,7 +5,7 @@
   "waypaper --restore --backend swaybg"
   "waybar"
   "foot --server"
-  "lxqt-policykit-agent"
+  "systemctl --user start hyprpolkitagent"
   "solaar-cli -w hide"
   "blueman-applet"
   "easyeffects --gappliation-service"

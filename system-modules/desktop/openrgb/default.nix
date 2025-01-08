@@ -6,10 +6,10 @@
 {
   boot.kernelModules = [ "i2c-dev" "i2c-piix4" ];
   hardware.i2c.enable = true;
-  services.udev.packages = [ pkgs.openrgb ]; # from overlay
+  services.udev.packages = [ pkgs.openrgb ]; 
   services.hardware.openrgb = {
     enable = true;
-    package = pkgs.openrgb; # from overlay
+    package = pkgs.openrgb; 
     motherboard = "amd";
   };
 
