@@ -14,6 +14,7 @@
 
     (import ./hyprland { inherit pkgs inputs monitors keyboard; })
 
+    ./hyprpanel
     ./waybar
 
     ./foot.nix
@@ -41,5 +42,5 @@
   services.easyeffects.enable = true;
 
   # notification service
-  services.dunst.enable = true;
+  services.dunst.enable = false;
 }

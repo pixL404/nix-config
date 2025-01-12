@@ -27,4 +27,7 @@
   "workspace 3 silent, class:^(vivaldi-stable)$"
   "workspace 3 silent, class:^(vesktop)$"
   "workspace 2 silent, title:^(Steam)$"
+
+  # hide window controls in vscode (equivalent to deprecated option fakefullscreen)
+  "fullscreenstate 0 2, class:^(code)$"
 ]

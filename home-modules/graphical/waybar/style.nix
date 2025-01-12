@@ -12,7 +12,8 @@
 }
 
 window#waybar {
-  background-color: transparent;
+  /* for fancy blur in the back of the bar */
+  background-color: rgba(0,0,0,0.1);
   min-height: 0;
 }
 
@@ -20,7 +21,8 @@ window#waybar {
   background-color: @base;
   padding: 0 1rem;
   margin: 0 1rem;
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-radius: 2rem;
 }
 

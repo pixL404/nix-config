@@ -11,7 +11,7 @@
 
     #programs
     waybar.enable = true;
-    gtk.enable = false; # currently broken?
+    gtk.enable = true;
     kvantum.enable = true;
     hyprland.enable = true;
     foot.enable = true;

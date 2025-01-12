@@ -2,12 +2,12 @@
   ...
 }:
 [
-  "waypaper --restore --backend swaybg"
-  "waybar"
+  "waypaper --restore --backend swaybg --fill fill"
+  # "waybar"
   "foot --server"
   "systemctl --user start hyprpolkitagent"
-  "solaar-cli -w hide"
-  "blueman-applet"
+  # "solaar-cli -w hide"
+  # "blueman-applet"
   "easyeffects --gappliation-service"
 
   "vivaldi"

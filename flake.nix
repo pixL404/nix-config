@@ -36,6 +36,11 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
+
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nixos-hardware, home-manager, nixvim, ... }@inputs:
@@ -47,6 +52,7 @@
       config.allowUnfree = true;
       overlays = [
         inputs.catppuccin-vsc.overlays.default
+        inputs.hyprpanel.overlay
       ]
       ++ (import ./overlays);
     };
