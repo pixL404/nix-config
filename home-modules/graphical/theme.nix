@@ -36,6 +36,6 @@
     gtk.enable = true;
     package = pkgs.pantheon.elementary-gtk-theme;
     name = "elementary";
-    size = 16;
+    size = 24;
   };
 }

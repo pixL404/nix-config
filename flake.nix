@@ -107,5 +107,13 @@
         modules = [ ./hosts/work ];
       };
     };
+
+    # make it pretty :)
+    devShells.${system}.default = pkgs.mkShell {
+      packages = with pkgs; [
+        nixfmt-rfc-style
+        nil
+      ];
+    };
   };
 }

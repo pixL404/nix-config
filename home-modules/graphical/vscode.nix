@@ -18,7 +18,8 @@
 
     extensions = with pkgs.vscode-extensions; [
       mkhl.direnv
-      bbenoist.nix
+
+      jnoortheen.nix-ide
 
       vscodevim.vim
   
@@ -30,6 +31,8 @@
 
       rust-lang.rust-analyzer
       tamasfe.even-better-toml
+
+      vadimcn.vscode-lldb
 
       golang.go
 
@@ -54,6 +57,11 @@
 
       "window.zoomLevel" = 1;
       "window.menuBarVisibility" = "compact";
+
+      # === === === nix ide === === ===
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nil";
+      "nix.formatterPath" = "nixfmt";
 
       # === === === theming === === ===
 

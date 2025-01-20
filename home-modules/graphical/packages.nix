@@ -24,7 +24,5 @@
 
     # open source discord client
     vesktop
-
-    # myxer # from overlay
   ];
 }

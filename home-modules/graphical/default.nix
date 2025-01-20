@@ -9,6 +9,7 @@
 {
   imports = [
     ./packages.nix
+    ./lxqt.nix
 
     ./theme.nix
 

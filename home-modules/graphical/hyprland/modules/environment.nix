@@ -2,7 +2,7 @@
   ...
 }:
 [
-  "XCURSOR_SIZE,20"
+  "XCURSOR_SIZE,24"
   "XCURSOR_THEME,elementary"
   # "GTK_THEME,Catppuccin-Frappe-Standard-Lavender-Dark"
 
