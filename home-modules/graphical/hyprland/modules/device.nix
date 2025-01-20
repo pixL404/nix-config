@@ -14,6 +14,13 @@
     sensitivity = -0.75;
   }
 
+  {
+    name = "etps/2-elantech-touchpad";
+    accel_profile = "adaptive";
+
+    sensitivity = 0;
+  }
+
   # this is unnecessary - evremap changes the name to something dynamic
   # {
   #   name = "kensington-slimblade-pro(2.4ghz-receiver)-kensington-slimblade-pro-trackball(2.4ghz-receiver)";
