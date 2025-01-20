@@ -1,13 +1,7 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   users.users.emmi = {
     isNormalUser = true;
-    packages = with pkgs; [
-      krita
-    ];
+    packages = with pkgs; [ krita ];
   };
 }

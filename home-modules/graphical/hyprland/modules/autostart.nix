@@ -1,6 +1,4 @@
-{
-  ...
-}:
+{ ... }:
 [
   "waypaper --restore --backend swaybg --fill fill"
   # "waybar"

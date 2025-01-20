@@ -10,7 +10,7 @@
       environment.systemPackages = with pkgs; [
         prismlauncher
         # jdk17
-	jdk21
+        jdk21
       ];
     }
 
@@ -37,7 +37,7 @@
               isReadOnly = false;
             };
           };
-          
+
           config = {
             services.minecraft-server = {
               enable = true;
@@ -47,7 +47,7 @@
               dataDir = "/data";
               declarative = false;
             };
-          system.stateVersion = "24.05";
+            system.stateVersion = "24.05";
           };
         };
         fabric-server = {
@@ -69,7 +69,7 @@
               isReadOnly = false;
             };
           };
-          
+
           config = {
             services.minecraft-server = {
               enable = true;
@@ -79,7 +79,7 @@
               dataDir = "/data";
               declarative = false;
             };
-          system.stateVersion = "24.05";
+            system.stateVersion = "24.05";
           };
         };
       };

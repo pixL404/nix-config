@@ -12,7 +12,7 @@ let
 in
 {
   imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
-  
+
   programs.hyprpanel = {
 
     # Enable the module.
@@ -46,9 +46,7 @@ in
             "workspaces"
             "windowtitle"
           ];
-          middle = [
-            "media"
-          ];
+          middle = [ "media" ];
           right = [
             "systray"
             "volume"
@@ -61,12 +59,8 @@ in
           ];
         };
         "*" = {
-          left = [
-            "workspaces"
-          ];
-          middle = [
-            "media"
-          ];
+          left = [ "workspaces" ];
+          middle = [ "media" ];
           right = [
             (ifHost "wanda" "systray")
             "volume"
@@ -86,7 +80,7 @@ in
     settings = {
       bar = {
         launcher.autoDetectIcon = true;
-      
+
         workspaces = {
           show_icons = false;
           show_numbered = true;

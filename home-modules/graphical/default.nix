@@ -13,7 +13,14 @@
 
     ./theme.nix
 
-    (import ./hyprland { inherit pkgs inputs monitors keyboard; })
+    (import ./hyprland {
+      inherit
+        pkgs
+        inputs
+        monitors
+        keyboard
+        ;
+    })
 
     ./hyprpanel
     ./waybar
@@ -26,7 +33,7 @@
 
     ./obs-studio
 
-    (import ./mangohud.nix { inherit pkgs monitors ; })
+    (import ./mangohud.nix { inherit pkgs monitors; })
   ];
 
   services.mpd = {

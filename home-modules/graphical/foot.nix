@@ -1,15 +1,11 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 {
   programs.foot = {
     enable = true;
     package = pkgs.foot;
     server.enable = true;
     settings = {
-    main = {
+      main = {
         term = "foot";
 
         font = "monospace:size=11, font-awesome:size=11, emoji:size=11";

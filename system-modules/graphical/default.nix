@@ -64,9 +64,7 @@
           RememberLastSession = true;
         };
       };
-      extraPackages = with pkgs.libsForQt5; [
-        qt5.qtgraphicaleffects
-      ];
+      extraPackages = with pkgs.libsForQt5; [ qt5.qtgraphicaleffects ];
     };
   };
 
@@ -93,7 +91,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  
+
   # enable support for logitech mice (solaar daemon)
   hardware.logitech.wireless = {
     enable = true;

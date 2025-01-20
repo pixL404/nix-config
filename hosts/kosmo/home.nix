@@ -15,7 +15,7 @@ let
       scaling = "1";
     };
     other = [ ];
-  ];
+  };
   keyboard = "at-translated-set-2-keyboard";
 in
 {
@@ -24,8 +24,14 @@ in
 
     ../../home-modules/common
 
-    (import ../../home-modules/graphical
-      { inherit monitors keyboard pkgs inputs config; }
-    )
+    (import ../../home-modules/graphical {
+      inherit
+        monitors
+        keyboard
+        pkgs
+        inputs
+        config
+        ;
+    })
   ];
 }

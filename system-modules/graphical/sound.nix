@@ -1,9 +1,4 @@
-
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   # Enable sound.
   # can be removed
@@ -16,7 +11,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
-  
+
     # extraConfig.pipewire = {
     #   "99-custom" = {
     #     "context.properties" = {

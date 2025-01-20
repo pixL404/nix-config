@@ -1,13 +1,9 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   # https://github.com/wez/evremap
   services.evremap = {
     enable = true;
-  
+
     settings = {
       # stupid name
       device_name = "Kensington SlimBlade Pro(2.4GHz Receiver) Kensington SlimBlade Pro Trackball(2.4GHz Receiver)";

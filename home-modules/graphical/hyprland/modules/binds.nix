@@ -1,6 +1,4 @@
-{
-  ...
-}:
+{ ... }:
 [
   "$mainMod, T, exec, footclient"
   "= $mainMod, T, exec, xfce4-terminal"
@@ -51,17 +49,21 @@
 
   # Switch workspaces with mainMod + [0-9]
   # Move active window to a workspace with mainMod + SHIFT + [0-9]
-  (builtins.concatStringsSep "\n" (builtins.genList (
-    x: let
-      ws = let
-        c = (x + 1) / 10;
+  (builtins.concatStringsSep "\n" (
+    builtins.genList (
+      x:
+      let
+        ws =
+          let
+            c = (x + 1) / 10;
+          in
+          builtins.toString (x + 1 - (c * 10));
       in
-        builtins.toString (x + 1 - (c * 10));
-    in ''
-      bind = $mainMod, ${ws}, workspace, ${toString (x + 1)}
-      bind = $mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}''
-  )
-  10))
+      ''
+        bind = $mainMod, ${ws}, workspace, ${toString (x + 1)}
+        bind = $mainMod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}''
+    ) 10
+  ))
 
   # cycle next or last workspace with pageup/pagedown
   "$mainMod, NEXT, workspace, r+1"
@@ -104,7 +106,7 @@
   ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-"
   ", XF86AudioMute, exec, wpctl  set-mute @DEFAULT_AUDIO_SINK@ toggle"
   ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-  
+
   # media binds
   ", XF86AudioPrev, exec, playerctl previous"
   ", XF86AudioPlay, exec, playerctl play-pause"

@@ -1,7 +1,4 @@
-{
-  keyboard,
-  ...
-}:
+{ keyboard, ... }:
 [
   {
     name = "logitech-mx-master-2s-1";

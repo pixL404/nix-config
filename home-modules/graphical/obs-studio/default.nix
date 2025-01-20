@@ -7,7 +7,7 @@
 }:
 {
   config = lib.mkMerge [
-    {}
+    { }
 
     (lib.mkIf (osConfig.networking.hostName == "wanda") {
       programs.obs-studio = {
@@ -18,9 +18,7 @@
         ];
       };
 
-      home.packages = with pkgs; [
-        kdePackages.kdenlive
-      ];
+      home.packages = with pkgs; [ kdePackages.kdenlive ];
     })
   ];
 }

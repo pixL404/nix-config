@@ -1,6 +1,4 @@
-{
-  ...
-}:
+{ ... }:
 [
   "XCURSOR_SIZE,24"
   "XCURSOR_THEME,elementary"
@@ -10,7 +8,7 @@
 
   "GDK_BACKEND,wayland,x11,*"
   "QT_QPA_PLATFORM,wayland;xcb"
-  "SDL_VIDEODRIVER,wayland" #disable if games give error
+  "SDL_VIDEODRIVER,wayland" # disable if games give error
   "CLUTTER_BACKEND,wayland"
 
   "XDG_CURRENT_DESKTOP,Hyprland"

@@ -1,11 +1,7 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   programs.adb.enable = true;
-  users.users.alex.extraGroups = ["adbusers"];
+  users.users.alex.extraGroups = [ "adbusers" ];
 
   environment.systemPackages = with pkgs; [
     android-studio

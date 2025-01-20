@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   imports = [
     ./packages.nix
@@ -21,10 +17,9 @@
     gpuOverclock.enable = true;
   };
   boot.modprobeConfig.enable = true;
-  environment.etc."modprobe.d/99-amdgpu-overdrive.conf".text =
-    ''
-      options amdgpu ppfeaturemask=0xFFF7FFFF
-    '';
+  environment.etc."modprobe.d/99-amdgpu-overdrive.conf".text = ''
+    options amdgpu ppfeaturemask=0xFFF7FFFF
+  '';
 
   # keep it commented, incase i need a vm once
   # virtualisation.libvirtd.enable = true;

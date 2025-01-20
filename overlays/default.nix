@@ -1,18 +1,14 @@
 (import ./catppuccin.nix)
-++
-[
+++ [
   # https://github.com/NixOS/nixpkgs/pull/349783
   # https://github.com/nix-community/home-manager/issues/5991
-  (my: pkgs: {
-    utillinux = pkgs.util-linux;
-  })
-
+  (my: pkgs: { utillinux = pkgs.util-linux; })
 
   # waybar
   (my: pkgs: {
     waybar = pkgs.waybar.overrideAttrs (oa: {
-      mesonFlags = (oa.mesonFlags or  []) ++ [ "-Dexperimental=true" ];
-      patches = (oa.patches or []) ++ [
+      mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
+      patches = (oa.patches or [ ]) ++ [
         (pkgs.fetchpatch {
           name = "fix waybar wlr/workspace clicking";
           url = "https://aur.archlinux.org/cgit/aur.git/plain/hyprctl.patch?h=waybar-hyprland-git";
@@ -67,18 +63,16 @@
         sha256 = "sha256-dOAbH1YWrK6rG7C9vv4ySwxZ3e2pLprQ2n4MZMlU1yo=";
       };
 
-      nativeBuildInputs = with pkgs; [
-        json-glib
-      ]
-      ++ old.nativeBuildInputs;
+      nativeBuildInputs = with pkgs; [ json-glib ] ++ old.nativeBuildInputs;
     });
 
     indicator-application-gtk3 = pkgs.indicator-application-gtk3.overrideAttrs (old: {
-      postPatch = ''
-        substituteInPlace data/indicator-application.desktop.in \
-        --replace "OnlyShowIn=Unity;GNOME;" "OnlyShowIn=Unity;GNOME;Pantheon;"
-      ''
-      + (old.postPatch or "");
+      postPatch =
+        ''
+          substituteInPlace data/indicator-application.desktop.in \
+          --replace "OnlyShowIn=Unity;GNOME;" "OnlyShowIn=Unity;GNOME;Pantheon;"
+        ''
+        + (old.postPatch or "");
     });
 
     # TODO: fix not compiling; it needs dependency "switchboard-2.0"
@@ -94,28 +88,28 @@
         sha256 = "sha256-KQ9hFQVopCF5NZXEgUXNw7aS+Z6SqzMCwyxJUjiZMnA=";
       };
 
-        nativeBuildInputs = with pkgs; [
-          meson
-          ninja
-          pkg-config
-          python3
-          vala
-          wrapGAppsHook3
-          pantheon.switchboard
-          json-glib
-          appstream
-        ];
+      nativeBuildInputs = with pkgs; [
+        meson
+        ninja
+        pkg-config
+        python3
+        vala
+        wrapGAppsHook3
+        pantheon.switchboard
+        json-glib
+        appstream
+      ];
 
-        buildInputs = with pkgs; [
-          pantheon.granite
-          gtk3
-          libgee
-          libhandy
-        ];
+      buildInputs = with pkgs; [
+        pantheon.granite
+        gtk3
+        libgee
+        libhandy
+      ];
 
-        passthru = {
-          updateScript = pkgs.nix-update-script { };
-        };
+      passthru = {
+        updateScript = pkgs.nix-update-script { };
+      };
     };
   })
 
@@ -135,8 +129,6 @@
   #       bash
   #       xorg.xinput
   #     ];
-
-
 
   #   }
   # })
@@ -196,12 +188,11 @@
 
   #     # cargoHash = pkgs.lib.fakeHash;
   #     cargoLock.lockFile = "${src}/Cargo.lock";
-      
+
   #     buildInputs = with pkgs; [
   #       gtk3
   #       libpulseaudio
   #     ];
-
 
   #     meta = with pkgs.lib; {
   #       description = "A modern Volume Mixer for PulseAudio, built with you in mind.";

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  home-manager,
-  ...
-}:
+{ pkgs, home-manager, ... }:
 {
   catppuccin = {
     enable = true;

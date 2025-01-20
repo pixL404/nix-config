@@ -10,7 +10,7 @@
     ./packages.nix
   ];
 
-	home = {
+  home = {
     username = "alex";
     homeDirectory = "/home/alex";
 
@@ -38,7 +38,7 @@
   };
 
   # use nix-index in favor of basic cnf
-	programs.command-not-found.enable = true;
+  programs.command-not-found.enable = true;
   programs.nix-index = {
     enable = false;
     enableFishIntegration = true;

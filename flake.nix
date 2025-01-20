@@ -11,7 +11,7 @@
     };
 
     hyprlock = {
-      url =  "github:hyprwm/hyprlock";
+      url = "github:hyprwm/hyprlock";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-contrib = {
@@ -24,7 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # various theming 
+    # various theming
     catppuccin-vsc = {
       url = "github:catppuccin/vscode";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,77 +43,100 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, nixvim, ... }@inputs:
-  let
-    system = "x86_64-linux";
-    inherit (self) outputs;
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [
-        inputs.catppuccin-vsc.overlays.default
-        inputs.hyprpanel.overlay
-      ]
-      ++ (import ./overlays);
-    };
-  in
-  {
-    nixosConfigurations = {
-      # laptop
-      kosmo = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs pkgs system; };
-        modules = [
-          { nixpkgs.hostPlatform = nixpkgs.lib.mkDefault system; }
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixos-hardware,
+      home-manager,
+      nixvim,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      inherit (self) outputs;
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = [
+          inputs.catppuccin-vsc.overlays.default
+          inputs.hyprpanel.overlay
+        ] ++ (import ./overlays);
+      };
+    in
+    {
+      nixosConfigurations = {
+        # laptop
+        kosmo = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit
+              inputs
+              outputs
+              pkgs
+              system
+              ;
+          };
+          modules = [
+            { nixpkgs.hostPlatform = nixpkgs.lib.mkDefault system; }
 
-          ./hosts/kosmo 
+            ./hosts/kosmo
 
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.alex = import ./hosts/kosmo/home.nix;
-              extraSpecialArgs = { inherit inputs system pkgs ; };
-              backupFileExtension = "bkp";
-           };
-          }
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.alex = import ./hosts/kosmo/home.nix;
+                extraSpecialArgs = { inherit inputs system pkgs; };
+                backupFileExtension = "bkp";
+              };
+            }
+          ];
+        };
+
+        # desktop PC
+        wanda = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit
+              inputs
+              outputs
+              pkgs
+              system
+              ;
+          };
+          modules = [
+            { nixpkgs.hostPlatform = nixpkgs.lib.mkDefault system; }
+
+            ./hosts/wanda
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.alex = import ./hosts/wanda/home.nix;
+                extraSpecialArgs = { inherit inputs system pkgs; };
+                backupFileExtension = "bkp";
+              };
+            }
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        work = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/work ];
+        };
+      };
+
+      # make it pretty :)
+      devShells.${system}.default = pkgs.mkShell {
+        packages = with pkgs; [
+          nixfmt-rfc-style
+          nil
         ];
       };
-
-      # desktop PC
-      wanda = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs pkgs system; };
-        modules = [
-          { nixpkgs.hostPlatform = nixpkgs.lib.mkDefault system; }
-        
-          ./hosts/wanda
-
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.alex = import ./hosts/wanda/home.nix;
-              extraSpecialArgs = { inherit inputs system pkgs ; };
-              backupFileExtension = "bkp";
-           };
-          }
-        ];
-      };
     };
-
-    homeConfigurations = {
-      work = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit inputs outputs; };
-        modules = [ ./hosts/work ];
-      };
-    };
-
-    # make it pretty :)
-    devShells.${system}.default = pkgs.mkShell {
-      packages = with pkgs; [
-        nixfmt-rfc-style
-        nil
-      ];
-    };
-  };
 }

@@ -1,6 +1,4 @@
-{
-  ...
-}:
+{ ... }:
 [
   "float, class:^(lxqt-policykit-agent)"
   "float, title:^(MainPicker)$"

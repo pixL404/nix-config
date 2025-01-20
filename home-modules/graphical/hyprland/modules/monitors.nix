@@ -5,27 +5,38 @@
   ...
 }:
 let
-  create_monitor_string = {
-    name ? "",
-    resolution ? "preferred",
-    refresh_rate ? "",
-    position ? "auto",
-    scaling ? "1", # this has to be a string
-    misc ? [],
-    ...
-  }:
-  (
-    let
-      res_and_refresh = if refresh_rate != "" && resolution != "preferred"
-        then "${resolution}@${refresh_rate}"
-        else "preferred";
-    in
-      builtins.concatStringsSep ", " ([name res_and_refresh position scaling] ++ misc ) 
-  );
+  create_monitor_string =
+    {
+      name ? "",
+      resolution ? "preferred",
+      refresh_rate ? "",
+      position ? "auto",
+      scaling ? "1", # this has to be a string
+      misc ? [ ],
+      ...
+    }:
+    (
+      let
+        res_and_refresh =
+          if refresh_rate != "" && resolution != "preferred" then
+            "${resolution}@${refresh_rate}"
+          else
+            "preferred";
+      in
+      builtins.concatStringsSep ", " (
+        [
+          name
+          res_and_refresh
+          position
+          scaling
+        ]
+        ++ misc
+      )
+    );
 in
 lib.mkMerge [
   # other monitors
-  ( builtins.map create_monitor_string monitors.other )
+  (builtins.map create_monitor_string monitors.other)
 
   [
     # primary monitor

@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   programs.fish = {
     enable = true;
@@ -11,9 +7,9 @@
       set -U fish_key_bindings fish_hybrid_key_bindings
     '';
     shellAbbrs = {
-     sysrebuild = "sudo nixos-rebuild switch --flake $HOME/nix-config/#$hostname";
-     sysupdate = "nix flake update --flake $HOME/nix-config";
-     homerebuild = "home-manager switch --flake $HOME/nix-config/#work";
+      sysrebuild = "sudo nixos-rebuild switch --flake $HOME/nix-config/#$hostname";
+      sysupdate = "nix flake update --flake $HOME/nix-config";
+      homerebuild = "home-manager switch --flake $HOME/nix-config/#work";
     };
     functions = {
       fish_prompt = {
@@ -25,16 +21,16 @@
           printf '%s' $USER
           set_color normal
           printf ' at '
-        
+
           set_color magenta
           echo -n (prompt_hostname)
           set_color normal
           printf ' in '
-        
+
           set_color $fish_color_cwd
           printf '%s' (prompt_pwd)
           set_color normal
-        
+
           # Line 2
           echo
           if test -n "$VIRTUAL_ENV"
@@ -50,33 +46,33 @@
           if test $cmd_status -ne 0
               echo -n (set_color red)"✘ $cmd_status"
           end
-        
+
           if not command -sq git
               set_color normal
               return
           end
-        
+
           # Get the git directory for later use.
           # Return if not inside a Git repository work tree.
           if not set -l git_dir (command git rev-parse --git-dir 2>/dev/null)
               set_color normal
               return
           end
-        
+
           # Get the current action ("merge", "rebase", etc.)
           # and if there's one get the current commit hash too.
           set -l commit ' '
           if set -l action (fish_print_git_action "$git_dir")
               set commit (command git rev-parse HEAD 2> /dev/null | string sub -l 7)
           end
-        
+
           # Get either the branch name or a branch descriptor.
           set -l branch_detached 0
           if not set -l branch (command git symbolic-ref --short HEAD 2>/dev/null)
               set branch_detached 1
               set branch (command git describe --contains --all HEAD 2>/dev/null)
           end
-        
+
           # Get the commit difference counts between local and remote.
           command git rev-list --count --left-right 'HEAD...@{upstream}' 2>/dev/null \
               | read -d \t -l status_ahead status_behind
@@ -84,7 +80,7 @@
               set status_ahead 0
               set status_behind 0
           end
-        
+
           # Get the stash status.
           # (git stash list) is very slow. => Avoid using it.
           set -l status_stashed 0
@@ -96,7 +92,7 @@
                   set status_stashed 1
               end
           end
-        
+
           # git-status' porcelain v1 format starts with 2 letters on each line:
           #   The first letter (X) denotes the index state.
           #   The second letter (Y) denotes the working directory state.
@@ -133,7 +129,7 @@
           #  ?  |    |    |    | m  | r  | m  | u  |    |    | t  |
           #  _  |    |    | d  | m  | r  | m  | u  |    |    |    |
           set -l porcelain_status (command git status --porcelain | string sub -l2)
-        
+
           set -l status_added 0
           if string match -qr '[ACDMT][ MT]|[ACMT]D' $porcelain_status
               set status_added 1
@@ -158,9 +154,9 @@
           if string match -qe '\?\?' $porcelain_status
               set status_untracked 1
           end
-        
+
           set_color -o
-        
+
           if test -n "$branch"
               if test $branch_detached -ne 0
                   set_color brmagenta
@@ -203,7 +199,7 @@
           if test $status_untracked -ne 0
               echo -n ' '(set_color white)'◼'
           end
-        
+
           set_color normal
         '';
       };

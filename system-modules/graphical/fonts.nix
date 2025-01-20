@@ -1,9 +1,4 @@
-
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   fonts = {
     packages = with pkgs; [

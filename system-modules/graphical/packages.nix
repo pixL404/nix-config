@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 let
   catppuccin-sddm = inputs.sddm-catppuccin.defaultPackage.${pkgs.hostPlatform.system};
 in
@@ -19,7 +15,7 @@ in
     hunspell
     hunspellDicts.de_AT
     hunspellDicts.en_US
-  
+
     xdg-desktop-portal-gtk
     cliphist
     wl-clipboard

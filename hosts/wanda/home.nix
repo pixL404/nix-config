@@ -16,7 +16,7 @@ let
       misc = [
         "bitdepth, 10"
         "vrr, 2" # vrr 2 => fullscreen only
-      ]; 
+      ];
     };
     other = [
       {
@@ -38,8 +38,14 @@ in
   imports = [
     ../../home-modules/common
 
-    (import ../../home-modules/graphical
-      { inherit monitors keyboard pkgs inputs config; }
-    )
+    (import ../../home-modules/graphical {
+      inherit
+        monitors
+        keyboard
+        pkgs
+        inputs
+        config
+        ;
+    })
   ];
 }

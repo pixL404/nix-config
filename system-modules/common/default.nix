@@ -1,17 +1,14 @@
-{ 
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
 {
-  imports = [
-    ./packages.nix
-  ];
+  imports = [ ./packages.nix ];
 
   # enable nix flakes
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
     # allow remote rebuilding
     trusted-users = [ "@wheel" ];
   };
@@ -20,7 +17,14 @@
   boot = {
     consoleLogLevel = 0;
     initrd.verbose = false;
-    kernelParams = [ "quiet" "splash" "rd.systemd.show_status=false" "rd.udev.log_level=3" "udev.log_priority=3" "boot.shell_on_fail" ];
+    kernelParams = [
+      "quiet"
+      "splash"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+      "boot.shell_on_fail"
+    ];
     plymouth.enable = true;
 
     loader = {
@@ -42,9 +46,7 @@
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    supportedLocales = [
-      "all"
-    ];
+    supportedLocales = [ "all" ];
     extraLocaleSettings = {
       LC_TIME = "de_AT.UTF-8";
     };
@@ -54,7 +56,7 @@
   networking.networkmanager.insertNameservers = [
     "1.1.1.1"
     "1.0.0.1"
-    "2606:4700:4700::1111" 
+    "2606:4700:4700::1111"
     "2606:4700:4700::1001"
   ];
 

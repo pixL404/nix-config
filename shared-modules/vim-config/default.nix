@@ -1,10 +1,6 @@
+{ pkgs, inputs, ... }:
 {
-	pkgs,
-  inputs,
-	...
-}:
-{
-	  programs.nixvim = {
+  programs.nixvim = {
     enable = true;
 
     viAlias = true;
@@ -52,7 +48,6 @@
       # showmode = true;
 
       # incsearch = true;
-
 
     };
   };

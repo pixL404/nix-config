@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   programs.waybar = {
     enable = true;
@@ -14,7 +11,7 @@
         fixed-center = true;
         spacing = 0; # set in css
         margin = "0";
-#        height = 30; 
+        #        height = 30;
 
         modules-left = [
           "hyprland/workspaces"
@@ -25,7 +22,7 @@
 
         modules-right = [
           "tray"
-          
+
           "network"
           "wireplumber"
           "backlight"
@@ -33,7 +30,7 @@
           "clock"
           "group/power"
         ];
-        
+
         "hyprland/workspaces" = {
           active-only = false;
           format = "{icon}";
@@ -48,10 +45,10 @@
             "default" = "";
           };
           persistent-workspaces = {
-            "1" = [];
-            "2" = [];
-            "3" = [];
-            "4" = [];
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
+            "4" = [ ];
           };
         };
 
@@ -75,14 +72,14 @@
           ];
           dynamic-len = 50;
         };
-          
+
         "wlr/taskbar" = {
-            format = "{icon}";
-            icon-size = 20;
-            # icon-theme = "Numix-Circle";
-            tooltip-format = "{title}";
-            on-click = "activate";
-            on-click-middle = "close";
+          format = "{icon}";
+          icon-size = 20;
+          # icon-theme = "Numix-Circle";
+          tooltip-format = "{title}";
+          on-click = "activate";
+          on-click-middle = "close";
         };
 
         "tray" = {
@@ -98,10 +95,10 @@
             mode = "month";
             #weeks-pos = "left";
             on-scroll = 1;
-#            format = {
-#              weeks = "{:%U}";
-#              weekdays = "   Mo,Tu,We,Th,Fr,Sa,Su";
-#            };
+            #            format = {
+            #              weeks = "{:%U}";
+            #              weekdays = "   Mo,Tu,We,Th,Fr,Sa,Su";
+            #            };
           };
           actions = {
             on-click = "mode";
@@ -150,14 +147,14 @@
           exec = "echo '\nhibernate'";
           exec-on-event = false;
         };
-#        "custom/lock" = {
-#          format = " {} ";
-#          tooltip = true;
-#          on-click = "swaylock";
-#          interval = "once";
-#          exec = "echo '\nlock'";
-#          exec-on-event = false;
-#        };
+        #        "custom/lock" = {
+        #          format = " {} ";
+        #          tooltip = true;
+        #          on-click = "swaylock";
+        #          interval = "once";
+        #          exec = "echo '\nlock'";
+        #          exec-on-event = false;
+        #        };
         "custom/reboot" = {
           format = " {} ";
           tooltip = true;

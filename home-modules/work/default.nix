@@ -5,8 +5,8 @@
   ...
 }:
 {
-	imports = [
-		./packages.nix
-		./vim.nix
-	];
+  imports = [
+    ./packages.nix
+    ./vim.nix
+  ];
 }

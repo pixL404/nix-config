@@ -1,4 +1,4 @@
-{ 
+{
   config,
   pkgs,
   lib,
@@ -12,9 +12,18 @@
   ];
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "nvme"
+      "usb_storage"
+      "sd_mod"
+      "rtsx_pci_sdmmc"
+    ];
     initrd.kernelModules = [ ];
-    kernelModules = [ "coretemp" "kvm-intel" ];
+    kernelModules = [
+      "coretemp"
+      "kvm-intel"
+    ];
     extraModulePackages = [ ];
     tmp.useTmpfs = true;
   };
@@ -36,33 +45,31 @@
     enable = true;
     settings = {
       battery = {
-         governor = "powersave";
-         turbo = "never";
+        governor = "powersave";
+        turbo = "never";
       };
       charger = {
-         governor = "performance";
-         turbo = "auto";
+        governor = "performance";
+        turbo = "auto";
       };
     };
   };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/nix_root";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nix_root";
+    fsType = "ext4";
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-label/nix_home";
-      fsType = "btrfs";
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/nix_home";
+    fsType = "btrfs";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/boot";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/boot";
+    fsType = "vfat";
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-label/swap"; }
-    ];
+  swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 
 }

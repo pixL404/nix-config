@@ -1,10 +1,6 @@
+{ config, pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}:
-{
-    environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     amdgpu_top
     lact
     amdvlk

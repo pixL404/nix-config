@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   programs.vscode = {
     enable = true;
@@ -22,7 +19,7 @@
       jnoortheen.nix-ide
 
       vscodevim.vim
-  
+
       # theming
       catppuccin.catppuccin-vsc-icons
       pkgs.catppuccin-vsc # from overlay
@@ -72,7 +69,7 @@
       "editor.semanticHighlighting.enabled" = true;
       # prevent VSCode from modifying the terminal colors
       "terminal.integrated.minimumContrastRatio" = 1;
-      
+
       "files.autoSave" = "onFocusChange";
 
       "editor.fontFamily" = "'FontAwesome', 'JetBrains Mono','monospace', monospace";
@@ -87,7 +84,7 @@
       "editor.cursorSurroundingLines" = 10;
       # enable remapping of caps to esc
       "keyboard.dispatch" = "keyCode";
-      
+
       # git
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
@@ -104,7 +101,7 @@
       "[nix]" = {
         "editor.tabSize" = 2;
       };
-      
+
       #py
       "[python]" = {
         "editor.defaultFormatter" = "ms-python.black-formatter";
