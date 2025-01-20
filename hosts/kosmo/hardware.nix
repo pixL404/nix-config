@@ -41,8 +41,9 @@
 
   # laptop power saving options
   powerManagement.enable = true;
+  # disable in favor of power-profiles-daemon
   services.auto-cpufreq = {
-    enable = true;
+    enable = false;
     settings = {
       battery = {
         governor = "powersave";

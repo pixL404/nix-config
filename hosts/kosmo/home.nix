@@ -20,8 +20,6 @@ let
 in
 {
   imports = [
-    inputs.hyprlock.homeManagerModules.default
-
     ../../home-modules/common
 
     (import ../../home-modules/graphical {

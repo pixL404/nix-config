@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 [
   "waypaper --restore --backend swaybg --fill fill"
   # "waybar"
@@ -11,6 +11,8 @@
   "vivaldi"
   "steam"
   "vesktop"
+
+  "${pkgs.hyprpanel}/bin/hyprpanel"
 
   # clipboard
   "wl-paste --type text --watch cliphist store"

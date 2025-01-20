@@ -30,7 +30,7 @@
 
       cursor.inactive_timeout = 5.0;
 
-      exec-once = import ./modules/autostart.nix { };
+      exec-once = import ./modules/autostart.nix { inherit pkgs; };
 
       env = import ./modules/environment.nix { };
 

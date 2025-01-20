@@ -19,11 +19,8 @@ in
     # Default: false
     enable = true;
 
-    # Automatically restart HyprPanel with systemd.
-    # Useful when updating your config so that you
-    # don't need to manually restart it.
-    # Default: false
-    systemd.enable = true;
+    # deprecated
+    # systemd.enable = true;
 
     # Add '/nix/store/.../hyprpanel' to your
     # Hyprland config 'exec-once'.

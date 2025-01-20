@@ -7,7 +7,7 @@
     #appendNameServers = [];
   };
   # enable intel video drivers
-  services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = [ "modesetting" ];
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 }
