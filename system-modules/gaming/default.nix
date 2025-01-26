@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     ryujinx
     dolphin-emu
-    # heroic
+    heroic
 
     lutris
     wineWow64Packages.unstableFull
