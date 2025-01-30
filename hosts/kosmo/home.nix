@@ -10,9 +10,9 @@ let
     primary = {
       name = "eDP-1";
       resolution = "1920x1080";
-      refresh_rate = "60";
+      refresh_rate = 60;
       position = "auto";
-      scaling = "1";
+      scaling = 1.0;
     };
     other = [ ];
   };

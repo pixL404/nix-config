@@ -1,9 +1,12 @@
 {
+  config,
   pkgs,
   lib ? pkgs.lib,
-  monitors ? { },
   ...
 }:
+let
+  monitors = config.hardwareConf.monitors;
+in
 {
   programs.mangohud = {
     enable = true;

@@ -1,4 +1,32 @@
-{ ... }:
+{
+  pkgs,
+  lib ? pkgs.lib,
+  osConfig,
+  ...
+}:
+let
+  enable-hdr = pkgs.writeShellApplication {
+    name = "enable-hdr";
+    runtimeInputs = with pkgs; [
+      hyprland
+      gawk
+      coreutils
+    ];
+    text = ''
+      HDR_STATUS=$(hyprctl getoption experimental:hdr | awk '{print $2}' | head -n 1)
+
+      if [[ $HDR_STATUS = 0 ]]; then
+        notify-send "enabling HDR"
+        hyprctl keyword experimental:wide_color_gamut true
+        hyprctl keyword experimental:hdr true
+      else
+        notify-send "disabling HDR"
+        hyprctl keyword experimental:wide_color_gamut false
+        hyprctl keyword experimental:hdr false
+      fi
+    '';
+  };
+in
 [
   "$mainMod, T, exec, footclient"
   "= $mainMod, T, exec, xfce4-terminal"
@@ -114,4 +142,7 @@
 
   # screen lock
   "$mainMod ALT, L, exec, hyprlock"
+
+  # enable HDR only on desktop
+  (lib.mkIf (osConfig.networking.hostName == "wanda") "$mainMod ALT, H, exec, ${enable-hdr}/bin/enable-hdr")
 ]

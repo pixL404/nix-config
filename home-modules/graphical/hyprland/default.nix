@@ -1,10 +1,14 @@
 {
+  config,
   pkgs,
   inputs,
-  monitors,
-  keyboard,
+  osConfig,
   ...
 }:
+let
+  monitors = config.hardwareConf.monitors;
+  keyboard = config.hardwareConf.keyboard;
+in
 {
   # hypr-contrib packages
   home.packages =
@@ -21,7 +25,8 @@
     # plugins = with inputs.hyprland-contrib.packages.${pkgs.system}; [
     # ];
 
-    plugins = with pkgs.hyprlandPlugins; [ hyprscroller ];
+    # TODO: wait for hyprscroller update to 0.47.
+    # plugins = with pkgs.hyprlandPlugins; [ hyprscroller ];
 
     sourceFirst = true;
     settings = {
@@ -62,7 +67,7 @@
       workspace = import ./modules/workspace.nix { inherit pkgs monitors; };
 
       "$mainMod" = "SUPER";
-      bind = import ./modules/binds.nix { };
+      bind = import ./modules/binds.nix { inherit pkgs osConfig; };
 
       bindm = [
         # Mov./modules/resize windows with mainMod + LM./modules/RMB and dragging

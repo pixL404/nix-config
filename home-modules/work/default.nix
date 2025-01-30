@@ -2,7 +2,7 @@
   config,
   pkgs,
   home-manager,
-	lib ? pkgs.lib,
+  lib ? pkgs.lib,
   ...
 }:
 {

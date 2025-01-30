@@ -21,5 +21,7 @@
 
     # open source discord client
     vesktop
+
+    mpv
   ];
 }

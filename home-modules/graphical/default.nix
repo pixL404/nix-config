@@ -1,26 +1,20 @@
 {
   config,
   pkgs,
-  monitors,
-  keyboard,
   inputs,
+  osConfig,
   ...
 }:
 {
   imports = [
+    ./vars.nix
+
     ./packages.nix
     ./lxqt.nix
 
     ./theme.nix
 
-    (import ./hyprland {
-      inherit
-        pkgs
-        inputs
-        monitors
-        keyboard
-        ;
-    })
+    ./hyprland
 
     ./hyprpanel
     ./waybar
@@ -33,7 +27,7 @@
 
     ./obs-studio
 
-    (import ./mangohud.nix { inherit pkgs monitors; })
+    ./mangohud.nix
   ];
 
   services.mpd = {
