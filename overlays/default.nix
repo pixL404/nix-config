@@ -113,94 +113,33 @@
     };
   })
 
-  # (my: pkgs: {
-  #   palmreject = pkgs.stenv.mkDerivation {
-  #     pname = "palmreject";
-  #     name = "palmreject";
+  (my: pkgs: {
+    zen = let 
+      pname = "zen";
+      version = "1.7.4b";
 
-  #     src = pkgs.fetchFromGitHub {
-  #       owner = "olofmogren";
-  #       repo = "palmreject";
-  #       rev = "master";
-  #       # hash = "sha256-TdHUJ7ufP3fgV+OrMu+m0hdpG3zwnBIZKJFaHhlO+1M=";
-  #     };
+      src = pkgs.fetchurl {
+        url = "https://github.com/zen-browser/desktop/releases/download/${version}/${pname}-x86_64.AppImage";
+        hash = "sha256-Ub7sQEP9W8kD311/UOkzdZ1DJ4qjgBXyJmndLiA4Vl4=";
+      };
+      
+      appimageContents = pkgs.appimageTools.extract {
+        inherit pname version src;
+        postExtract = ''
+          substituteInPlace $out/${pname}.desktop --replace-fail 'Exec=zen %u' 'Exec=${pname} %u'
+        '';
+      };
+    in 
+    pkgs.appimageTools.wrapType2 {
+      inherit pname version src;
 
-  #     nativeBuildInputs = with pkgs; [
-  #       bash
-  #       xorg.xinput
-  #     ];
-
-  #   }
-  # })
-
-  # (my: pkgs: {
-  #   hyprscroller = pkgs.stdenv.mkDerivation {
-  #     pname = "hyprscroller";
-  #     name = "hyprscroller";
-
-  #     # CXX = "${pkgs.cmake}/bin/cmake";
-
-  #     nativeBuildInputs = with pkgs; [
-  #       cmake
-  #       pkg-config
-  #       makeWrapper
-  #     ];
-
-  #     buildInputs = with pkgs; [
-  #       hyprland #TODO: use hyprland from flake inputs
-
-  #       wayland
-  #       wlroots
-
-  #       libxkbcommon
-  #       libGL
-  #       libinput
-  #       libdrm
-  #       pixman
-  #     ];
-
-  #     C_INCLUDE_PATH = "${pkgs.hyprland}/include";
-
-  #     buildPhase = ''
-  #       make all
-  #     '';
-
-  #     src = pkgs.fetchFromGitHub {
-  #       owner = "dawsers";
-  #       repo = "hyprscroller";
-  #       rev = "master";
-  #       hash = "sha256-eKmnhvdDUXNU1dUE67L3F/Gcne4QIoRkTKJ+H0Eiqkg=";
-  #     };
-  #   };
-  # })
-
-  # (my: pkgs: {
-  #   myxer = pkgs.rustPlatform.buildRustPackage rec {
-  #     pname = "myxer";
-  #     version = "1.2.1";
-
-  #     src = pkgs.fetchFromGitHub {
-  #       owner = "VixenUtils";
-  #       repo = "Myxer";
-  #       rev = version;
-  #       hash = "sha256-PT57BLNQhj9v/auoyDgGF4gqDQ7jriPB1sp70uu/0C4=";
-  #     };
-
-  #     # cargoHash = pkgs.lib.fakeHash;
-  #     cargoLock.lockFile = "${src}/Cargo.lock";
-
-  #     buildInputs = with pkgs; [
-  #       gtk3
-  #       libpulseaudio
-  #     ];
-
-  #     meta = with pkgs.lib; {
-  #       description = "A modern Volume Mixer for PulseAudio, built with you in mind.";
-  #       homepage = "https://github.com/VixenUtils/Myxer/tree/master";
-  #       license = licenses.gpl3;
-  #       maintainers = [ "me" ];
-  #       mainProgram = "myxer";
-  #     };
-  #   };
-  # })
+      extraInstallCommands = ''
+        install -m 444 -D ${appimageContents}/${pname}.desktop $out/share/applications/${pname}.desktop
+        install -m 444 -D ${appimageContents}/usr/share/icons/hicolor/128x128/apps/${pname}.png \
+        $out/share/icons/hicolor/128x128/apps/${pname}.png
+      '';
+    };
+    
+    
+  })
 ]

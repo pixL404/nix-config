@@ -45,4 +45,10 @@
 
   # notification service
   services.dunst.enable = false;
+
+  # email
+  programs.thunderbird = {
+    enable = true;
+    package = pkgs.thunderbird-latest;
+  };
 }

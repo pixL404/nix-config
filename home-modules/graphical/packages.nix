@@ -4,6 +4,8 @@
     vivaldi
     vivaldi-ffmpeg-codecs
 
+    zen
+
     libnotify
 
     # is this only working for laptop integrated monitors?
