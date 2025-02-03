@@ -26,6 +26,7 @@
 
     ../../system-modules/misc/vim.nix
     ../../system-modules/misc/mouse-remap.nix
+    ../../system-modules/misc/ollama.nix
 
     ../../system-modules/gaming
     ../../system-modules/wife
