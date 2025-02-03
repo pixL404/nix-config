@@ -5,6 +5,7 @@
     vivaldi-ffmpeg-codecs
 
     zen
+    thunderbird-latest
 
     libnotify
 
