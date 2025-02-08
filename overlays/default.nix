@@ -116,11 +116,11 @@
   (my: pkgs: {
     zen = let 
       pname = "zen";
-      version = "1.7.4b";
+      version = "1.7.6b";
 
       src = pkgs.fetchurl {
         url = "https://github.com/zen-browser/desktop/releases/download/${version}/${pname}-x86_64.AppImage";
-        hash = "sha256-Ub7sQEP9W8kD311/UOkzdZ1DJ4qjgBXyJmndLiA4Vl4=";
+        hash = "sha256-GJuxooMV6h3xoYB9hA9CaF4g7JUIJ2ck5/hiQp89Y5o=";
       };
       
       appimageContents = pkgs.appimageTools.extract {
