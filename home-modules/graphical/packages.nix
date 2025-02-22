@@ -23,7 +23,12 @@
     lxqt.pavucontrol-qt
 
     # open source discord client
-    vesktop
+    (vesktop.override {
+      vencord = pkgs.vencord;
+      withSystemVencord = true;
+      electron = pkgs.electron_33;
+    })
+
 
     mpv
   ];

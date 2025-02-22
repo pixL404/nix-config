@@ -80,7 +80,7 @@
             home-manager.nixosModules.home-manager
             {
               home-manager = {
-                useGlobalPkgs = true;
+                # useGlobalPkgs = false;
                 useUserPackages = true;
                 users.alex = import ./hosts/kosmo/home.nix;
                 extraSpecialArgs = { inherit inputs system pkgs; };
@@ -108,7 +108,7 @@
             home-manager.nixosModules.home-manager
             {
               home-manager = {
-                useGlobalPkgs = true;
+                useGlobalPkgs = false;
                 useUserPackages = true;
                 users.alex = import ./hosts/wanda/home.nix;
                 extraSpecialArgs = { inherit inputs system pkgs; };

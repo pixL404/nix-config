@@ -47,6 +47,7 @@
     vesktop = pkgs.vesktop.override {
       vencord = pkgs.vencord;
       withSystemVencord = true;
+      electron = pkgs.electron;
     };
   })
 

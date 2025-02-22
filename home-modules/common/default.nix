@@ -29,6 +29,7 @@
   };
   programs.zellij = {
     enable = true;
+    enableFishIntegration = false;
   };
 
   programs.direnv = {

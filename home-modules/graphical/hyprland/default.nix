@@ -18,6 +18,13 @@ in
     ])
     ++ (with inputs.hyprland-contrib.packages.${pkgs.system}; [ grimblast ]);
 
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    configPackages = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -74,6 +81,11 @@ in
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
       ];
+
+      # experimental = {
+      #   xx_color_management_v4 = true;
+      #   wide_color_gamut = true;
+      # };
 
     };
     extraConfig = import ./modules/extra.nix;
