@@ -44,6 +44,9 @@
 
       haskell.haskell
       justusadam.language-haskell
+
+      dart-code.flutter
+      dart-code.dart-code
     ];
 
     userSettings = {
@@ -59,6 +62,13 @@
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nil";
       "nix.formatterPath" = "nixfmt";
+      "nix.serverSettings" = {
+        "nil" = {
+          "formatting" = {
+            "command" = [ "nixfmt" ];
+          };
+        };
+      };
 
       # === === === theming === === ===
 
@@ -100,6 +110,8 @@
       #nix
       "[nix]" = {
         "editor.tabSize" = 2;
+      "editor.defaultFormatter" = "jnoortheen.nix-ide";
+        "editor.formatOnSave" = true;
       };
 
       #py
@@ -109,6 +121,9 @@
 
       # haskell
       "haskell.manageHLS" = "PATH";
+
+      # flutter
+      "dart.checkForSdkUpdates" = false;
     };
   };
 }

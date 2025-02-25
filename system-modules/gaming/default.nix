@@ -8,9 +8,12 @@
     # ./dbsz-test.nix
   ];
 
+  services.flatpak.enable = true;
+
   # programs/launcher without special needs
   environment.systemPackages = with pkgs; [
-    ryujinx
+    # ryujinx
+    ryubing
     dolphin-emu
     heroic
 
