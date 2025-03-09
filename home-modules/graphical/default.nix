@@ -30,11 +30,11 @@
     ./mangohud.nix
   ];
 
-  services.mpd = {
-    enable = true;
-    musicDirectory = "/data/music";
-  };
-  services.mpd-mpris.enable = true;
+  # services.mpd = {
+  #   enable = true;
+  #   musicDirectory = "/data/music";
+  # };
+  # services.mpd-mpris.enable = true;
   services.mpris-proxy.enable = true;
 
   # open source rich presence server

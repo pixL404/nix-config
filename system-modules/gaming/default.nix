@@ -15,6 +15,8 @@
     # ryujinx
     ryubing
     dolphin-emu
+    rpcs3
+
     heroic
 
     lutris
