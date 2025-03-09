@@ -3,8 +3,6 @@
   programs.vscode = {
     enable = true;
 
-    # enable extension updates inside vscode
-    enableExtensionUpdateCheck = true;
     # prevent installing of extensions inside vscode
     mutableExtensionsDir = false;
 
@@ -13,117 +11,122 @@
 
     package = pkgs.vscode;
 
-    extensions = with pkgs.vscode-extensions; [
-      mkhl.direnv
+    profiles.default = {
+      # enable extension updates inside vscode
+      enableExtensionUpdateCheck = true;
 
-      jnoortheen.nix-ide
+      extensions = with pkgs.vscode-extensions; [
+        mkhl.direnv
 
-      vscodevim.vim
+        jnoortheen.nix-ide
 
-      # theming
-      catppuccin.catppuccin-vsc-icons
-      pkgs.catppuccin-vsc # from overlay
+        vscodevim.vim
 
-      # language support
+        # theming
+        catppuccin.catppuccin-vsc-icons
+        pkgs.catppuccin-vsc # from overlay
 
-      rust-lang.rust-analyzer
-      tamasfe.even-better-toml
+        # language support
 
-      vadimcn.vscode-lldb
+        rust-lang.rust-analyzer
+        tamasfe.even-better-toml
 
-      golang.go
+        vadimcn.vscode-lldb
 
-      # ms-dotnettools.csharp
-      # ms-dotnettools.csdevkit
+        golang.go
 
-      james-yu.latex-workshop
+        # ms-dotnettools.csharp
+        # ms-dotnettools.csdevkit
 
-      # ms-python.python
-      # ms-python.vscode-pylance
-      # ms-python.black-formatter
+        james-yu.latex-workshop
 
-      haskell.haskell
-      justusadam.language-haskell
+        # ms-python.python
+        # ms-python.vscode-pylance
+        # ms-python.black-formatter
 
-      dart-code.flutter
-      dart-code.dart-code
-    ];
+        haskell.haskell
+        justusadam.language-haskell
 
-    userSettings = {
-      "telemetry.telemetryLevel" = "off";
+        dart-code.flutter
+        dart-code.dart-code
+      ];
 
-      # workaround for wayland native electron apps
-      "window.titleBarStyle" = "custom";
+      userSettings = {
+        "telemetry.telemetryLevel" = "off";
 
-      "window.zoomLevel" = 1;
-      "window.menuBarVisibility" = "compact";
+        # workaround for wayland native electron apps
+        "window.titleBarStyle" = "custom";
 
-      # === === === nix ide === === ===
-      "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nil";
-      "nix.formatterPath" = "nixfmt";
-      "nix.serverSettings" = {
-        "nil" = {
-          "formatting" = {
-            "command" = [ "nixfmt" ];
+        "window.zoomLevel" = 1;
+        "window.menuBarVisibility" = "compact";
+
+        # === === === nix ide === === ===
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nil";
+        "nix.formatterPath" = "nixfmt";
+        "nix.serverSettings" = {
+          "nil" = {
+            "formatting" = {
+              "command" = [ "nixfmt" ];
+            };
           };
         };
+
+        # === === === theming === === ===
+
+        "catppuccin.accentColor" = "lavender";
+        "workbench.colorTheme" = "Catppuccin Frappé";
+        "workbench.iconTheme" = "catppuccin-frappe";
+        # we try to make semantic highlighting look good
+        "editor.semanticHighlighting.enabled" = true;
+        # prevent VSCode from modifying the terminal colors
+        "terminal.integrated.minimumContrastRatio" = 1;
+
+        "files.autoSave" = "onFocusChange";
+
+        "editor.fontFamily" = "'FontAwesome', 'JetBrains Mono','monospace', monospace";
+        "editor.fontLigatures" = true;
+
+        # vscodevim
+        "vim.highlightedyank.enable" = true;
+        "vim.useSystemClipboard" = true;
+        "vim.visualstar" = true;
+        "editor.lineNumbers" = "relative";
+        "vim.smartRelativeLine" = true;
+        "editor.cursorSurroundingLines" = 10;
+        # enable remapping of caps to esc
+        "keyboard.dispatch" = "keyCode";
+
+        # git
+        "git.enableSmartCommit" = true;
+        "git.confirmSync" = false;
+
+        "editor.minimap.size" = "fit";
+        "editor.minimap.autohide" = true;
+
+        # unnecessary confirm dialogs
+        "explorer.confirmDragAndDrop" = false;
+        "workbench.startupEditor" = "none";
+
+        # === === === filetype settings === === ===
+        #nix
+        "[nix]" = {
+          "editor.tabSize" = 2;
+          "editor.defaultFormatter" = "jnoortheen.nix-ide";
+          "editor.formatOnSave" = true;
+        };
+
+        #py
+        "[python]" = {
+          "editor.defaultFormatter" = "ms-python.black-formatter";
+        };
+
+        # haskell
+        "haskell.manageHLS" = "PATH";
+
+        # flutter
+        "dart.checkForSdkUpdates" = false;
       };
-
-      # === === === theming === === ===
-
-      "catppuccin.accentColor" = "lavender";
-      "workbench.colorTheme" = "Catppuccin Frappé";
-      "workbench.iconTheme" = "catppuccin-frappe";
-      # we try to make semantic highlighting look good
-      "editor.semanticHighlighting.enabled" = true;
-      # prevent VSCode from modifying the terminal colors
-      "terminal.integrated.minimumContrastRatio" = 1;
-
-      "files.autoSave" = "onFocusChange";
-
-      "editor.fontFamily" = "'FontAwesome', 'JetBrains Mono','monospace', monospace";
-      "editor.fontLigatures" = true;
-
-      # vscodevim
-      "vim.highlightedyank.enable" = true;
-      "vim.useSystemClipboard" = true;
-      "vim.visualstar" = true;
-      "editor.lineNumbers" = "relative";
-      "vim.smartRelativeLine" = true;
-      "editor.cursorSurroundingLines" = 10;
-      # enable remapping of caps to esc
-      "keyboard.dispatch" = "keyCode";
-
-      # git
-      "git.enableSmartCommit" = true;
-      "git.confirmSync" = false;
-
-      "editor.minimap.size" = "fit";
-      "editor.minimap.autohide" = true;
-
-      # unnecessary confirm dialogs
-      "explorer.confirmDragAndDrop" = false;
-      "workbench.startupEditor" = "none";
-
-      # === === === filetype settings === === ===
-      #nix
-      "[nix]" = {
-        "editor.tabSize" = 2;
-      "editor.defaultFormatter" = "jnoortheen.nix-ide";
-        "editor.formatOnSave" = true;
-      };
-
-      #py
-      "[python]" = {
-        "editor.defaultFormatter" = "ms-python.black-formatter";
-      };
-
-      # haskell
-      "haskell.manageHLS" = "PATH";
-
-      # flutter
-      "dart.checkForSdkUpdates" = false;
     };
   };
 }

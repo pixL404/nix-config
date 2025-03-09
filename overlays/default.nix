@@ -47,7 +47,7 @@
     vesktop = pkgs.vesktop.override {
       vencord = pkgs.vencord;
       withSystemVencord = true;
-      electron = pkgs.electron;
+      # electron = pkgs.electron;
     };
   })
 
@@ -115,32 +115,32 @@
   })
 
   (my: pkgs: {
-    zen = let 
-      pname = "zen";
-      version = "1.7.6b";
+    zen =
+      let
+        pname = "zen";
+        version = "1.7.6b";
 
-      src = pkgs.fetchurl {
-        url = "https://github.com/zen-browser/desktop/releases/download/${version}/${pname}-x86_64.AppImage";
-        hash = "sha256-GJuxooMV6h3xoYB9hA9CaF4g7JUIJ2ck5/hiQp89Y5o=";
-      };
-      
-      appimageContents = pkgs.appimageTools.extract {
+        src = pkgs.fetchurl {
+          url = "https://github.com/zen-browser/desktop/releases/download/${version}/${pname}-x86_64.AppImage";
+          hash = "sha256-GJuxooMV6h3xoYB9hA9CaF4g7JUIJ2ck5/hiQp89Y5o=";
+        };
+
+        appimageContents = pkgs.appimageTools.extract {
+          inherit pname version src;
+          postExtract = ''
+            substituteInPlace $out/${pname}.desktop --replace-fail 'Exec=zen %u' 'Exec=${pname} %u'
+          '';
+        };
+      in
+      pkgs.appimageTools.wrapType2 {
         inherit pname version src;
-        postExtract = ''
-          substituteInPlace $out/${pname}.desktop --replace-fail 'Exec=zen %u' 'Exec=${pname} %u'
+
+        extraInstallCommands = ''
+          install -m 444 -D ${appimageContents}/${pname}.desktop $out/share/applications/${pname}.desktop
+          install -m 444 -D ${appimageContents}/usr/share/icons/hicolor/128x128/apps/${pname}.png \
+          $out/share/icons/hicolor/128x128/apps/${pname}.png
         '';
       };
-    in 
-    pkgs.appimageTools.wrapType2 {
-      inherit pname version src;
 
-      extraInstallCommands = ''
-        install -m 444 -D ${appimageContents}/${pname}.desktop $out/share/applications/${pname}.desktop
-        install -m 444 -D ${appimageContents}/usr/share/icons/hicolor/128x128/apps/${pname}.png \
-        $out/share/icons/hicolor/128x128/apps/${pname}.png
-      '';
-    };
-    
-    
   })
 ]
