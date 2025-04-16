@@ -144,5 +144,7 @@ in
   "$mainMod ALT, L, exec, hyprlock"
 
   # enable HDR only on desktop
-  (lib.mkIf (osConfig.networking.hostName == "wanda") "$mainMod ALT, H, exec, ${enable-hdr}/bin/enable-hdr")
+  (lib.mkIf (
+    osConfig.networking.hostName == "wanda"
+  ) "$mainMod ALT, H, exec, ${enable-hdr}/bin/enable-hdr")
 ]

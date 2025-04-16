@@ -12,6 +12,7 @@ in
 
     # office suite
     libreoffice
+    onlyoffice-desktopeditors
     hunspell
     hunspellDicts.de_AT
     hunspellDicts.en_US

@@ -11,7 +11,7 @@
       enable = true;
       acceleration = "rocm";
 
-      home = "/data/ollama";
+      home = "/data/ai/ollama";
 
       # https://github.com/NixOS/nixpkgs/issues/308206
       # https://rocm.docs.amd.com/en/latest/reference/gpu-arch-specs.html
@@ -22,18 +22,35 @@
       openFirewall = false;
     };
 
-    nextjs-ollama-llm-ui = {
+    open-webui = {
       enable = true;
       port = 8080;
-      ollamaUrl = "http://127.0.0.1:11434";
+
+      environment = {
+        OLLAMA_API_BASE_URL = "http://127.0.0.1:11434";
+        # Disable authentication
+        WEBUI_AUTH = "False";
+      };
     };
+
+    # nextjs-ollama-llm-ui = {
+    #   enable = true;
+    #   port = 8080;
+    #   ollamaUrl = "http://127.0.0.1:11434";
+    # };
   };
 
   # nixos-containers didn't work => use a wrapper service to start/stop them
   systemd.services = {
     my-ollama = {
-      wants = [ "ollama.service" "nextjs-ollama-llm-ui.service" ];
-      upholds = [ "ollama.service" "nextjs-ollama-llm-ui.service" ];
+      wants = [
+        "ollama.service"
+        "open-webui.service"
+      ];
+      upholds = [
+        "ollama.service"
+        "open-webui.service"
+      ];
 
       wantedBy = [ ]; # empty so it doesnt auto start
 
@@ -50,7 +67,8 @@
       wantedBy = lib.mkForce [ ];
       upheldBy = lib.mkForce [ ];
     };
-    nextjs-ollama-llm-ui = {
+    # nextjs-ollama-llm-ui = {
+    open-webui = {
       requires = lib.mkForce [ "my-ollama.service" ];
       wantedBy = lib.mkForce [ ];
       upheldBy = lib.mkForce [ ];

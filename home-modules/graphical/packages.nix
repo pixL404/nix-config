@@ -33,5 +33,7 @@
     signal-desktop
 
     mpv
+
+    kdePackages.okular
   ];
 }

@@ -35,14 +35,8 @@
 
         golang.go
 
-        # ms-dotnettools.csharp
-        # ms-dotnettools.csdevkit
-
         james-yu.latex-workshop
-
-        # ms-python.python
-        # ms-python.vscode-pylance
-        # ms-python.black-formatter
+        # ltex-plus.vscode-ltex-plus
 
         haskell.haskell
         justusadam.language-haskell
@@ -107,6 +101,12 @@
         # unnecessary confirm dialogs
         "explorer.confirmDragAndDrop" = false;
         "workbench.startupEditor" = "none";
+
+        # === === === language settings === === ===
+        # Use the path to the root directory of ltex-ls-plus (it contains bin and lib subdirectories).
+        # "ltex.ltex-ls.path" = "${pkgs.ltex-ls-plus}";
+        # "ltex.java.path" = "${pkgs.jre21_minimal}";
+        # "ltex.language" = "de-AT";
 
         # === === === filetype settings === === ===
         #nix
