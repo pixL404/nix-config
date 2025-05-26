@@ -1,38 +1,43 @@
+{ ... }:
 {
-  config,
-  pkgs,
-  home-manager,
-  ...
-}:
-{
+  custom = {
+    enableGraphical = true;
+    gaming.enable = false;
+    enableHome = true;
+    isWorkMachine = false;
+
+    hardware.enable = true;
+  };
+  services = {
+    evremap.enable = true;
+  };
+
   imports = [
-    # laptop specific settings
     ./hardware.nix
-    ../../system-modules/laptop
+    # ./home.nix
 
-    ../../system-modules/common
-    ../../system-modules/graphical
-    ../../system-modules/bluetooth
-    ../../system-modules/ssh
-
-    ../../system-modules/misc/vim.nix
-
-    ../../system-modules/gaming
-    ../../system-modules/wife
+    # TODO: find fitting modules in nixos-hardware?
   ];
 
   networking.hostName = "kosmo";
 
-  # Define user account.
-  users.users.alex = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "input"
-    ];
-    shell = pkgs.fish;
-  };
-
   security.pam.services.hyprlock = { };
-
+  graphical = {
+    develop.enable = true;
+    hyprland = {
+      enable = true;
+      enableLock = false;
+      monitors = {
+        primary = {
+          name = "eDP-1";
+          resolution = "1920x1080";
+          refresh_rate = 60;
+          position = "auto";
+          scaling = 1.0;
+        };
+        other = [ ];
+      };
+      keyboard = "at-translated-set-2-keyboard";
+    };
+  };
 }
