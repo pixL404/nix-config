@@ -22,7 +22,7 @@
   # "immediate, title:^(TEKKEN)"
 
   # atuostart applications
-  "workspace 3 silent, class:^(vivaldi-stable)$"
+  "workspace 3 silent, class:^((V|v)ivaldi-stable)$"
   "workspace 3 silent, class:^(vesktop)$"
   "workspace 2 silent, title:^(Steam)$"
 

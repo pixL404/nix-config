@@ -28,10 +28,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sddm-catppuccin = {
-      url = "github:khaneliman/sddm-catppuccin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # sddm-catppuccin = {
+    #   url = "github:khaneliman/sddm-catppuccin";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     catppuccin.url = "github:catppuccin/nix";
 

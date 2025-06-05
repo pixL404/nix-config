@@ -55,7 +55,7 @@
       sddm = {
         enable = true;
         wayland.enable = true;
-        theme = "catppuccin-sddm-corners";
+        theme = "catppuccin-frappe";
         settings = {
           Users = {
             RememberLastUser = true;
@@ -70,7 +70,7 @@
     services.xserver.desktopManager.pantheon = {
       enable = true;
 
-      extraWingpanelIndicators = with pkgs; [
+      extraWingpanelIndicators = [
         self'.packages.wingpanel-community-indicators # from overlay
       ];
     };

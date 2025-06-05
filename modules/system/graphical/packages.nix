@@ -2,12 +2,14 @@
   config,
   pkgs,
   lib,
-  inputs',
   self',
   ...
 }:
 let
-  catppuccin-sddm = inputs'.sddm-catppuccin.packages.default;
+  catppuccin-sddm = pkgs.catppuccin-sddm.override {
+    flavor = "frappe";
+    fontSize = "10";
+  };
 in
 {
   environment.systemPackages =

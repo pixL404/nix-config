@@ -95,8 +95,8 @@ in
 
   programs.corectrl = {
     enable = true;
-    gpuOverclock.enable = true;
   };
+  hardware.amdgpu.overdrive.enable = true;
   boot.modprobeConfig.enable = true;
   environment.etc."modprobe.d/99-amdgpu-overdrive.conf".text = ''
     options amdgpu ppfeaturemask=0xFFF7FFFF
