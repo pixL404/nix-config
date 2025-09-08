@@ -35,10 +35,8 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    mcmojave-hyprcursor.url = "github:libadoxon/mcmojave-hyprcursor";
+
   };
 
   outputs =

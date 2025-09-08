@@ -35,7 +35,7 @@ in
 
       libsecret
 
-      pantheon-tweaks
-      self'.packages.indicator-application-gtk3
+      # pantheon-tweaks
+      # self'.packages.indicator-application-gtk3
     ];
 }

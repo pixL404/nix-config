@@ -61,7 +61,7 @@ let
 in
 {
   imports = [ inputs.nixvim.nixosModules.nixvim ];
-  hm.imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+  hm.imports = [ inputs.nixvim.homeModules.nixvim ];
 
   environment.variables = editor;
   environment.sessionVariables = editor;

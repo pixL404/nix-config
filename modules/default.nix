@@ -31,7 +31,6 @@
     ./system/bluetooth.nix
     ./system/common/packages.nix
     ./system/common/user.nix
-    ./system/extraUsers.nix
     ./system/gaming # default.nix
     ./system/gaming/minecraft.nix
     ./system/gaming/steam.nix

@@ -1,7 +1,9 @@
 { ... }:
 [
-  "XCURSOR_SIZE,24"
-  "XCURSOR_THEME,elementary"
+  "HYPRCURSOR_THEME,McMojave"
+  "HYPRCURSOR_SIZE,32"
+  "XCURSOR_SIZE,32"
+  "XCURSOR_THEME,McMojave"
   # "GTK_THEME,Catppuccin-Frappe-Standard-Lavender-Dark"
 
   "WLR_DRM_NO_ATOMIC,1" # allow tearing

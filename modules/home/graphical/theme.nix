@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  inputs',
   ...
 }:
 let
@@ -24,22 +25,20 @@ in
 
         #programs
         waybar.enable = true;
-        gtk.enable = true;
+        # gtk.enable = true;
         kvantum.enable = true;
         hyprland.enable = true;
         foot.enable = true;
         dunst.enable = true;
 
-        vscode = {
+        vscode.profiles.default.settings = {
           accent = "lavender";
-          settings = {
-            boldKeywords = true;
-            bracketMode = "rainbow";
-            italicComments = true;
-            italicKeywords = true;
-            extraBordersEnabled = false;
-            workbenchMode = "default";
-          };
+          boldKeywords = true;
+          bracketMode = "rainbow";
+          italicComments = true;
+          italicKeywords = true;
+          extraBordersEnabled = false;
+          workbenchMode = "default";
         };
       };
 
@@ -57,11 +56,20 @@ in
         platformTheme.name = "kvantum";
       };
 
-      home.pointerCursor = {
-        gtk.enable = true;
-        package = pkgs.pantheon.elementary-gtk-theme;
-        name = "elementary";
-        size = 24;
+      home = {
+        sessionVariables.HYPRCURSOR_THEME = "McMojave";
+        sessionVariables.HYPRCURSOR_SIZE = 32;
+        packages = [
+          inputs'.mcmojave-hyprcursor.packages.default
+        ];
+
+        pointerCursor = {
+          hyprcursor.enable = true;
+          gtk.enable = true;
+          package = inputs'.mcmojave-hyprcursor.packages.default;
+          name = "McMojave";
+          size = 32;
+        };
       };
     };
   };

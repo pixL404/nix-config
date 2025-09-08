@@ -46,36 +46,43 @@
     };
 
     # set display manager
+    services.displayManager = {
+      defaultSession = "hyprland";
+      gdm = {
+        enable = true;
+        wayland = true;
+      };
+    };
     # services.xserver.displayManager.lightdm = {
     #   enable = true;
     #   greeters.pantheon.enable = true;
     # };
-    services.displayManager = {
-      defaultSession = "hyprland";
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-        theme = "catppuccin-frappe";
-        settings = {
-          Users = {
-            RememberLastUser = true;
-            RememberLastSession = true;
-          };
-        };
-        extraPackages = with pkgs.libsForQt5; [ qt5.qtgraphicaleffects ];
-      };
-    };
+    # services.displayManager = {
+    #   defaultSession = "hyprland";
+    #   sddm = {
+    #     enable = true;
+    #     wayland.enable = true;
+    #     theme = "catppuccin-frappe";
+    #     settings = {
+    #       Users = {
+    #         RememberLastUser = true;
+    #         RememberLastSession = true;
+    #       };
+    #     };
+    #     extraPackages = with pkgs.libsForQt5; [ qt5.qtgraphicaleffects ];
+    #   };
+    # };
 
     # move to pantheon
-    services.xserver.desktopManager.pantheon = {
-      enable = true;
+    # services.xserver.desktopManager.pantheon = {
+    #   enable = true;
 
-      extraWingpanelIndicators = [
-        self'.packages.wingpanel-community-indicators # from overlay
-      ];
-    };
+    #   extraWingpanelIndicators = [
+    #     self'.packages.wingpanel-community-indicators # from overlay
+    #   ];
+    # };
 
-    services.pantheon.apps.enable = true;
+    # services.pantheon.apps.enable = true;
 
     # automatically unlock gnome keyring upon login
     security.pam.services.login.enableGnomeKeyring = true;

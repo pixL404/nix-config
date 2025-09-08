@@ -14,6 +14,7 @@ in
     home.packages = [
       pkgs.hyprpolkitagent
       pkgs.hyprland-qtutils
+      pkgs.hyprcursor
       inputs'.hyprland-contrib.packages.grimblast
     ];
 

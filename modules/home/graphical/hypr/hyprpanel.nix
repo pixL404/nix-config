@@ -1,7 +1,6 @@
 # https://hyprpanel.com/getting_started/installation.html
 {
   config,
-  inputs,
   pkgs,
   lib ? pkgs.lib,
   ...
@@ -11,7 +10,7 @@ let
 in
 {
   hm = {
-    imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+    # imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
     config = lib.mkIf config.graphical.hyprland.enable {
 
       programs.hyprpanel = {
@@ -26,12 +25,12 @@ in
         # Add '/nix/store/.../hyprpanel' to your
         # Hyprland config 'exec-once'.
         # Default: false
-        hyprland.enable = true;
+        # hyprland.enable = true;
 
         # Fix the overwrite issue with HyprPanel.
         # See below for more information.
         # Default: false
-        overwrite.enable = true;
+        # overwrite.enable = true;
 
         # Configure and theme almost all options from the GUI.
         # Options that require '{}' or '[]' are not yet implemented,
