@@ -22,6 +22,7 @@
     gaming = {
       enable = true;
       hostMineCraftServer = true;
+      gameStreamHost = true;
     };
 
     AI.enable = false; # TODO: figure out how to do this via nixos container or specialisation?
@@ -47,7 +48,7 @@
       enableLock = false;
       monitors = {
         primary = {
-          name = "DP-2";
+          name = "DP-1";
           resolution = "2560x1440";
           refresh_rate = 180;
           position = "0x0";
@@ -72,8 +73,7 @@
         #   }
         # ];
       };
-      keyboard = "hp-usb-keyboard";
-      # keyboard = "chicony-perixx-ergo-keyboard";
+      keyboard = "chicony-perixx-ergo-keyboard";
     };
   };
 }

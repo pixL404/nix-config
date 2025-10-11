@@ -34,6 +34,7 @@
     ./system/gaming # default.nix
     ./system/gaming/minecraft.nix
     ./system/gaming/steam.nix
+    ./system/gaming/streaming.nix
     ./system/graphical # default.nix
     ./system/graphical/fonts.nix
     ./system/graphical/packages.nix
