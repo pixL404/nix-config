@@ -105,7 +105,8 @@ in
   environment.systemPackages = with pkgs; [
     amdgpu_top
     lact
-    amdvlk
+    # apparently deprecated???
+    # amdvlk
   ];
 
   networking.networkmanager = {

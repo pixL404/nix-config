@@ -72,9 +72,10 @@ in
           new_status = "slave";
         };
 
-        gestures = {
-          workspace_swipe = true;
-        };
+        # TODO: configure new gesture stuff
+        # gestures = {
+        #   workspace_swipe = true;
+        # };
 
         windowrulev2 = import ./modules/windowrules.nix { };
 
