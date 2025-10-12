@@ -4,7 +4,7 @@
 }:
 with lib;
 let
-  resolutionType = types.strMatching "[[:digit:]]+x[[:digit:]]+";
+  resolutionType = types.strMatching "[[:digit:]]+x-?[[:digit:]]+";
   monitorType.options = {
     name = mkOption {
       description = "Input of the primary monitor, eg DP-1";

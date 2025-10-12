@@ -15,7 +15,12 @@
       pulse.enable = true;
       wireplumber.enable = true;
 
-      # extraConfig.pipewire = {
+      extraConfig.pipewire = {
+        "default.clock.rate" = 48000;
+        "default.clock.quantum" = 2048;
+        "default.clock.min-quantum" = 2048;
+        "default.clock.max-quantum" = 8192;
+      };
       #   "99-custom" = {
       #     "context.properties" = {
       #       "default.clock.rate" = 192000;
