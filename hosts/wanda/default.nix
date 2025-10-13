@@ -60,14 +60,14 @@
         };
         other = [
           {
-            name = "HDMI-A-1";
+            name = "DP-2";
             resolution = "1920x1080";
             refresh_rate = 100;
             position = "2560x-350"; # right of main display
             scaling = 1.0;
             misc = [
               "transform, 1" # 90 degree rotate
-              "vrr, 2"
+              "vrr, 2" # vrr 1 => strange flicker?
             ];
             orientation = "top"; # top to bottom master layout
           }
