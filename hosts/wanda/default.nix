@@ -67,7 +67,6 @@
             scaling = 1.0;
             misc = [
               "transform, 1" # 90 degree rotate
-              "vrr, 2" # vrr 1 => strange flicker?
             ];
             orientation = "top"; # top to bottom master layout
           }
