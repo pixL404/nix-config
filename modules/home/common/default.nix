@@ -13,9 +13,10 @@
     # TODO: adjust for work wsl home-flake in the future
     programs.git = {
       enable = true;
-      userName = "alex";
-      userEmail = "alexostresso@gmail.com";
-      extraConfig = {
+      settings = {
+        user.name = "alex";
+        user.email = "alexostresso@gmail.com";
+
         # default = merge
         pull.rebase = false;
       };

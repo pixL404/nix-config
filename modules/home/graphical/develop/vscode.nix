@@ -35,7 +35,8 @@ in
           vscodevim.vim
 
           # theming
-          catppuccin.catppuccin-vsc-icons
+          # TODO: temporarily broken
+          # catppuccin.catppuccin-vsc-icons
 
           # language support
 

@@ -12,7 +12,8 @@
     environment.systemPackages = with pkgs; [
       ryubing
       dolphin-emu
-      rpcs3
+      # TODO: temporarily broken
+      # rpcs3
 
       heroic
 
