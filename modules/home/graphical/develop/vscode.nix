@@ -105,7 +105,7 @@ in
           "git.confirmSync" = false;
 
           "editor.minimap.size" = "fit";
-          "editor.minimap.autohide" = true;
+          "editor.minimap.autohide" = "mouseover";
 
           # unnecessary confirm dialogs
           "explorer.confirmDragAndDrop" = false;
