@@ -77,7 +77,7 @@ in
         #   workspace_swipe = true;
         # };
 
-        windowrulev2 = import ./modules/windowrules.nix { };
+        windowrule = import ./modules/windowrules.nix { };
 
         workspace = import ./modules/workspace.nix {
           inherit lib;
