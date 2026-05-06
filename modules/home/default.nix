@@ -14,7 +14,7 @@
     useGlobalPkgs = true;
   };
   hm = {
-    home.stateVersion = "26.05";
+    home.stateVersion = lib.mkForce "25.05";
     # extraSpecialArgs = { inherit inputs inputs' pkgs; };
   };
 }
