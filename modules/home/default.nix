@@ -1,5 +1,7 @@
 {
   inputs,
+  lib,
+  config,
   ...
 }:
 {
@@ -12,7 +14,7 @@
     useGlobalPkgs = true;
   };
   hm = {
-    home.stateVersion = "25.05";
+    home.stateVersion = lib.mkForce "25.05";
     # extraSpecialArgs = { inherit inputs inputs' pkgs; };
   };
 }

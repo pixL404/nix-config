@@ -11,7 +11,7 @@
       (
         (ansible.overrideAttrs (
           new: old: {
-            propagatedBuildInputs = [ pkgs.python312Packages.pykerberos ] ++ old.propagatedBuildInputs;
+            propagatedBuildInputs = with pkgs.python312Packages; [ pykerberos cryptography pyopenssl ] ++ old.propagatedBuildInputs;
           }
         )).override
         { windowsSupport = true; }
@@ -22,7 +22,16 @@
 
       inetutils
       dnsutils
+      python312Full
+      openldap
+
+      sops
+      age
+      talosctl
+      kubectl
     ];
+
+    programs.git.enable = lib.mkForce false;
 
     programs.nixvim = {
       defaultEditor = true;
