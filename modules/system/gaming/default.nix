@@ -17,7 +17,8 @@
 
       heroic
 
-      lutris
+      # why the fuck does `lutris` build openldap???
+      lutris-unwrapped
       wineWow64Packages.unstableFull
       winetricks
     ];

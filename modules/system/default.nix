@@ -72,7 +72,7 @@ in
     };
 
     # enhance fish completion
-    documentation.man.generateCaches = true;
+    documentation.man.cache.enable = true;
     environment.pathsToLink = [ "/share/fish" ];
 
     #enable firmware update via fwupd
@@ -80,6 +80,6 @@ in
 
     # which NixOS release to follow for options
     # research release changes before changing this value
-    system.stateVersion = "25.05";
+    system.stateVersion = "25.11";
   };
 }

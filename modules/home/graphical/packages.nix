@@ -21,7 +21,7 @@
       playerctl
 
       waypaper
-      swww
+      awww
       swaybg
       wofi
 
