@@ -1,6 +1,7 @@
 {
   inputs, # regular inputs coming from flake.nix
   withSystem,
+  lib,
   ...
 }:
 let
@@ -27,7 +28,11 @@ let
             self'
             ;
         };
-        modules = modules ++ [ ../modules/home ];
+        modules = modules ++ [
+          (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" "alex" ])
+          # ../modules/home
+          ../modules
+        ];
       }
     );
   mkNixosSystem =
