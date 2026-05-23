@@ -29,9 +29,13 @@ let
             ;
         };
         modules = modules ++ [
-          (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" "alex" ])
           # ../modules/home
           ../modules
+          { home.stateVersion = "25.05"; }
+          inputs.home-manager.nixosModules.home-manager
+
+          # import specific modules for home-manager flakes
+          inputs.nixvim.homeModules.nixvim
         ];
       }
     );
@@ -60,7 +64,11 @@ let
         };
         modules = modules ++ [
           ../modules
-          inputs.home-manager.nixosModules.home-manager
+          inputs.home-manager.flakeModules.home-manager
+
+          # import specific modules for NixOS flakes
+          inputs.nixvim.nixosModules.nixvim
+          inputs.catppuccin.nixosModules.catppuccin
         ];
       }
     );

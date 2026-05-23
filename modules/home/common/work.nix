@@ -5,13 +5,20 @@
   ...
 }:
 {
-  hm.config = lib.mkIf config.custom.isWorkMachine {
-    home.packages = with pkgs; [
+  config = lib.mkIf config.custom.isWorkMachine {
+    hm.home.packages = with pkgs; [
       # ansible needs pykerberos python module
       (
         (ansible.overrideAttrs (
           new: old: {
-            propagatedBuildInputs = with pkgs.python312Packages; [ pykerberos cryptography pyopenssl ] ++ old.propagatedBuildInputs;
+            propagatedBuildInputs =
+              with pkgs.python312Packages;
+              [
+                pykerberos
+                cryptography
+                pyopenssl
+              ]
+              ++ old.propagatedBuildInputs;
           }
         )).override
         { windowsSupport = true; }

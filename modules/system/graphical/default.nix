@@ -8,10 +8,6 @@
   ...
 }:
 {
-  imports = [
-    inputs.catppuccin.nixosModules.catppuccin
-  ];
-
   config = lib.mkIf config.custom.enableGraphical {
     # tty settings
     console = {

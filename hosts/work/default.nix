@@ -12,8 +12,4 @@
   };
 
   hm.home.stateVersion = lib.mkForce "25.05";
-
-  imports = [
-    inputs.home-manager.nixosModules.default
-  ];
 }

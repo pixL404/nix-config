@@ -1,11 +1,10 @@
 {
   config,
-  inputs,
   lib,
+  options,
   ...
 }:
 let
-  isWorkMachine = config.custom.isWorkMachine;
   nixvimCfg = {
     enable = true;
 
@@ -62,16 +61,20 @@ let
   };
 in
 {
-  #imports = lib.mkMerge [ [] (lib.mkIf (!isWorkMachine) [ inputs.nixvim.nixosModules.nixvim ]) ];
-  imports = lib.mkIf (!isWorkMachine) [ inputs.nixvim.nixosModules.nixvim ];
+  config = lib.mkMerge [
+    {
+      programs.nixvim = nixvimCfg;
+    }
 
-  # hm.imports =lib.mkMerge [ [] (lib.mkIf (isWorkMachine) [ inputs.nixvim.homeModules.nixvim ]) ];
-  hm.imports =lib.mkIf (isWorkMachine) [ inputs.nixvim.homeModules.nixvim ];
+    # => on NixOS
+    (lib.optionalAttrs (options ? environment.variables) {
+      environment.variables = editor;
+      environment.sessionVariables = editor;
+    })
 
-  environment.variables = editor;
-  environment.sessionVariables = editor;
-  # home-manager.home.sessionVariables = editor;
-
-  programs.nixvim = lib.mkIf (!isWorkMachine) nixvimCfg;
-  hm.programs.nixvim = lib.mkIf (isWorkMachine) nixvimCfg;
+    # => on Home-Manager
+    (lib.optionalAttrs (options ? home.sessionVariables) {
+      hm.home.sessionVariables = editor;
+    })
+  ];
 }
