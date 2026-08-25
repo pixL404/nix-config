@@ -45,14 +45,18 @@
       # envVars.enable = false;
     };
 
-    # set display manager
-    services.displayManager = {
-      defaultSession = "hyprland";
-      gdm = {
-        enable = true;
-        wayland = true;
-      };
+    # TODO: fix hyprland, try out cosmic in the meantime
+    services.displayManager.cosmic-greeter.enable = true;
+    services.desktopManager.cosmic = {
+      enable = true;
+      xwayland.enable = true;
     };
+
+    # set display manager
+    # services.displayManager = {
+    #   defaultSession = "hyprland";
+    #   sddm.enable = true;
+    # };
     # services.xserver.displayManager.lightdm = {
     #   enable = true;
     #   greeters.pantheon.enable = true;

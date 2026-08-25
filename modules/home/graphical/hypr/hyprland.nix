@@ -49,7 +49,7 @@ in
 
         cursor.inactive_timeout = 5.0;
 
-        exec-once = import ./modules/autostart.nix { inherit pkgs; };
+        #exec-once = import ./modules/autostart.nix { inherit pkgs; };
 
         env = import ./modules/environment.nix { };
 
@@ -61,7 +61,7 @@ in
 
         decoration = import ./modules/decoration.nix { };
 
-        animations = import ./modules/animations.nix { };
+        # animations = import ./modules/animations.nix { };
 
         dwindle = {
           pseudotile = true;
@@ -84,7 +84,7 @@ in
           monitors = cfg.monitors;
         };
 
-        "$mainMod" = "SUPER";
+        "mainMod" = "SUPER";
         bind = import ./modules/binds.nix { inherit config pkgs lib; };
 
         bindm = [
@@ -99,7 +99,8 @@ in
         # };
 
       };
-      extraConfig = import ./modules/extra.nix;
+      # TODO: fix extra config to fit lua bs
+      # extraConfig = import ./modules/extra.nix;
     };
 
     programs.hyprlock = {
