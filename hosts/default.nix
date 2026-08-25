@@ -62,13 +62,19 @@ let
 in
 {
   flake.nixosConfigurations = {
-    wanda = mkNixosSystem {
+    # formerly wanda
+    talescria = mkNixosSystem {
       system = "x86_64-linux";
-      modules = [ ./wanda ];
+      modules = [ ./talescria ];
     };
-    kosmo = mkNixosSystem {
+    # formerly kosmo
+    thraxa = mkNixosSystem {
       system = "x86_64-linux";
-      modules = [ ./kosmo ];
+      modules = [ ./thraxa ];
+    };
+    viltrum = mkNixosSystem {
+      system = "x86_64-linux";
+      modules = [ ./viltrum ];
     };
   };
 

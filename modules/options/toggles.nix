@@ -9,6 +9,7 @@ with lib;
       enableGraphical = mkEnableOption "graphical apps (no DE)";
       enableHome = mkEnableOption "managed home & shell";
       isWorkMachine = mkEnableOption "utilities needed at work";
+      isServer = mkEnableOption "runs server stuff";
 
       gaming.enable = mkEnableOption "gaming apps";
       services = {

@@ -19,7 +19,8 @@
     # TODO: find fitting modules in nixos-hardware?
   ];
 
-  networking.hostName = "kosmo";
+  # formerly kosmo
+  networking.hostName = "thraxa";
 
   security.pam.services.hyprlock = { };
   graphical = {

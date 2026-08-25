@@ -34,7 +34,8 @@
     hardware.openrgb.enable = true;
   };
 
-  networking.hostName = "wanda";
+  # formerly wanda
+  networking.hostName = "talescria";
 
   # enable nixos-containers (e.g. minecraft server)
   boot.enableContainers = true;

@@ -21,17 +21,17 @@ in
 
     # Use the systemd-boot EFI boot loader.
     boot = {
-      consoleLogLevel = 5;
-      initrd.verbose = true;
+      consoleLogLevel = 0;
+      initrd.verbose = false;
       kernelParams = [
-        # "quiet"
-        # "splash"
-        # "rd.systemd.show_status=false"
-        # "rd.udev.log_level=3"
-        # "udev.log_priority=3"
+        "quiet"
+        "splash"
+        "rd.systemd.show_status=false"
+        "rd.udev.log_level=3"
+        "udev.log_priority=3"
         "boot.shell_on_fail"
       ];
-      plymouth.enable = false;
+      plymouth.enable = true;
 
       loader = {
         # hold space to see generations
@@ -58,13 +58,13 @@ in
       };
     };
 
-    # enable cloudflare dns
-    networking.networkmanager.insertNameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-      "2606:4700:4700::1111"
-      "2606:4700:4700::1001"
-    ];
+    # disable cloudflare dns in favor of my local DNS (router)
+    # networking.networkmanager.insertNameservers = [
+    #   "1.1.1.1"
+    #   "1.0.0.1"
+    #   "2606:4700:4700::1111"
+    #   "2606:4700:4700::1001"
+    # ];
 
     # enable fish shell
     programs.fish = {
