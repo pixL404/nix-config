@@ -20,6 +20,7 @@ in
 
       catppuccin = {
         enable = true;
+        autoEnable = true;
         flavor = "frappe";
         accent = "lavender";
 

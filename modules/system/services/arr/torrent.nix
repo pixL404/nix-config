@@ -30,6 +30,12 @@ in
         "--confirm-legal-notice"
       ];
 
+      serverConfig.Preferences.WebUI = {
+        Username = "alex";
+        #  nix run git+https://codeberg.org/feathecutie/qbittorrent_password -- -p <password>
+        Password_PBKDF2 = "@ByteArray(qVPeTQmdN4K/LhMahDNuXg==:/jZKfRC3fU6qfeKnZ9DM4hLcqBbhFCTnjYFYOretoHEuGTP11eZWySndZmo11vkqlEdVIeID+Pj1UAv8hxwLdQ==)";
+      };
+
     };
 
     services.caddy.virtualHosts."${cfg.url}" = {

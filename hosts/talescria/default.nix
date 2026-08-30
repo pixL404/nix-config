@@ -45,7 +45,7 @@
     obs.enable = true;
 
     hyprland = {
-      enable = true;
+      enable = false;
       enableLock = false;
       monitors = {
         primary = {
