@@ -6,6 +6,7 @@
   imports = [
     (lib.mkAliasOptionModule [ "hm" ] [ "home-manager" "users" "alex" ])
 
+    ./options/homelab.nix
     ./options/hypr.nix
     ./options/toggles.nix
 
@@ -39,10 +40,20 @@
     ./system/graphical/fonts.nix
     ./system/graphical/packages.nix
     ./system/graphical/sound.nix
+    ./system/services/arr/bazarr.nix
+    ./system/services/arr/jellyfin.nix
+    ./system/services/arr/prowlarr.nix
+    ./system/services/arr/radarr.nix
+    ./system/services/arr/seerr.nix
+    ./system/services/arr/sonarr.nix
+    ./system/services/arr/torrent.nix
+    ./system/services/caddy.nix
     ./system/services/evremap.nix
     ./system/services/ollama.nix
     ./system/services/openrgb.nix
+    ./system/services/pihole.nix
     ./system/services/ssh.nix
+    ./system/services/vaultwarden.nix
   ];
 
   # hm.imports = [ ./vars ];

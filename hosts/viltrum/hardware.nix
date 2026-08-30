@@ -26,12 +26,12 @@
   boot.kernelParams = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/f1a92ebb-5ef9-4022-9ed1-724a7c5783b2";
+    device = "/dev/disk/by-label/NIXROOT";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/F276-5058";
+    device = "/dev/disk/by-label/NIXBOOT";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -39,8 +39,13 @@
     ];
   };
 
+  fileSystems."/data" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "ext4";
+  };
+
   swapDevices = [
-    { device = "/dev/disk/by-uuid/2d19f7fe-f422-4f58-8cf5-57992e55b5b8"; }
+    { device = "/dev/disk/by-label/swap"; }
   ];
 
   networking.useDHCP = lib.mkDefault true;
