@@ -17,12 +17,15 @@
 
       jellyfin.enable = true;
 
+      arrUsers.enable = true;
       bazarr.enable = true;
       prowlarr.enable = true;
+      recyclarr.enable = true;
       radarr.enable = true;
       sonarr.enable = true;
       seerr.enable = true;
       torrent.enable = true;
+      flaresolverr.enable = true;
 
       pihole.enable = true;
     };

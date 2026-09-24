@@ -26,12 +26,14 @@ in
     services.${service} = {
       enable = true;
 
+      group = homelab.services.arrUsers.group;
+
       hardwareAcceleration = {
         enable = true;
         type = "vaapi"; # amf alternatiely
         device = "/dev/dri/renderD128";
       };
-      transcoding.enableHardwareEncoding = true;
+      # transcoding.enableHardwareEncoding = true;
 
       dataDir = cfg.dataDir;
       logDir = "/var/log/jellyfin";
@@ -47,5 +49,9 @@ in
         reverse_proxy http://127.0.0.1:8096
       '';
     };
+    users.users.jellyfin.extraGroups = [
+      "video"
+      "render"
+    ];
   };
 }

@@ -26,6 +26,8 @@ in
     services.${service} = {
       enable = true;
 
+      group = homelab.services.arrUsers.group;
+
       # dataDir = cfg.dataDir;
 
       settings.log.analyticsEnabled = false;

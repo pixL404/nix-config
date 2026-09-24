@@ -41,8 +41,11 @@
     ./system/graphical/packages.nix
     ./system/graphical/sound.nix
     ./system/services/arr/bazarr.nix
+    ./system/services/arr/arrUsers.nix
+    ./system/services/arr/flaresolverr.nix
     ./system/services/arr/jellyfin.nix
     ./system/services/arr/prowlarr.nix
+    ./system/services/arr/recyclarr.nix
     ./system/services/arr/radarr.nix
     ./system/services/arr/seerr.nix
     ./system/services/arr/sonarr.nix
