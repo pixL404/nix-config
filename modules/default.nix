@@ -1,5 +1,6 @@
 {
   lib,
+  isNixOs ? false,
   ...
 }:
 {

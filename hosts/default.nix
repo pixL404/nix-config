@@ -22,6 +22,7 @@ let
       inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
+          isNixOs = false;
           inherit
             inputs
             inputs'
@@ -32,7 +33,7 @@ let
           # ../modules/home
           ../modules
           { home.stateVersion = "25.05"; }
-          inputs.home-manager.nixosModules.home-manager
+          inputs.home-manager.flakeModules.home-manager
 
           # import specific modules for home-manager flakes
           inputs.nixvim.homeModules.nixvim
@@ -55,6 +56,7 @@ let
       }:
       inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
+          isNixOs = true;
           inherit
             inputs
             inputs'
